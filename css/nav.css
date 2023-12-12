@@ -4,25 +4,70 @@
     padding-right: 50px;
 }
 
-.navigation {
+.news {
+    background-color: #ECECEC;
+    padding: 10px 16px 10px 16px;
+    border-radius: 30px;
     color: black;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
-    font-size: 30px;
-    padding-left: 50px;
     font-size: 22px;
-    padding-right: 15px;
-
+    margin-left: 48px;
 }
 
-.id {
+.catalog {
+    background-color: #ECECEC;
+    padding: 10px 16px 10px 16px;
+    border-radius: 30px;
     color: black;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-size: 22px;
-    width: 10px;
-    padding-left: 180px;
+    margin-left: 22px;
+}
 
+.events {
+    background-color: #ECECEC;
+    padding: 10px 16px 10px 16px;
+    border-radius: 30px;
+    color: black;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    margin-left: 22px;
+}
+
+.more {
+    background-color: #ECECEC;
+    padding: 10px 16px 10px 16px;
+    border-radius: 30px;
+    color: black;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    margin-left: 22px;
+}
+
+.registration {
+    background-color: #ECECEC;
+    padding: 10px 100px 10px 16px;
+    border-radius: 30px;
+    color: black;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    margin-left: 128px;
+}
+
+.enter {
+    background-color: #8269EF;
+    padding: 10px 16px 10px 16px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    margin-left: -80px;
 }
 
 .bv {
@@ -45,18 +90,30 @@
     border-top-right-radius: 20px;
 }
 
-.vuz{
-    text-align: center;   
+.urfuimg {
+    padding: 11px 6px 20px 13px;
+    margin-left: 242px;
+    margin-top: -8px;
 }
 
-.imgvuz {
-    margin-right: 45px;
+.chguimg {
+    margin-left: 40px;
+    padding-bottom: 18px;
+}
+
+.urgupsimg {
+    margin-left: 1155px;
+    margin-top: -800px;
+    width: 400px;
+    height: 253px;
+    border-radius: 20px;
+    padding-bottom: 35px;
 }
 
 .urfu {
     position: absolute;
     color: black;
-    padding: 11px 11px 20px 13px;
+    padding: 11px 8px 20px 13px;
     font-size: 23px;
     text-align: left;
     font-family: 'Inter', sans-serif;
@@ -79,14 +136,14 @@
     border-radius: 20px;
     background-position: center;
     margin-left: 705px;
-    margin-top: -47px;
+    margin-top: -70px;
     font-weight: 600;
 }
 
 .urgups {
     position: absolute;
     color: black;
-    padding: 12px 30px 48px 10px;
+    padding: 12px 31px 48px 10px;
     font-size: 23px;
     text-align: left;
     font-family: 'Inter', sans-serif;
@@ -94,6 +151,6 @@
     border-radius: 20px;
     background-position: center;
     margin-left: 1155px;
-    margin-top: -47px;
+    margin-top: -70px;
     font-weight: 600;
 }
