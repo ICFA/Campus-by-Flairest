@@ -57,6 +57,14 @@ body {
     padding-left: 10px;
 }
 
+.social-list-item {
+    transition: all .2s linear;
+}
+
+.social-list-item:hover {
+    filter: brightness(170%);
+}
+
 .footer-nav {
     display: flex;
     flex-direction: column;
