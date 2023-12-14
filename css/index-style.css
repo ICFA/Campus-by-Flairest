@@ -23,6 +23,14 @@ body {
     margin-left: 10px;
 }
 
+.site-nav a {
+    transition: all .2s linear;
+}
+
+.site-nav a:hover{
+    filter: invert(80%);
+}
+
 .logo {
     filter:brightness(0%);
 }
