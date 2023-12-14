@@ -23,6 +23,10 @@ body {
     margin-left: 10px;
 }
 
+.main-bottom-decoration {
+    width: 100%;
+}
+
 .site-nav a {
     transition: all .2s linear;
 }
