@@ -10,7 +10,7 @@
     </head>
     <body>
         <img style = "position: absolute; z-index: -1" src = "image/nav.jpg">
-        <div class="bv" style="padding-top: 20px;">
+        <div class="bv">
             <a href="https://studgorod.ru/" class = "kampus"><img src="image/kampus.png"></a>
             <a href="https://studgorod.ru/#news" class="news">Новости</a>
             <a href="index.html" class="catalog">ВУЗы</a>
@@ -19,18 +19,36 @@
             <a href="https://studgorod.ru/" class="registration">Регистрация</a>
             <a href="https://studgorod.ru/#news" class="enter">Войти</a>
         </div>
-        <div class="main">
+        <main class="main">
             <h1 class = "mainh1">Каталог ВУЗов Урала</h1>
-            <div class="vuz">
-                <div class="urfu">Уральский Федеральный<br>Университет имени первого<br>президента России Б. Н. Ельцина</div>
-                <img src = "image/urfu.png" class="urfuimg"  width="400px" height="253px">
-                <div class="chgu">Челябинский Государственный<br>Университет</div>
-                <img src = "image/chgu.png" class="chguimg" width="400px" height="253px">
-                <div class="urgups">Уральский Государственный<br>Университет Путей Сообщения</div>
-                <img src = "image/urgups.png" class="urgupsimg">
+            <div class="univ-catalogue">
+                <a class="univ-link" href="#">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title">
+                            Уральский Федеральный Университет имени первого президента России Б. Н. Ельцина
+                        </h2>
+                        <img class="univ-image" src="image/urfu.png" alt="Уральский Федеральный Университет">
+                    </div>
+                </a>
+                <a class="univ-link" href="#">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title">
+                            Челябинский Государственный Университет
+                        </h2>
+                        <img class="univ-image" src="image/chgu.png" alt="Челябинский Государственный Университет">
+                    </div>
+                </a>
+                <a class="univ-link" href="#">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title">
+                            Уральский Государственный Университет Путей Сообщения
+                        </h2>
+                        <img class="univ-image" src="image/urgups.png" alt="Уральский Государственный Университет Путей Сообщения">
+                    </div> 
+                </a>         
             </div>
-        </div>
-        <img src = "image/pdmain.png" >
+        </main>     
+        <img class="main-bottom-decoration" src = "image/pdmain.png" >
         <footer class="main-footer">
             <div class="first-column">
                 <a href="/">
@@ -44,22 +62,22 @@
                 </p>
                 <ul class="social-list">
                     <li class="social-list-item">
-                        <a href="https://ok.ru/">
+                        <a href="https://ok.ru/" target="_blank">
                             <img src="image/social_media/ok.svg">
                         </a>
                     </li>
                     <li class="social-list-item">
-                        <a href="https://vk.com/">
+                        <a href="https://vk.com/" target="_blank">
                             <img src="image/social_media/vk.svg">
                         </a>
                     </li>
                     <li class="social-list-item">
-                        <a href="https://web.telegram.org/">
+                        <a href="https://web.telegram.org/" target="_blank">
                             <img src="image/social_media/tg.svg">
                         </a>
                     </li>
                     <li class="social-list-item">
-                        <a href="https://www.whatsapp.com/">
+                        <a href="https://www.whatsapp.com/" target="_blank">
                             <img src="image/social_media/wa.svg">
                         </a>
                     </li>

@@ -71,7 +71,9 @@
 }
 
 .bv {
-    display: flex; align-items: center;
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
 }
 
 .mainh1 {
@@ -85,72 +87,6 @@
 
 .main { 
     margin-top: -70px;
-    height: 800px;
     background-color: #F42E30;
     border-top-right-radius: 20px;
-}
-
-.urfuimg {
-    padding: 11px 6px 20px 13px;
-    margin-left: 242px;
-    margin-top: -8px;
-}
-
-.chguimg {
-    margin-left: 40px;
-    padding-bottom: 18px;
-}
-
-.urgupsimg {
-    margin-left: 1155px;
-    margin-top: -800px;
-    width: 400px;
-    height: 253px;
-    border-radius: 20px;
-    padding-bottom: 35px;
-}
-
-.urfu {
-    position: absolute;
-    color: black;
-    padding: 11px 8px 20px 13px;
-    font-size: 23px;
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    background-color: white;
-    border-radius: 20px;
-    background-position: center;
-    margin-left: 255px;
-    margin-top: 210px;
-    font-weight: 600;
-}
-
-.chgu {
-    position: absolute;
-    color: black;
-    padding: 12px 30px 48px 10px;
-    font-size: 23px;
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    background-color: white;
-    border-radius: 20px;
-    background-position: center;
-    margin-left: 705px;
-    margin-top: -70px;
-    font-weight: 600;
-}
-
-.urgups {
-    position: absolute;
-    color: black;
-    padding: 12px 31px 48px 10px;
-    font-size: 23px;
-    text-align: left;
-    font-family: 'Inter', sans-serif;
-    background-color: white;
-    border-radius: 20px;
-    background-position: center;
-    margin-left: 1155px;
-    margin-top: -70px;
-    font-weight: 600;
 }
