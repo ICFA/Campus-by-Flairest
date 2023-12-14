@@ -108,11 +108,13 @@ body {
 .univ-catalogue {
     background-color: #F42E30;
     padding-left: 260px;
+    margin-right: 15px;
+    padding-bottom: 1px;
     display: flex;
     flex-wrap: wrap;
     gap: 62px;
     overflow-y: scroll;
-    max-height: 1280px;
+    max-height: 800px;
 }
 
 .univ-container {
@@ -122,6 +124,8 @@ body {
     height: 340px;
     display: flex;
     flex-direction: column-reverse;
+    border-radius: 16px;
+    box-shadow: 0px 5px 10px 2px #5d5959;
 }
 
 .univ-title {
@@ -133,21 +137,20 @@ body {
     background-color: white;
     border-radius: 16px;
     padding: 15px 13px;
-    background-image: linear-gradient(currentColor, currentColor);
+    background-image: linear-gradient(to right, #F42E30, #8269EF);
     background-position: 0% 100%;
     background-repeat: no-repeat;
-    background-size: 0% 4px;
+    background-size: 0% 8px;
     transition: background-size .3s;
 }
 
 .univ-link {
     color: inherit;
     text-decoration: none;
-    transition: all .3s linear;
 }
 
 .univ-link:hover .univ-title {
-    background-size: 100% 4px;
+    background-size: 100% 8px;
 }
 
 .univ-image {
