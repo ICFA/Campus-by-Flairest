@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="css/nav.css">
         <link rel="stylesheet" href="css/bs.css">
         <link rel="stylesheet" href="css/profile.css">
@@ -9,7 +10,13 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script src="scripts/filter.js"></script>
     </head>
+    <!--класс для поиска институтов Instityt1-->
     <body>
         <img style = "position: absolute; z-index: -1" src = "image/nav.jpg">
         <div class="header-nav">
@@ -25,155 +32,76 @@
         </div>
         <main class="main">
             <h1 class = "mainh1">Каталог ВУЗов Урала</h1>
+            <div class="search-container">
+                <span class="search-icon-inline">
+                    <img id="searchIcon" src="image/social_media/lupa.svg" alt="Поиск">
+                </span>
+                <input type="text" id="universitySearch" oninput="searchUniversities()" onkeydown="searchOnEnter()">
+            </div>
+            <div class="filter-container">
+                <div class="filter-wrapper">
+                    <p>Показывать только:</p>
+                    <select id="filterSelector" onchange="updateFilter()" oninput="searchUniversities()">
+                        <option value="all" selected>все</option>
+                        <option value="universities">университеты</option>
+                        <option value="institutes">институты</option>
+                        <option value="directions">направления</option>
+                    </select>
+                </div>
+            </div>
             <div class="univ-catalogue">
-                <a class="univ-link" href="university.html">
+                <a class="univ-link univer1" href="university.html">
                     <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
+                        <h2 class="univ-title namesun">
                             Уральский Федеральный Университет имени первого президента России Б. Н. Ельцина
                         </h2>
                         <img class="univ-image" src="image/urfu.png" alt="Уральский Федеральный Университет">
                     </div>
                 </a>
-                <a class="univ-link" href="#">
+                <a class="univ-link univer1" href="#">
                     <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
+                        <h2 class="univ-title namesun">
                             Челябинский Государственный Университет
                         </h2>
                         <img class="univ-image" src="image/chgu.png" alt="Челябинский Государственный Университет">
                     </div>
                 </a>
-                <a class="univ-link" href="#">
+                <a class="univ-link univer1" href="#">
                     <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
+                        <h2 class="univ-title namesun">
                             Уральский Государственный Университет Путей Сообщения
                         </h2>
                         <img class="univ-image" src="image/urgups.png" alt="Уральский Государственный Университет Путей Сообщения">
                     </div> 
                 </a>
-                <a class="univ-link" href="university.html">
+                <a class="univ-link univer1" href="university.html">
                     <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
+                        <h2 class="univ-title namesun">
                             Уральский Федеральный Университет имени первого президента России Б. Н. Ельцина
                         </h2>
                         <img class="univ-image" src="image/urfu.png" alt="Уральский Федеральный Университет">
                     </div>
                 </a>
-                <a class="univ-link" href="#">
+                <a class="univ-link univer1" href="#">
                     <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
+                        <h2 class="univ-title namesun">
                             Челябинский Государственный Университет
                         </h2>
                         <img class="univ-image" src="image/chgu.png" alt="Челябинский Государственный Университет">
                     </div>
                 </a>
-                <a class="univ-link" href="#">
+                <a class="univ-link univer1" href="#">
                     <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Уральский Государственный Университет Путей Сообщения
-                        </h2>
-                        <img class="univ-image" src="image/urgups.png" alt="Уральский Государственный Университет Путей Сообщения">
-                    </div> 
-                </a>   
-                <a class="univ-link" href="university.html">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Уральский Федеральный Университет имени первого президента России Б. Н. Ельцина
-                        </h2>
-                        <img class="univ-image" src="image/urfu.png" alt="Уральский Федеральный Университет">
-                    </div>
-                </a>
-                <a class="univ-link" href="#">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Челябинский Государственный Университет
-                        </h2>
-                        <img class="univ-image" src="image/chgu.png" alt="Челябинский Государственный Университет">
-                    </div>
-                </a>
-                <a class="univ-link" href="#">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
+                        <h2 class="univ-title namesun">
                             Уральский Государственный Университет Путей Сообщения
                         </h2>
                         <img class="univ-image" src="image/urgups.png" alt="Уральский Государственный Университет Путей Сообщения">
                     </div> 
                 </a>   
-                <a class="univ-link" href="university.html">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Уральский Федеральный Университет имени первого президента России Б. Н. Ельцина
-                        </h2>
-                        <img class="univ-image" src="image/urfu.png" alt="Уральский Федеральный Университет">
-                    </div>
-                </a>
-                <a class="univ-link" href="#">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Челябинский Государственный Университет
-                        </h2>
-                        <img class="univ-image" src="image/chgu.png" alt="Челябинский Государственный Университет">
-                    </div>
-                </a>
-                <a class="univ-link" href="#">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Уральский Государственный Университет Путей Сообщения
-                        </h2>
-                        <img class="univ-image" src="image/urgups.png" alt="Уральский Государственный Университет Путей Сообщения">
-                    </div> 
-                </a>   
-                <a class="univ-link" href="university.html">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Уральский Федеральный Университет имени первого президента России Б. Н. Ельцина
-                        </h2>
-                        <img class="univ-image" src="image/urfu.png" alt="Уральский Федеральный Университет">
-                    </div>
-                </a>
-                <a class="univ-link" href="#">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Челябинский Государственный Университет
-                        </h2>
-                        <img class="univ-image" src="image/chgu.png" alt="Челябинский Государственный Университет">
-                    </div>
-                </a>
-                <a class="univ-link" href="#">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Уральский Государственный Университет Путей Сообщения
-                        </h2>
-                        <img class="univ-image" src="image/urgups.png" alt="Уральский Государственный Университет Путей Сообщения">
-                    </div> 
-                </a>   
-                <a class="univ-link" href="university.html">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Уральский Федеральный Университет имени первого президента России Б. Н. Ельцина
-                        </h2>
-                        <img class="univ-image" src="image/urfu.png" alt="Уральский Федеральный Университет">
-                    </div>
-                </a>
-                <a class="univ-link" href="#">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Челябинский Государственный Университет
-                        </h2>
-                        <img class="univ-image" src="image/chgu.png" alt="Челябинский Государственный Университет">
-                    </div>
-                </a>
-                <a class="univ-link" href="#">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title">
-                            Уральский Государственный Университет Путей Сообщения
-                        </h2>
-                        <img class="univ-image" src="image/urgups.png" alt="Уральский Государственный Университет Путей Сообщения">
-                    </div> 
-                </a>
-                <a class="univ-link" href="#">
+                <a class="univ-link napravlen1" href="#">
                     <div class="pi-container">
                         <img class="irit-image" src="image/irit.png" alt="Прикладная информатика">                        
-                        <section class="directions-title">
+                        <section class="directions-title namesun">
                             Прикладная информатика
                             <div class="info">
                                 09.03.03 Бакалавриат<br>Форма обучения: Заочная, Очно-заочная, Очная<br>ЕГЭ: математика, русский, физика/информатика
@@ -207,10 +135,10 @@
                         </section>
                     </div>
                 </a>
-                <a class="univ-link" href="#">
+                <a class="univ-link napravlen1" href="#">
                     <div class="pi-container">
                         <img class="irit-image" src="image/irit.png" alt="Прикладная информатика">                        
-                        <section class="directions-title">
+                        <section class="directions-title namesun">
                             Прикладная информатика
                             <div class="info">
                                 09.03.03 Бакалавриат<br>Форма обучения: Заочная, Очно-заочная, Очная<br>ЕГЭ: математика, русский, физика/информатика
@@ -245,7 +173,7 @@
                     </div>
                 </a>
             </div>
-        </main>     
+        </main>
         <img class="main-bottom-decoration" src = "image/pdmain.png">
         <footer class="main-footer">
             <div class="first-column">
