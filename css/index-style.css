@@ -157,6 +157,8 @@ body {
 .univ-image {
     margin-bottom: -40px;
     border-radius: 16px;
+    width: 400px;
+    height: 260px;
 }
 
 .main ::-webkit-scrollbar {
@@ -193,11 +195,11 @@ button {
 }
 
 #universitySearch {
-    height: 25px;
+    height: 45px;
     width: 16%;
     border: none;
     border-radius: 28px;
-    padding: 10px;
+    padding: 15px;
     outline: none;
     background-color: rgba(255, 255, 255, 0.8);
     text-indent: 32px;
@@ -264,36 +266,161 @@ select {
 .filter-container {
     display: flex;
     align-items: center;
-    margin-left: 560px;
-    margin-top: -65px;
+    margin-left: 640px;
+    margin-top: -84px;
     margin-bottom: 50px;
 }
 
 .filter-wrapper {
     height: 43px;
-    border: 1px solid #fff; /* Тонкая белая рамка */
-    border-radius: 28px; /* Закругленные углы */
-    overflow: hidden; /* Прятать "вылезающие" углы, если есть */
+    border: 1px solid #fff; 
+    border-radius: 28px; 
+    overflow: hidden; 
     display: flex;
+    margin-right: 12px;
 }
 
-/* Стили для "Показывать только:" */
 .filter-wrapper p {
     margin: 0;
     padding: 10px 0px 5px 10px;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-    background-color: rgba(255, 255, 255, 0.6); /* Полупрозрачный белый фон */
-    color: #333; /* Цвет текста */
-    /* Убираем border-right, чтобы не было разделяющей полосы */
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #333;
 }
 
-/* Стили для выпадающего списка */
 .filter-wrapper select {
     text-align: center;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-    background-color: rgba(255, 255, 255, 0.6); /* Полупрозрачный белый фон */
-    color: #333; /* Цвет текста */
-    border: none; /* Убираем рамку, так как у нас есть граница у обертки */
+    background-color: rgba(255, 255, 255, 0.6); 
+    color: #333; 
+    border: none; 
+}
+
+#showFiltersButton {
+    cursor: pointer;
+    transition: filter 0.3s ease-in-out;
+}
+
+#showFiltersButton:hover {
+    filter: brightness(120%);
+    cursor: pointer; 
+}
+
+.showFiltersButton {
+    margin-left: 560px;
+    margin-bottom: 40px;
+    margin-top: -80px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 650px; /* Ширина модального окна */
+    height: 700px; /* Высота модального окна */
+    border-radius: 55px; /* Закругленные края */
+}
+
+/* Стили для формы входа в аккаунт */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 150px;
+}
+
+label {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+input {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    padding: 8px;
+    margin-top: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+button:hover {
+    background-color: #F42E30;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button {
+    font-family: 'Inter', sans-serif;
+    border: none; 
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+
+
+#loginButton:hover {
+    background-color: #F42E30;
+}
+
+#username {
+    background-color: #dad1fc;
+    border-radius: 15px;
+    width: 50%
+    
+}
+
+#password {
+    background-color: #dad1fc;
+    border-radius: 15px;
+    width: 50%
+
+}
+
+#loginButton {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    padding: 10px;
+    margin-top: 195px;
+    background-color: #dad1fc;
+    color: white;
+    cursor: pointer;
+    border-radius: 25px;
+    width: 45%;
+}
+
+#h2-for-forma {
+    font-family: 'Inter', sans-serif;
+    text-align: center;
+    margin-top: 470px;
+    margin-bottom: -300px;
+    font-size: 50px;
 }

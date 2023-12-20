@@ -5,9 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function updateFilter() {
     var selectedFilter = document.getElementById('filterSelector').value;
 
-    if (selectedFilter === 'all') {
-        showElements(['univer1', 'Instityt1', 'napravlen1']);
-    } else if (selectedFilter === 'universities') {
+    if (selectedFilter === 'universities') {
         showElements('univer1');
         hideElements(['napravlen1', 'Instityt1']);
     } else if (selectedFilter === 'directions') {
@@ -20,6 +18,12 @@ function updateFilter() {
 
     searchUniversities();
 }
+
+function toggleFilters() {
+    var filterContainer = document.querySelector('.filter-container');
+    filterContainer.style.display = filterContainer.style.display === 'none' ? 'flex' : 'none';
+}
+
 
 function showElements(className) {
     if (Array.isArray(className)) {
@@ -69,6 +73,7 @@ function searchUniversities() {
     universities = document.getElementsByClassName('univ-link');
 
     var selectedFilter = document.getElementById('filterSelector').value;
+    var selectedCity = document.getElementById('citySelector').value;
 
     for (i = 0; i < universities.length; i++) {
         var title = universities[i].getElementsByClassName('namesun')[0];
@@ -79,7 +84,9 @@ function searchUniversities() {
             (selectedFilter === 'directions' && universities[i].classList.contains('napravlen1')) ||
             (selectedFilter === 'institutes' && universities[i].classList.contains('Instityt1'));
 
-        if (txtValue.toUpperCase().indexOf(filter) > -1 && filterMatch) {
+        var cityMatch = selectedCity === 'all' || universities[i].classList.contains(selectedCity.toLowerCase());
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1 && filterMatch && cityMatch) {
             universities[i].style.display = '';
         } else {
             universities[i].style.display = 'none';
@@ -87,8 +94,42 @@ function searchUniversities() {
     }
 }
 
+//форма для входа
 function searchOnEnter(event) {
     if (event.key === 'Enter') {
-        searchUniversities();
+        searchUniversities();s
     }
+}
+
+function toggleForm(formType) {
+    const formContainer = document.getElementById('formContainer');
+
+    formContainer.innerHTML = '';
+
+    if (formType === 'login') {
+        formContainer.innerHTML = '<h2>Форма Входа</h2>' +
+            '<label for="loginUsername">Логин:</label>' +
+            '<input type="text" id="loginUsername" name="loginUsername">' +
+            '<label for="loginPassword">Пароль:</label>' +
+            '<input type="password" id="loginPassword" name="loginPassword">' +
+            '<button onclick="submitLogin()">Войти</button>';
+    } else if (formType === 'register') {
+        formContainer.innerHTML = '<h2>Форма Регистрации</h2>' +
+            '<label for="registerUsername">Логин:</label>' +
+            '<input type="text" id="registerUsername" name="registerUsername">' +
+            '<label for="registerPassword">Пароль:</label>' +
+            '<input type="password" id="registerPassword" name="registerPassword">' +
+            '<button onclick="submitRegister()">Зарегистрироваться</button>';
+    }
+
+    document.getElementById('loginButton').style.backgroundColor = formType === 'login' ? '#4CAF50' : '';
+    document.getElementById('registerButton').style.backgroundColor = formType === 'register' ? '#3498db' : '';
+}
+
+function submitLogin() {
+    alert('Вход выполнен!');
+}
+
+function submitRegister() {
+    alert('Регистрация выполнена!');
 }

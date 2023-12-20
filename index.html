@@ -29,6 +29,21 @@
             </div>
             <a href="https://studgorod.ru/" class="registration">Регистрация</a>
             <a href="profile.html" class="enter">Войти</a>
+
+            <!-- форма для входа
+            <button id="openModalButton" class="enter" onclick="openModal()">Войти</button>
+            <div id="loginModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closeModal()">&times;</span>
+                    <h2 id="h2-for-forma">Вход в аккаунт</h2>
+                    <form>
+                        <button id="loginButton">Войти</button>
+                        <input type="text" id="username" style="border: 0;" name="username" required placeholder="Логин:">
+                        <input type="password" id="password" style="border: 0;" name="password" required placeholder="Пароль:">
+                    </form>
+                </div>
+            </div>
+            -->
         </div>
         <main class="main">
             <h1 class = "mainh1">Каталог ВУЗов Урала</h1>
@@ -38,19 +53,27 @@
                 </span>
                 <input type="text" id="universitySearch" oninput="searchUniversities()" onkeydown="searchOnEnter()">
             </div>
-            <div class="filter-container">
+            <img class="showFiltersButton" src="image/button-setting.svg" alt="Показать фильтры" onclick="toggleFilters()">
+            <div class="filter-container" style="display: none;">
                 <div class="filter-wrapper">
                     <p>Показывать только:</p>
                     <select id="filterSelector" onchange="updateFilter()" oninput="searchUniversities()">
-                        <option value="all" selected>все</option>
-                        <option value="universities">университеты</option>
+                        <option value="universities" selected>университеты</option>
                         <option value="institutes">институты</option>
                         <option value="directions">направления</option>
                     </select>
                 </div>
+                <div class="filter-wrapper">
+                    <p>Город:</p>
+                    <select id="citySelector" onchange="updateFilter()" oninput="searchUniversities()">
+                        <option value="all">все</option>
+                        <option value="ekaterinburg">Екатеринбург</option>
+                        <option value="chelyabinsk">Челябинск</option>
+                    </select>
+                </div>
             </div>
             <div class="univ-catalogue">
-                <a class="univ-link univer1" href="university.html">
+                <a class="univ-link univer1 ekaterinburg" href="university.html">
                     <div class="univ-container" id="urfu">
                         <h2 class="univ-title namesun">
                             Уральский Федеральный Университет имени первого президента России Б. Н. Ельцина
@@ -58,7 +81,7 @@
                         <img class="univ-image" src="image/urfu.png" alt="Уральский Федеральный Университет">
                     </div>
                 </a>
-                <a class="univ-link univer1" href="#">
+                <a class="univ-link univer1 chelyabinsk" href="#">
                     <div class="univ-container" id="urfu">
                         <h2 class="univ-title namesun">
                             Челябинский Государственный Университет
@@ -66,7 +89,7 @@
                         <img class="univ-image" src="image/chgu.png" alt="Челябинский Государственный Университет">
                     </div>
                 </a>
-                <a class="univ-link univer1" href="#">
+                <a class="univ-link univer1 ekaterinburg" href="#">
                     <div class="univ-container" id="urfu">
                         <h2 class="univ-title namesun">
                             Уральский Государственный Университет Путей Сообщения
@@ -74,7 +97,7 @@
                         <img class="univ-image" src="image/urgups.png" alt="Уральский Государственный Университет Путей Сообщения">
                     </div> 
                 </a>
-                <a class="univ-link univer1" href="university.html">
+                <a class="univ-link univer1 ekaterinburg" href="university.html">
                     <div class="univ-container" id="urfu">
                         <h2 class="univ-title namesun">
                             Уральский Федеральный Университет имени первого президента России Б. Н. Ельцина
@@ -82,7 +105,7 @@
                         <img class="univ-image" src="image/urfu.png" alt="Уральский Федеральный Университет">
                     </div>
                 </a>
-                <a class="univ-link univer1" href="#">
+                <a class="univ-link univer1 chelyabinsk" href="#">
                     <div class="univ-container" id="urfu">
                         <h2 class="univ-title namesun">
                             Челябинский Государственный Университет
@@ -90,15 +113,55 @@
                         <img class="univ-image" src="image/chgu.png" alt="Челябинский Государственный Университет">
                     </div>
                 </a>
-                <a class="univ-link univer1" href="#">
+                <a class="univ-link univer1 ekaterinburg" href="#">
                     <div class="univ-container" id="urfu">
                         <h2 class="univ-title namesun">
                             Уральский Государственный Университет Путей Сообщения
                         </h2>
                         <img class="univ-image" src="image/urgups.png" alt="Уральский Государственный Университет Путей Сообщения">
                     </div> 
-                </a>   
-                <a class="univ-link napravlen1" href="#">
+                </a>
+                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title namesun">
+                            Институт радиоэлектроники и информационных технологий
+                        </h2>
+                        <img class="univ-image" src="image/rtf-index.png" alt="РТФ">
+                    </div>
+                </a>
+                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title namesun">
+                            Физико-технологичесий институт
+                        </h2>
+                        <img class="univ-image" src="image/fti-index.png" alt="РТФ">
+                    </div>
+                </a>
+                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title namesun">
+                            Институт экономики и управления
+                        </h2>
+                        <img class="univ-image" src="image/injek-index.png" alt="РТФ">
+                    </div>
+                </a>
+                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title namesun">
+                            Институт новых материалов и технологий
+                        </h2>
+                        <img class="univ-image" src="image/inmit-index.png" alt="РТФ">
+                    </div>
+                </a>
+                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title namesun">
+                            Уральский гуманитарный институт
+                        </h2>
+                        <img class="univ-image" src="image/ugi-index.png" alt="РТФ">
+                    </div>
+                </a>
+                <a class="univ-link napravlen1 ekaterinburg" href="direction.html">
                     <div class="pi-container">
                         <img class="irit-image" src="image/irit.png" alt="Прикладная информатика">                        
                         <section class="directions-title namesun">
@@ -135,7 +198,7 @@
                         </section>
                     </div>
                 </a>
-                <a class="univ-link napravlen1" href="#">
+                <a class="univ-link napravlen1 ekaterinburg" href="#">
                     <div class="pi-container">
                         <img class="irit-image" src="image/irit.png" alt="Прикладная информатика">                        
                         <section class="directions-title namesun">
