@@ -9,13 +9,31 @@ body {
     z-index: -1;
 }
 
+.header-nav {
+    height: 108px;
+    box-sizing: border-box;
+}
+
+.header-decor-bot {
+    width: 100%;
+    position: absolute;
+    top: 108px;
+    min-height: 20px;
+}
+
 .university-main {
     margin: 0;
     padding: 0;
-    padding-top: 50px;
-    background-color: #8269EF;
+    background-color: white;
     min-height: 200px;
-    margin-top: -22px;
+    height: auto;
+    border-top-right-radius: 20px;
+}
+
+.main-top {
+    background-color: #8269EF;
+    border-top-right-radius: 20px;
+    padding-top: 50px;
 }
 
 #back {
@@ -50,11 +68,16 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #8269EF;
 }
 
 .gallery h1 {
-    font-size: 72px;
     color: white;
+    font-family: Inter;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 76px;
 }
 
 .gallery img {
@@ -62,4 +85,97 @@ body {
     height: auto;
     border-radius: 50px;
     margin-bottom: 31px;
+}
+
+.gallery-decor-bot {
+    width: 100%;
+}
+
+section {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    padding-top: 50px;
+    padding-left: 50px;
+    max-width: 1420px;
+    min-width: 1420px;
+    align-self: center;
+}
+
+section p {
+    margin: 0;
+    color: #000;
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 34px;
+}
+
+section h2 {
+    margin: 0;
+    padding: 0;
+    color: #352F2F;
+    font-family: Inter;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 76px;
+}
+
+.univ-information {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+
+.univ-navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 100px;
+    height: 194px;
+    padding-top: 23px;
+    box-sizing: border-box;
+    background-color: #8269EF;
+}
+
+.univ-nav-decor {
+    width: 100%;
+}
+
+.univ-nav-decor-top{
+    margin-bottom: -5px;
+}
+
+.button-wrapper {
+    background-color: white;
+    display: flex;
+    width: 445px;
+    height: 130px;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    gap: 59px;
+    border-radius: 8px;
+}
+
+.button-wrapper img {
+    width: 57px;
+    height: 57px;
+}
+
+.button-wrapper p {
+    color: #333;
+    font-family: Roboto;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.button-link {
+    text-decoration: none;
 }
