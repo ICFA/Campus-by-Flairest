@@ -3,18 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="css/nav.css">
-        <link rel="stylesheet" href="css/bs.css">
         <link rel="stylesheet" href="css/profile.css">
         <link rel="stylesheet" href="css/index-style.css">
         <link rel="stylesheet" href="css/directions.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&family=Lexend+Giga:wght@100;200;300&family=Open+Sans:wght@500&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
         <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
         <script src="scripts/filter.js"></script>
+        <script src="scripts/auth.js"></script>
     </head>
     <!--класс для поиска институтов Instityt1-->
     <body>
@@ -27,25 +30,25 @@
                 <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
                 <a href="https://studgorod.ru/" class="more">Ещё</a>
             </div>
-            <a href="https://studgorod.ru/" class="registration">Регистрация</a>
-            <a href="profile.html" class="enter">Войти</a>
+            <button onclick="openLoginForm()" id="registerBtn" class="registration">Регистрация</button>
+            <button onclick="openLoginForm()" id="loginBtn" class="enter">Войти</button>
+            <a href="profile.html" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
 
-            <!-- форма для входа
-            <button id="openModalButton" class="enter" onclick="openModal()">Войти</button>
-            <div id="loginModal" class="modal">
-                <div class="modal-content">
-                    <span class="close" onclick="closeModal()">&times;</span>
-                    <h2 id="h2-for-forma">Вход в аккаунт</h2>
-                    <form>
-                        <button id="loginButton">Войти</button>
-                        <input type="text" id="username" style="border: 0;" name="username" required placeholder="Логин:">
-                        <input type="password" id="password" style="border: 0;" name="password" required placeholder="Пароль:">
-                    </form>
-                </div>
-            </div>
-            -->
         </div>
         <main class="main">
+            <div class="overlay" id="overlay"></div>
+            <div class="login-form" id="loginForm">
+                <button class="close-button" onclick="closeLoginForm()">×</button>
+                <div><img src="image/key.svg" alt="Изображение ключа" class="key-image"></div>
+                <div class="input-acc">Вход в аккаунт</div>
+                <button class="input-word">Войти</button>
+                <input type="text" id="loginFormLogin" class="forma-reg" placeholder="Email">
+                <p><a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh" class="agre-konf">Я согласен с политикой конфиденциальности</a></p>
+                <div class="agree-button" onclick="toggleAgree()">
+                    <div class="check-mark" id="checkMark">&#10004;</div>
+                </div>
+                <div><button onclick="login()" class="input-button">Войти</button></div>
+            </div>
             <h1 class = "mainh1">Каталог ВУЗов Урала</h1>
             <div class="search-container">
                 <span class="search-icon-inline">

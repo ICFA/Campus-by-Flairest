@@ -94,42 +94,37 @@ function searchUniversities() {
     }
 }
 
-//форма для входа
-function searchOnEnter(event) {
-    if (event.key === 'Enter') {
-        searchUniversities();s
+function openLoginForm() {
+    var loginForm = document.getElementById("loginForm");
+    var overlay = document.getElementById("overlay");
+    loginForm.style.display = "block";
+    overlay.style.display = "block";
+}
+
+function closeLoginForm() {
+    var loginForm = document.getElementById("loginForm");
+    var overlay = document.getElementById("overlay");
+    loginForm.style.display = "none";
+    overlay.style.display = "none";
+}
+
+function login() {
+    var loginForm = document.getElementById("loginForm");
+    var loginValue = document.getElementById("loginFormLogin").value;
+
+    if (loginValue) {
+        alert("Вход выполнен для логина: " + loginValue);
+        closeLoginForm();
+    } else {
+        alert("Введите логин!");
     }
 }
 
-function toggleForm(formType) {
-    const formContainer = document.getElementById('formContainer');
-
-    formContainer.innerHTML = '';
-
-    if (formType === 'login') {
-        formContainer.innerHTML = '<h2>Форма Входа</h2>' +
-            '<label for="loginUsername">Логин:</label>' +
-            '<input type="text" id="loginUsername" name="loginUsername">' +
-            '<label for="loginPassword">Пароль:</label>' +
-            '<input type="password" id="loginPassword" name="loginPassword">' +
-            '<button onclick="submitLogin()">Войти</button>';
-    } else if (formType === 'register') {
-        formContainer.innerHTML = '<h2>Форма Регистрации</h2>' +
-            '<label for="registerUsername">Логин:</label>' +
-            '<input type="text" id="registerUsername" name="registerUsername">' +
-            '<label for="registerPassword">Пароль:</label>' +
-            '<input type="password" id="registerPassword" name="registerPassword">' +
-            '<button onclick="submitRegister()">Зарегистрироваться</button>';
-    }
-
-    document.getElementById('loginButton').style.backgroundColor = formType === 'login' ? '#4CAF50' : '';
-    document.getElementById('registerButton').style.backgroundColor = formType === 'register' ? '#3498db' : '';
+function register() {
+    alert("Регистрация");
 }
 
-function submitLogin() {
-    alert('Вход выполнен!');
-}
-
-function submitRegister() {
-    alert('Регистрация выполнена!');
+function toggleAgree() {
+    var agreeButton = document.querySelector('.agree-button');
+    agreeButton.classList.toggle('checked');
 }

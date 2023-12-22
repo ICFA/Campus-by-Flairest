@@ -48,6 +48,10 @@
     margin-left: 22px;
 }
 
+.enter:hover {
+    background-color: #F42E30;
+}
+
 .registration {
     background-color: #ECECEC;
     padding: 10px 100px 10px 16px;
@@ -56,6 +60,7 @@
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     font-size: 22px;
+    border-style: none;
     margin-left: 250px;
 }
 
@@ -68,6 +73,7 @@
     font-family: 'Inter', sans-serif;
     font-size: 22px;
     margin-left: -80px;
+    border-style: none;
 }
 
 .header-nav {
