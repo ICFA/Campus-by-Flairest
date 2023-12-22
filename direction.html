@@ -7,6 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="scripts/direction.js"></script>
 </head>
 <body>
     <img class="header-decor" src = "image/header-decor-violet.svg">
@@ -40,7 +45,7 @@
 Прикладная информатика затрагивает множество разнообразных сфер деятельности, начиная с информационных технологий и заканчивая экономикой, дизайном и гуманитарными науками. Поэтому выпускники направления способны работать как в ИТ компаниях, разрабатывающих программные комплексы, так и в организациях, внедряющих и эксплуатирующих информационно-коммуникационные технологии.
             </pre>
         </div>
-        <img class="direction-decor" src="/image/univ_decor/univ_gallery_decor_bot.svg" alt="">
+        <img src="image/header-direction.png" style="width: 100%;" alt="">
         <section class="direction-features">
             <h2>ОСОБЕННОСТИ НАПРАВЛЕНИЯ</h2>
             <pre class="direction-features-description">    Студенты этого направления обучаются на индивидуальных образовательных траекториях. Начиная со 2 курса студенты совместно с базовыми курсами выбирают несколько курсов по выбору, тем самым начиная формировать свою индивидуальную траекторию.
@@ -62,57 +67,71 @@
                 <tr><td id="state-college">Государственный</td><td id="state-college-value">Да</td></tr>
             </table>
         </section>
+        <!--
         <section class="direction-enrollment">
             <h2>Поступление</h2>
             <div class="enrollment-filter">
                 <button id="budget">Бюджет</button>
                 <button id="paid">Платно</button>
             </div>
+        </section>-->
+        <section class="description-cl">
+            <h2>Ключевые дисциплины</h2>
+            <p style="width: 85%;">Прикладная информатика – это направление, в котором изучают проектирование, разработку и применение
+                информационных и коммуникационных систем в бизнесе и самых разных областях экономики. Специальность
+                предполагает изучение дисциплин, связанных с информационными технологиями, информатикой, экономикой
+                и концепциями управления. Профиль предполагает широкий взгляд на возможности приложения информатики
+                в различных прикладных областях.</p>
         </section>
         <section class="direction-key-disciplines">
-            <h2>Ключевые дисциплины</h2>
+            <button onclick="toggleDisciplines()" class="button-discp"><h3 class="cl-discp">Ключевые профильные дисциплины</h3><img src="image/arrow_drop_down.svg"></button>
+            <p>Математическое моделирование</p>
+            <p>Программные и аппаратные средства информатики</p>
+            <p>Программирование для электронно-вычислительных машин</p>
+            <p>Физические основы электронно-вычислительных машин</p>
+            <p>Анализ данных</p>
+            <p>Математические основы теории риска</p>
+            <p>Основы информатики</p>
+            <p>Объектно-ориентированный анализ и программирование</p>
+            <p>Разработка и применение прикладного программного обеспечения</p>
+            <p>Имитационное моделирование</p>
+            <p>Модели и методы оптимизации производственных систем</p>
+            <p>Основы прикладной статистики</p>
+            <p>Теория систем и системный анализ</p>
+            <p>Эконометрика</p>
+            <p>Вычислительные системы, сети и телекоммуникации</p>
+            <p>Операционные системы</p>
+            <p>Программная инженерия</p>
+            <p>Информационные системы и технологии</p>
+            <p>Проектирование информационных систем</p>
+            <p>Проектный практикум</p>
+            <p>Базы данных</p>
+            <p>Информационная безопасность</p>
         </section>
         <section class="direction-apply">
             <h2>Как подать документы?</h2>
+            <p>Узнать эту информацию вы можете <a href="https://urfu.ru/ru/applicant/sng/priem-dokumentov/kak-podat-dokumenty/">здесь</a></p>
         </section>
         <section class="direction-questions">
             <h2>Есть вопросы? Задай их!</h2>
+            <p>Остались вопросы? Задайте их представителю вуза или студенту направления.</p>
+            <a href="https://vk.com/ural.federal.university">ВУЗу</a>
         </section>
         <div class="direction-reviews">
             <h2>Отзывы</h2>
-            <div class="reviews-list">
-                <div class="review-container">
-                    <div class="review-top-section"><b>Алексеев Алексей</b> (Прикладная информатика)</div>
-                    <p class="review-text">
-                        Направление "Прикладная информатика" в УрФУ является отличным выбором для тех, кто хочет получить качественное образование в сфере информационных технологий. Программа обучения позволяет получить не только теоретические знания, но и практические навыки, необходимые для успешной карьеры в IT-сфере.
-                    </p>
-                    <div class="review-bottom-section">
-                        <time class="review-time">04.09.23</time>
-                        <div class="review-contacts">
-                            <p>Контакты: </p>
-                            <ul class="review-links">
-                                <li>
-                                    <a href="https:/www.vk.com">
-                                        <img src="/image/social_media/vk.svg" alt="vk">
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="https:/t.me">
-                                        <img src="/image/social_media/tg.svg" alt="tg">
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+            <div class="arrow-container" id="prev-btn"><img src="image/left.svg" style="position: absolute;" alt="Previous"></div>
+            <div class="reviews-container">
+                <div class="reviews-list">
                 </div>
             </div>
+            <div class="arrow-container" id="next-btn"><img src="image/right.svg" alt="Next"></div>
         </div>
-        <img class="direction-decor" src="/image/direction_decor/direction_decor_1.svg" alt="">
+        <img src="image/footer-direction.png" style="width: 100%;">
         <div class="direction-review-create">
             <h2>Оставьте свой отзыв!</h2>
-            <form action="submit">
-                <textarea name="" id="review-submit-text" cols="30" rows="10"></textarea>
-                <button>Отправить</button>
+            <form id="review-form">
+                <textarea name="review-text" id="review-submit-text" cols="40" rows="10" placeholder="Ваш отзыв"></textarea>
+                <button type="button" id="submit-button" style="border-radius: 15px; padding: 15px 0 15px; margin: 50px 0px 50px;">Отправить</button>
             </form>
         </div>
     </main>

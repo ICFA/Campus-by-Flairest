@@ -30,10 +30,12 @@
                 <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
                 <a href="https://studgorod.ru/" class="more">Ещё</a>
             </div>
-            <button onclick="openLoginForm()" id="registerBtn" class="registration">Регистрация</button>
-            <button onclick="openLoginForm()" id="loginBtn" class="enter">Войти</button>
-            <a href="profile.html" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
-
+            <button onclick="openLoginForm('register')" id="registerBtn" class="registration">Регистрация</button>
+            <button onclick="openLoginForm('login')" id="loginBtn" class="enter">Войти</button>
+            <div class="profile-buttons">
+                <a href="profile.html" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
+                <a href="#" onclick="logout()" class="login-out" id="logoutBtn" style="display: none;">Выйти</a>
+            </div>
         </div>
         <main class="main">
             <!--форма регистрации-->
@@ -42,6 +44,7 @@
                 <button class="close-button" onclick="closeLoginForm()">×</button>
                 <div><img src="image/key.svg" alt="Изображение ключа" class="key-image"></div>
                 <div class="input-acc">Вход в аккаунт</div>
+                <div class="reg-acc">Регистрация</div>
                 <div class="button-container" onclick="toggleButton(event)">
                     <button class="input-word active" id="registerButton">Регистрация</button>
                     <button class="reg-word" id="loginButton">Войти</button>
@@ -51,7 +54,13 @@
                 <div class="agree-button" onclick="toggleAgree()">
                     <div class="check-mark" id="checkMark">&#10004;</div>
                 </div>
-                <div><button onclick="login()" class="input-button">Войти</button></div>
+                <div class="login-button-container">
+                    <div><button onclick="login()" class="input-button">Войти</button></div>
+                </div>
+                
+                <div class="register-button-container" style="display: none;">
+                    <div><button onclick="login()" class="input-button">Зарегистрироваться</button></div>
+                </div>
             </div>
             <!------------------------------->
             <h1 class = "mainh1">Каталог ВУЗов Урала</h1>

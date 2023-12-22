@@ -1,20 +1,30 @@
 function login() {
     const authToken = 'здесь_ваш_токен';
-    if (authToken) {
+    const loginValue = document.getElementById("loginFormLogin").value;
+
+    if (loginValue) {
         localStorage.setItem('authToken', authToken); 
         updateButtonVisibility(); 
-        closeLoginForm(); а
+        closeLoginForm();
     } else {
-        alert("Неверные учетные данные"); 
+        alert("Введите логин!"); 
     }
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    updateButtonVisibility();
+});
+
+updateButtonVisibility();
 
 function updateButtonVisibility() {
     const loginBtn = document.getElementById('loginBtn');
     const registerBtn = document.getElementById('registerBtn');
     const profileBtn = document.getElementById('profileBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
 
-    const isAuthenticated = isAuthenticatedOnServer(); 
+    const isAuthenticated = isAuthenticatedOnServer();
+
     if (isAuthenticated) {
         if (loginBtn) {
             loginBtn.style.display = 'none';
@@ -24,6 +34,9 @@ function updateButtonVisibility() {
         }
         if (profileBtn) {
             profileBtn.style.display = 'inline-block';
+        }
+        if (logoutBtn) {
+            logoutBtn.style.display = 'inline-block';
         }
     } else {
         if (loginBtn) {
@@ -35,15 +48,20 @@ function updateButtonVisibility() {
         if (profileBtn) {
             profileBtn.style.display = 'none';
         }
+        if (logoutBtn) {
+            logoutBtn.style.display = 'none';
+        }
     }
 }
+
+function logout() {
+    localStorage.removeItem('authToken');
+    updateButtonVisibility();
+}
+
 
 function isAuthenticatedOnServer() {
     const authToken = localStorage.getItem('authToken');
   
-    if (authToken) {
-      return true; 
-    }
-  
-    return false; 
+    return authToken !== null;
 }

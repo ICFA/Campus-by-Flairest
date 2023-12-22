@@ -412,12 +412,6 @@ button {
     margin-bottom: 2%;
 }
 
-.input-acc {
-    font-family: 'Lexend Giga', sans-serif;
-    font-size: 50px;
-    font-weight: 800;
-}
-
 .input-button {
     margin-top: 8%;
     background-color: #352f2f;
@@ -511,3 +505,23 @@ button {
     font-size: 24px;
 }
 
+.input-acc, .reg-acc {
+    font-family: 'Lexend Giga', sans-serif;
+    font-size: 50px;
+    font-weight: 800;
+    display: none;
+}
+
+.login-out {
+    background-color: #464545;
+    padding: 10px 16px 10px 16px;
+    border-radius: 30px;
+    color: white;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+}
+
+.profile-buttons {
+    display: flex;
+}
