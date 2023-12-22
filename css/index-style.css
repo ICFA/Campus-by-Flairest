@@ -268,7 +268,7 @@ select {
     display: flex;
     align-items: center;
     margin-left: 640px;
-    margin-top: -84px;
+    margin-top: -88px;
     margin-bottom: 50px;
 }
 
@@ -310,8 +310,8 @@ select {
 }
 
 .showFiltersButton {
-    margin-left: 32%;
-    margin-bottom: 40px;
+    margin-left: 30%;
+    margin-bottom: 2.3%;
     margin-top: -80px;
 }
 
