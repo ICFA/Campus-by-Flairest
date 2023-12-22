@@ -11,6 +11,10 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&display=swap" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script src="scripts/filter.js"></script>
     </head>
     <body>
         <img style = "position: absolute; z-index: -1" src = "image/nav.jpg">
@@ -44,7 +48,6 @@
                     <p class="ns">E-mail</p>
                     <p class="ns-main">mail@mail.ru</p>
                     <p class="my-data">Изменить свои данные</p>
-                    <h1 class="favourites">Избранное</h1>
                 </section>
                 <section class="mailing">
                     <div class="notifications">     
@@ -57,17 +60,8 @@
                         <p class="notifications-bottom">Я согласен с политикой<br>конфиденциальности</p>
                     </div>
                 </section>
-                <section class="univ-profile">
-                    <a class="univ-link" href="university.html">
-                        <div class="univ-container" id="urfu">
-                            <h2 class="univ-title">
-                                Уральский Федеральный Университет имени первого президента России Б. Н. Ельцина
-                            </h2>
-                            <img class="univ-image" src="image/urfu.png" alt="Уральский Федеральный Университет">
-                        </div>
-                    </a>
-                </section>
             </section>
+            <h1 class="favourites">Избранное</h1>
         </main>     
         <footer class="main-footer">
             <div class="first-column">

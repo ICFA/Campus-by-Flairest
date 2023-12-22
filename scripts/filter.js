@@ -5,9 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function updateFilter() {
     var selectedFilter = document.getElementById('filterSelector').value;
 
-    if (selectedFilter === 'all') {
-        showElements(['univer1', 'Instityt1', 'napravlen1']);
-    } else if (selectedFilter === 'universities') {
+    if (selectedFilter === 'universities') {
         showElements('univer1');
         hideElements(['napravlen1', 'Instityt1']);
     } else if (selectedFilter === 'directions') {
@@ -20,6 +18,12 @@ function updateFilter() {
 
     searchUniversities();
 }
+
+function toggleFilters() {
+    var filterContainer = document.querySelector('.filter-container');
+    filterContainer.style.display = filterContainer.style.display === 'none' ? 'flex' : 'none';
+}
+
 
 function showElements(className) {
     if (Array.isArray(className)) {
@@ -69,6 +73,7 @@ function searchUniversities() {
     universities = document.getElementsByClassName('univ-link');
 
     var selectedFilter = document.getElementById('filterSelector').value;
+    var selectedCity = document.getElementById('citySelector').value;
 
     for (i = 0; i < universities.length; i++) {
         var title = universities[i].getElementsByClassName('namesun')[0];
@@ -79,7 +84,9 @@ function searchUniversities() {
             (selectedFilter === 'directions' && universities[i].classList.contains('napravlen1')) ||
             (selectedFilter === 'institutes' && universities[i].classList.contains('Instityt1'));
 
-        if (txtValue.toUpperCase().indexOf(filter) > -1 && filterMatch) {
+        var cityMatch = selectedCity === 'all' || universities[i].classList.contains(selectedCity.toLowerCase());
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1 && filterMatch && cityMatch) {
             universities[i].style.display = '';
         } else {
             universities[i].style.display = 'none';
@@ -87,8 +94,52 @@ function searchUniversities() {
     }
 }
 
-function searchOnEnter(event) {
-    if (event.key === 'Enter') {
-        searchUniversities();
+function openLoginForm() {
+    var loginForm = document.getElementById("loginForm");
+    var overlay = document.getElementById("overlay");
+    loginForm.style.display = "block";
+    overlay.style.display = "block";
+}
+
+function closeLoginForm() {
+    var loginForm = document.getElementById("loginForm");
+    var overlay = document.getElementById("overlay");
+    loginForm.style.display = "none";
+    overlay.style.display = "none";
+}
+
+function login() {
+    var loginForm = document.getElementById("loginForm");
+    var loginValue = document.getElementById("loginFormLogin").value;
+
+    if (loginValue) {
+        alert("Вход выполнен для логина: " + loginValue);
+        closeLoginForm();
+    } else {
+        alert("Введите логин!");
     }
+}
+
+function register() {
+    alert("Регистрация");
+}
+
+function toggleAgree() {
+    var agreeButton = document.querySelector('.agree-button');
+    agreeButton.classList.toggle('checked');
+}
+
+function toggleButton(event) {
+    var buttons = document.querySelectorAll('.input-word');
+
+    buttons.forEach(function (button) {
+        button.classList.remove('active');
+    });
+
+    event.target.classList.add('active');
+
+    var container = document.querySelector('.button-container');
+    container.style.background = event.target.id === 'registerButton' ?
+        'linear-gradient(to right, #8269EF 50%, #e0d9fb 50%)':
+        'linear-gradient(to right, #e0d9fb 50%, #8269EF 50%)' ;
 }
