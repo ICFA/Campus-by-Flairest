@@ -128,3 +128,18 @@ function toggleAgree() {
     var agreeButton = document.querySelector('.agree-button');
     agreeButton.classList.toggle('checked');
 }
+
+function toggleButton(event) {
+    var buttons = document.querySelectorAll('.input-word');
+
+    buttons.forEach(function (button) {
+        button.classList.remove('active');
+    });
+
+    event.target.classList.add('active');
+
+    var container = document.querySelector('.button-container');
+    container.style.background = event.target.id === 'registerButton' ?
+        'linear-gradient(to right, #8269EF 50%, #e0d9fb 50%)':
+        'linear-gradient(to right, #e0d9fb 50%, #8269EF 50%)' ;
+}

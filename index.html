@@ -42,7 +42,10 @@
                 <button class="close-button" onclick="closeLoginForm()">×</button>
                 <div><img src="image/key.svg" alt="Изображение ключа" class="key-image"></div>
                 <div class="input-acc">Вход в аккаунт</div>
-                <button class="input-word">Войти</button>
+                <div class="button-container" onclick="toggleButton(event)">
+                    <button class="input-word active" id="registerButton">Регистрация</button>
+                    <button class="reg-word" id="loginButton">Войти</button>
+                </div>
                 <input type="text" id="loginFormLogin" class="forma-reg" placeholder="Email">
                 <p><a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh" class="agre-konf">Я согласен с политикой конфиденциальности</a></p>
                 <div class="agree-button" onclick="toggleAgree()">

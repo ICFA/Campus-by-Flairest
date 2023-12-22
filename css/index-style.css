@@ -412,19 +412,6 @@ button {
     margin-bottom: 2%;
 }
 
-.input-word {
-    margin-top: 5%;
-    width: 60%;
-    height: 9%;
-    border-radius: 50px;
-    border-style: none;
-    background-color: #8269EF;
-    color: white;
-    font-family: 'Inter', sans-serif;
-    font-size: 24px;
-    cursor: default;
-}
-
 .input-acc {
     font-family: 'Lexend Giga', sans-serif;
     font-size: 50px;
@@ -497,3 +484,30 @@ button {
     color:#8269EF;
     font-size: 16px;
 }
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    height: 7%;
+    margin: 0 auto;
+    margin-top: 7%;
+    border-radius: 50px;
+    overflow: hidden;
+    background: linear-gradient(to right, #8269EF 50%, #e0d9fb 50%);
+    animation: jumpBackground 3s infinite; 
+}
+
+.input-word, .reg-word {
+    width: 50%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    cursor: pointer;
+    color: white;
+    background: transparent;
+    transition: background 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-size: 24px;
+}
+
