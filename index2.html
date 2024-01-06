@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{% static 'flairest_campus/css/nav.css' %}">
+        <link rel="stylesheet" href="{% static 'flairest_campus/css/profile.css' %}">
+        <link rel="stylesheet" href="{% static 'flairest_campus/css/index-style.css' %}">
+        <link rel="stylesheet" href="{% static 'flairest_campus/css/directions.css' %}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&family=Lexend+Giga:wght@100;200;300&family=Open+Sans:wght@500&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script src="{% static 'flairest_campus/scripts/filter.js' %}"></script>
+        <script src="{% static 'flairest_campus/scripts/auth.js' %}"></script>
+    </head>
+    <!--класс для поиска институтов Instityt1-->
+    <body>
+        <img style = "position: absolute; z-index: -1" src = "{% static 'flairest_campus/image/nav.jpg' %}">
+        <div class="header-nav">
+            <a href="https://studgorod.ru/" class = "kampus"><img src="{% static 'flairest_campus/image/kampus.png' %}"></a>
+            <div class="site-nav">
+                <a href="https://studgorod.ru/#news" class="news">Новости</a>
+                <!---Ошибка (из-за ссылки)--><a href="index.html" class="catalog">ВУЗы</a>
+                <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
+                <a href="https://studgorod.ru/" class="more">Ещё</a>
+            </div>
+            <button onclick="openLoginForm('register')" id="registerBtn" class="registration">Регистрация</button>
+            <button onclick="openLoginForm('login')" id="loginBtn" class="enter">Войти</button>
+            <div class="profile-buttons">
+                <a href="profile.html" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
+                <a href="#" onclick="logout()" class="login-out" id="logoutBtn" style="display: none;">Выйти</a>
+            </div>
+        </div>
+        <main class="main">
+            <!--форма регистрации-->
+            <div class="overlay" id="overlay"></div>
+            <div class="login-form" id="loginForm">
+                <button class="close-button" onclick="closeLoginForm()">×</button>
+                <div><img src="image/key.svg" alt="Изображение ключа" class="key-image"></div>
+                <div class="input-acc">Вход в аккаунт</div>
+                <div class="reg-acc">Регистрация</div>
+                <div class="button-container" onclick="toggleButton(event)">
+                    <button class="input-word active" id="registerButton">Регистрация</button>
+                    <button class="reg-word" id="loginButton">Войти</button>
+                </div>
+                <input type="text" id="loginFormLogin" class="forma-reg" placeholder="Email">
+                <p><a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh" class="agre-konf">Я согласен с политикой конфиденциальности</a></p>
+                <div class="agree-button" onclick="toggleAgree()">
+                    <div class="check-mark" id="checkMark">&#10004;</div>
+                </div>
+                <div class="login-button-container">
+                    <div><button onclick="login()" class="input-button">Войти</button></div>
+                </div>
+                
+                <div class="register-button-container" style="display: none;">
+                    <div><button onclick="login()" class="input-button">Зарегистрироваться</button></div>
+                </div>
+            </div>
+            <!------------------------------->
+            <h1 class = "mainh1">Каталог ВУЗов Урала</h1>
+            <div class="search-container">
+                <span class="search-icon-inline">
+                    <img id="searchIcon" src="image/social_media/lupa.svg" alt="Поиск">
+                </span>
+                <input type="text" id="universitySearch" oninput="searchUniversities()" onkeydown="searchOnEnter()">
+            </div>
+            <img class="showFiltersButton" src="image/button-setting.svg" alt="Показать фильтры" onclick="toggleFilters()">
+            <div class="filter-container" style="display: none;">
+                <div class="filter-wrapper">
+                    <p>Показывать только:</p>
+                    <select id="filterSelector" onchange="updateFilter()" oninput="searchUniversities()">
+                        <option value="universities" selected>университеты</option>
+                        <option value="institutes">институты</option>
+                        <option value="directions">направления</option>
+                    </select>
+                </div>
+                <div class="filter-wrapper">
+                    <p>Город:</p>
+                    <select id="citySelector" onchange="updateFilter()" oninput="searchUniversities()">
+                        <option value="all">все</option>
+                        <option value="ekaterinburg">Екатеринбург</option>
+                        <option value="chelyabinsk">Челябинск</option>
+                    </select>
+                </div>
+            </div>
+            <div class="univ-catalogue">
+                {% for b in universities %}
+                    <p>{{ b.name }}</p>
+                    <img src="{{ b.photo.url }}" width="480px">
+                    <!-- <a href="{{ b.name }}">Ссылка на страничку вуза</a>
+                    <p>{{ b.about }}</p>
+                    <p>{{ b.contacts }}</p>  -->
+                    <br/>
+                {% endfor %}
+                <a class="univ-link univer1 ekaterinburg" href="university.html">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title namesun">
+                            Уральский Федеральный Университет имени первого президента России Б. Н. Ельцина
+                        </h2>
+                        <img class="univ-image" src="image/urfu.png" alt="Уральский Федеральный Университет">
+                    </div>
+                </a>
+                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title namesun">
+                            Институт радиоэлектроники и информационных технологий
+                        </h2>
+                        <img class="univ-image" src="image/rtf-index.png" alt="РТФ">
+                    </div>
+                </a>
+                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title namesun">
+                            Физико-технологичесий институт
+                        </h2>
+                        <img class="univ-image" src="image/fti-index.png" alt="РТФ">
+                    </div>
+                </a>
+                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title namesun">
+                            Институт экономики и управления
+                        </h2>
+                        <img class="univ-image" src="image/injek-index.png" alt="РТФ">
+                    </div>
+                </a>
+                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title namesun">
+                            Институт новых материалов и технологий
+                        </h2>
+                        <img class="univ-image" src="image/inmit-index.png" alt="РТФ">
+                    </div>
+                </a>
+                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
+                    <div class="univ-container" id="urfu">
+                        <h2 class="univ-title namesun">
+                            Уральский гуманитарный институт
+                        </h2>
+                        <img class="univ-image" src="image/ugi-index.png" alt="РТФ">
+                    </div>
+                </a>
+                <a class="univ-link napravlen1 ekaterinburg" href="direction.html">
+                    <div class="pi-container">
+                        <img class="irit-image" src="image/irit.png" alt="Прикладная информатика">                        
+                        <section class="directions-title namesun">
+                            Прикладная информатика
+                            <div class="info">
+                                09.03.03 Бакалавриат<br>Форма обучения: Заочная, Очно-заочная, Очная<br>ЕГЭ: математика, русский, физика/информатика
+                            </div>
+                            <div class="info-napr">
+                                Прикладная информатика – молодая, но бурно<br> развивающаяся дисциплина. Современная жизнь<br> немыслима без компьютеров и информационных...
+                            </div>
+                            <div class="wrapper">
+                                <div>
+                                    <div class="info-price">
+                                        Стоимость
+                                        <p class="price">от 156 800 ₽</p>
+                                    </div>
+                                    <div class="info-price">
+                                        Бюджет
+                                        <p class="price">от 299 Б</p>
+                                        <p class="place">199 мест</p>
+                                    </div>
+                                    <div class="info-price">
+                                        Платное
+                                        <p class="price">от 118 Б</p>
+                                        <p class="place">68 мест</p>
+                                    </div>
+                                    <div class="year">
+                                        <div class="date">2023</div>
+                                        <div class="date">2023</div>
+                                        <div class="date">2023</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </a>
+                <a class="univ-link napravlen1 ekaterinburg" href="#">
+                    <div class="pi-container">
+                        <img class="irit-image" src="image/irit.png" alt="Прикладная информатика">                        
+                        <section class="directions-title namesun">
+                            Прикладная информатика
+                            <div class="info">
+                                09.03.03 Бакалавриат<br>Форма обучения: Заочная, Очно-заочная, Очная<br>ЕГЭ: математика, русский, физика/информатика
+                            </div>
+                            <div class="info-napr">
+                                Прикладная информатика – молодая, но бурно<br> развивающаяся дисциплина. Современная жизнь<br> немыслима без компьютеров и информационных...
+                            </div>
+                            <div class="wrapper">
+                                <div>
+                                    <div class="info-price">
+                                        Стоимость
+                                        <p class="price">от 156 800 ₽</p>
+                                    </div>
+                                    <div class="info-price">
+                                        Бюджет
+                                        <p class="price">от 299 Б</p>
+                                        <p class="place">199 мест</p>
+                                    </div>
+                                    <div class="info-price">
+                                        Платное
+                                        <p class="price">от 118 Б</p>
+                                        <p class="place">68 мест</p>
+                                    </div>
+                                    <div class="year">
+                                        <div class="date">2023</div>
+                                        <div class="date">2023</div>
+                                        <div class="date">2023</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </a>
+            </div>
+        </main>
+        <img class="main-bottom-decoration" src = "image/pdmain.png">
+        <footer class="main-footer">
+            <div class="first-column">
+                <a href="/">
+                    <img class="logo" src="image/kampus.png">
+                </a>
+                <p class="first-column">
+                    Екатеринбург - студенческая столица России!
+                </p>
+                <p class="first-column">
+                    Подпишитесь на наши соцсети
+                </p>
+                <ul class="social-list">
+                    <li class="social-list-item">
+                        <a href="https://ok.ru/" target="_blank">
+                            <img src="image/social_media/ok.svg">
+                        </a>
+                    </li>
+                    <li class="social-list-item">
+                        <a href="https://vk.com/" target="_blank">
+                            <img src="image/social_media/vk.svg">
+                        </a>
+                    </li>
+                    <li class="social-list-item">
+                        <a href="https://web.telegram.org/" target="_blank">
+                            <img src="image/social_media/tg.svg">
+                        </a>
+                    </li>
+                    <li class="social-list-item">
+                        <a href="https://www.whatsapp.com/" target="_blank">
+                            <img src="image/social_media/wa.svg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="second-column">
+                <ul class="footer-nav">
+                    <a href="https://studgorod.ru/#news">Новости</a>
+                    <a href="https://studgorod.ru/#events">Мероприятия</a>
+                    <a href="https://studgorod.ru/partners">Партнеры</a>
+                    <a href="https://studgorod.ru/pages/Kontakty">Контакты</a>
+                </ul>
+                <ul class="footer-agreements">
+                    <a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh">Политика конфиденциальности</a>
+                    <a href="https://studgorod.ru/pages/soglasie-na-obrabotku-personalnyh-dannyh">Согласие на обработку персональных данных</a>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>
