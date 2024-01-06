@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/bs.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/index-style.css">
+    <link rel="stylesheet" href="css/directions.css">
+    <link rel="stylesheet" href="css/university-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="scripts/filter.js"></script>
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/redact.js"></script>
+</head>
+<body>
+    <img class="header-decor" src = "image/header-decor-violet.svg">
+    <header class="header-nav">
+        <a href="https://studgorod.ru/" class = "kampus"><img src="image/kampus.png"></a>
+        <div class="site-nav">
+            <a href="https://studgorod.ru/#news" class="news">Новости</a>
+            <a href="index.html" class="catalog">ВУЗы</a>
+            <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
+            <a href="https://studgorod.ru/" class="more">Ещё</a>
+        </div>
+        <a href="https://studgorod.ru/" class="registration">Регистрация</a>
+        <a href="profile.html" class="enter">Войти</a>
+    </header>
+    <main class="university-main">
+        <div class="main-top">
+            <nav id="back">
+                <div class="back-wrapper">
+                    <a href="index.html">Назад</a>
+                </div>
+            </nav>
+            <div class="gallery">
+                <h1 id="uniTitle" contenteditable="true">Уральский Федеральный Университет</h1>
+                <div class="image-container">
+                    <img id="uniImage" src="image/urfu-foruniver.jpg">
+                    <button class="delete-button" onclick="deleteImage()">
+                        <img src="image/trashcan.png" alt="Удалить фотографию">
+                    </button>
+                </div>
+                <div class="file-input-container">
+                    <label for="fileInput" id="fileLabel"><img src="image/add_box.svg" alt="Добавить фотографию" style="height: 75%; width: 75%;"></label>
+                    <input type="file" id="fileInput" accept="image/*" onchange="replaceImage(this)">
+                </div>
+            </div>
+        </div>
+        <img class="gallery-decor-bot" src="/image/univ_decor/univ_gallery_decor_bot.svg" alt="">
+        <div class="univ-information">
+            <section id="about" class="about">
+                <h2 contenteditable="true" spellcheck="false">ОБ УНИВЕРСИТЕТЕ</h2>
+                <p contenteditable="true" spellcheck="false">введите текст</p>
+            </section>
+            <section id="features" class="features">
+                <h2 contenteditable="true" spellcheck="false">ОСОБЕННОСТИ</h2>
+                <p contenteditable="true" spellcheck="false">введите текст</p>
+            </section>
+            <section id="contacts" class="contacts">
+                <h2 contenteditable="true" spellcheck="false">Контакты</h2>
+                <p contenteditable="true" spellcheck="false">введите текст</p>
+            </section>
+            <section class="edit">
+                <button onclick="addSection()" class="add-chapter"><img src="image/add_box_chapter.svg">Добавить раздел</button>
+            </section>
+        </div>
+        <img class="univ-nav-decor univ-nav-decor-top" src="/image/univ_decor/univ_nav_decor_top.svg" alt="">
+        <div class="univ-navigation">
+            <a href="#" class="button-link">
+                <div class="button-wrapper">
+                    <img src="image/univ_decor/button_icon.svg">
+                    <p>Институты</p>
+                </div>
+            </a>
+            <a href="#" class="button-link">
+                <div class="button-wrapper">
+                    <img src="image/univ_decor/button_icon.svg">
+                    <p>Направления</p>
+                </div>
+            </a>
+        </div>
+        <img class="univ-nav-decor" src="/image/univ_decor/univ_nav_decor_bot.svg" alt="">
+    </main>
+    <footer class="main-footer">
+        <div class="first-column">
+            <a href="/">
+                <img class="logo" src="image/kampus.png">
+            </a>
+            <p class="first-column">
+                Екатеринбург - студенческая столица России!
+            </p>
+            <p class="first-column">
+                Подпишитесь на наши соцсети
+            </p>
+            <ul class="social-list">
+                <li class="social-list-item">
+                    <a href="https://ok.ru/" target="_blank">
+                        <img src="image/social_media/ok.svg">
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a href="https://vk.com/" target="_blank">
+                        <img src="image/social_media/vk.svg">
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a href="https://web.telegram.org/" target="_blank">
+                        <img src="image/social_media/tg.svg">
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a href="https://www.whatsapp.com/" target="_blank">
+                        <img src="image/social_media/wa.svg">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="second-column">
+            <ul class="footer-nav">
+                <a href="https://studgorod.ru/#news">Новости</a>
+                <a href="https://studgorod.ru/#events">Мероприятия</a>
+                <a href="https://studgorod.ru/partners">Партнеры</a>
+                <a href="https://studgorod.ru/pages/Kontakty">Контакты</a>
+            </ul>
+            <ul class="footer-agreements">
+                <a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh">Политика конфиденциальности</a>
+                <a href="https://studgorod.ru/pages/soglasie-na-obrabotku-personalnyh-dannyh">Согласие на обработку персональных данных</a>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

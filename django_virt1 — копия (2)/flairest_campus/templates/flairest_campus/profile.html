@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/nav.css">
+        <link rel="stylesheet" href="css/bs.css">
+        <link rel="stylesheet" href="css/profile.css">
+        <link rel="stylesheet" href="css/index-style.css">
+        <link rel="stylesheet" href="css/directions.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+        <script src="scripts/filter.js"></script>
+    </head>
+    <body>
+        <img style = "position: absolute; z-index: -1" src = "image/nav.jpg">
+        <div class="header-nav">
+            <a href="https://studgorod.ru/" class = "kampus"><img src="image/kampus.png"></a>
+            <div class="site-nav">
+                <a href="https://studgorod.ru/#news" class="news">Новости</a>
+                <a href="index.html" class="catalog">ВУЗы</a>
+                <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
+                <a href="https://studgorod.ru/" class="more">Ещё</a>
+            </div>
+            <a href="profile.html" class="enter-profile">Мой Профиль</a>
+        </div>
+        <main class="main-profile">
+            <section>
+                <h1 class = "profile">Мой Профиль</h1>
+                <img class="main-bottom-profile" src = "image/profile.png" width="100%">
+            </section>
+            <section class="main-user">
+                <section class="user-data">
+                    <h1 class="user-data-main">Данные пользователя</h1>
+                    <p class="ns">ФИО</p>
+                    <p class="ns-main">Иванов Алексей Владимирович</p>
+                    <p class="ns">ВУЗ</p>
+                    <p class="ns-main">Уральский Федеральный Университет<br>имени первого президента России<br>Б. Н. Ельцина</p>
+                    <p class="ns">Специальность</p>
+                    <p class="ns-main">Прикладная информатика</p>
+                    <p class="ns">Курс</p>
+                    <p class="ns-main">2</p>
+                    <p class="ns">E-mail</p>
+                    <p class="ns-main">mail@mail.ru</p>
+                    <p class="my-data">Изменить свои данные</p>
+                </section>
+                <section class="mailing">
+                    <div class="notifications">     
+                        <h1 class="user-data-main">Настройки уведолений<br>и рассылок</h1>
+                        <p class="notifications-bottom">Я согласен получать E-mail рассылки</p>
+                        <p class="notifications-bottom">Я согласен получать Push уведомления</p>
+                    </div>
+                    <div class="notifications">
+                        <h1 class="user-data-main">Политика<br>конфиденциальности</h1>
+                        <p class="notifications-bottom">Я согласен с политикой<br>конфиденциальности</p>
+                    </div>
+                </section>
+            </section>
+            <h1 class="favourites">Избранное</h1>
+        </main>     
+        <footer class="main-footer">
+            <div class="first-column">
+                <a href="/">
+                    <img class="logo" src="image/kampus.png">
+                </a>
+                <p class="first-column">
+                    Екатеринбург - студенческая столица России!
+                </p>
+                <p class="first-column">
+                    Подпишитесь на наши соцсети
+                </p>
+                <ul class="social-list">
+                    <li class="social-list-item">
+                        <a href="https://ok.ru/" target="_blank">
+                            <img src="image/social_media/ok.svg">
+                        </a>
+                    </li>
+                    <li class="social-list-item">
+                        <a href="https://vk.com/" target="_blank">
+                            <img src="image/social_media/vk.svg">
+                        </a>
+                    </li>
+                    <li class="social-list-item">
+                        <a href="https://web.telegram.org/" target="_blank">
+                            <img src="image/social_media/tg.svg">
+                        </a>
+                    </li>
+                    <li class="social-list-item">
+                        <a href="https://www.whatsapp.com/" target="_blank">
+                            <img src="image/social_media/wa.svg">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="second-column">
+                <ul class="footer-nav">
+                    <a href="https://studgorod.ru/#news">Новости</a>
+                    <a href="https://studgorod.ru/#events">Мероприятия</a>
+                    <a href="https://studgorod.ru/partners">Партнеры</a>
+                    <a href="https://studgorod.ru/pages/Kontakty">Контакты</a>
+                </ul>
+                <ul class="footer-agreements">
+                    <a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh">Политика конфиденциальности</a>
+                    <a href="https://studgorod.ru/pages/soglasie-na-obrabotku-personalnyh-dannyh">Согласие на обработку персональных данных</a>
+                </ul>
+            </div>
+        </footer>
+    </body>
+</html>
