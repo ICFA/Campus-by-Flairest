@@ -96,3 +96,9 @@
     background-color: #F42E30;
     border-top-right-radius: 20px;
 }
+
+@media only screen and (max-width: 1587px) {
+    .site-nav {
+        display: none;
+    }
+}

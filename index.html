@@ -30,8 +30,10 @@
                 <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
                 <a href="https://studgorod.ru/" class="more">Ещё</a>
             </div>
-            <button onclick="openLoginForm('register')" id="registerBtn" class="registration">Регистрация</button>
-            <button onclick="openLoginForm('login')" id="loginBtn" class="enter">Войти</button>
+            <div class="account-button-container">
+                <button onclick="openLoginForm('register')" id="registerBtn" class="registration">Регистрация</button>
+                <button onclick="openLoginForm('login')" id="loginBtn" class="enter">Войти</button>
+            </div>
             <div class="profile-buttons">
                 <a href="profile.html" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
                 <a href="#" onclick="logout()" class="login-out" id="logoutBtn" style="display: none;">Выйти</a>
@@ -64,29 +66,31 @@
             </div>
             <!------------------------------->
             <h1 class = "mainh1">Каталог ВУЗов Урала</h1>
-            <div class="search-container">
-                <span class="search-icon-inline">
-                    <img id="searchIcon" src="image/social_media/lupa.svg" alt="Поиск">
-                </span>
-                <input type="text" id="universitySearch" oninput="searchUniversities()" onkeydown="searchOnEnter()">
-            </div>
-            <img class="showFiltersButton" src="image/button-setting.svg" alt="Показать фильтры" onclick="toggleFilters()">
-            <div class="filter-container" style="display: none;">
-                <div class="filter-wrapper">
-                    <p>Показывать только:</p>
-                    <select id="filterSelector" onchange="updateFilter()" oninput="searchUniversities()">
-                        <option value="universities" selected>университеты</option>
-                        <option value="institutes">институты</option>
-                        <option value="directions">направления</option>
-                    </select>
+            <div class="univ-selection">
+                <div class="search-container">
+                    <span class="search-icon-inline">
+                        <img id="searchIcon" src="image/social_media/lupa.svg" alt="Поиск">
+                    </span>
+                    <input type="text" id="universitySearch" oninput="searchUniversities()" onkeydown="searchOnEnter()">
                 </div>
-                <div class="filter-wrapper">
-                    <p>Город:</p>
-                    <select id="citySelector" onchange="updateFilter()" oninput="searchUniversities()">
-                        <option value="all">все</option>
-                        <option value="ekaterinburg">Екатеринбург</option>
-                        <option value="chelyabinsk">Челябинск</option>
-                    </select>
+                <img class="showFiltersButton" src="image/button-setting.svg" alt="Показать фильтры" onclick="toggleFilters()">
+                <div class="filter-container" style="display: none;">
+                    <div class="filter-wrapper">
+                        <p>Показывать только:</p>
+                        <select id="filterSelector" onchange="updateFilter()" oninput="searchUniversities()">
+                            <option value="universities" selected>университеты</option>
+                            <option value="institutes">институты</option>
+                            <option value="directions">направления</option>
+                        </select>
+                    </div>
+                    <div class="filter-wrapper">
+                        <p>Город:</p>
+                        <select id="citySelector" onchange="updateFilter()" oninput="searchUniversities()">
+                            <option value="all">все</option>
+                            <option value="ekaterinburg">Екатеринбург</option>
+                            <option value="chelyabinsk">Челябинск</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="univ-catalogue">
@@ -256,50 +260,52 @@
         </main>
         <img class="main-bottom-decoration" src = "image/pdmain.png">
         <footer class="main-footer">
-            <div class="first-column">
-                <a href="/">
-                    <img class="logo" src="image/kampus.png">
-                </a>
-                <p class="first-column">
-                    Екатеринбург - студенческая столица России!
-                </p>
-                <p class="first-column">
-                    Подпишитесь на наши соцсети
-                </p>
-                <ul class="social-list">
-                    <li class="social-list-item">
-                        <a href="https://ok.ru/" target="_blank">
-                            <img src="image/social_media/ok.svg">
-                        </a>
-                    </li>
-                    <li class="social-list-item">
-                        <a href="https://vk.com/" target="_blank">
-                            <img src="image/social_media/vk.svg">
-                        </a>
-                    </li>
-                    <li class="social-list-item">
-                        <a href="https://web.telegram.org/" target="_blank">
-                            <img src="image/social_media/tg.svg">
-                        </a>
-                    </li>
-                    <li class="social-list-item">
-                        <a href="https://www.whatsapp.com/" target="_blank">
-                            <img src="image/social_media/wa.svg">
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <div class="second-column">
-                <ul class="footer-nav">
-                    <a href="https://studgorod.ru/#news">Новости</a>
-                    <a href="https://studgorod.ru/#events">Мероприятия</a>
-                    <a href="https://studgorod.ru/partners">Партнеры</a>
-                    <a href="https://studgorod.ru/pages/Kontakty">Контакты</a>
-                </ul>
-                <ul class="footer-agreements">
-                    <a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh">Политика конфиденциальности</a>
-                    <a href="https://studgorod.ru/pages/soglasie-na-obrabotku-personalnyh-dannyh">Согласие на обработку персональных данных</a>
-                </ul>
+            <div class="footer-wrapper">
+                <div class="first-column">
+                    <a href="/">
+                        <img class="logo" src="image/kampus.png">
+                    </a>
+                    <p class="first-column">
+                        Екатеринбург - студенческая столица России!
+                    </p>
+                    <p class="first-column">
+                        Подпишитесь на наши соцсети
+                    </p>
+                    <ul class="social-list">
+                        <li class="social-list-item">
+                            <a href="https://ok.ru/" target="_blank">
+                                <img src="image/social_media/ok.svg">
+                            </a>
+                        </li>
+                        <li class="social-list-item">
+                            <a href="https://vk.com/" target="_blank">
+                                <img src="image/social_media/vk.svg">
+                            </a>
+                        </li>
+                        <li class="social-list-item">
+                            <a href="https://web.telegram.org/" target="_blank">
+                                <img src="image/social_media/tg.svg">
+                            </a>
+                        </li>
+                        <li class="social-list-item">
+                            <a href="https://www.whatsapp.com/" target="_blank">
+                                <img src="image/social_media/wa.svg">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="second-column">
+                    <ul class="footer-nav">
+                        <a href="https://studgorod.ru/#news">Новости</a>
+                        <a href="https://studgorod.ru/#events">Мероприятия</a>
+                        <a href="https://studgorod.ru/partners">Партнеры</a>
+                        <a href="https://studgorod.ru/pages/Kontakty">Контакты</a>
+                    </ul>
+                    <ul class="footer-agreements">
+                        <a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh">Политика конфиденциальности</a>
+                        <a href="https://studgorod.ru/pages/soglasie-na-obrabotku-personalnyh-dannyh">Согласие на обработку персональных данных</a>
+                    </ul>
+                </div>
             </div>
         </footer>
     </body>

@@ -12,11 +12,18 @@ body {
     margin: 0;
     padding: 0;
     margin-top: 50px;
+    position: relative;
+    padding-left: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.footer-wrapper {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    position: relative;
-    padding-left: 50px;
+    max-width: 1360px;
+    justify-self: center;
 }
 
 .main-footer p {
@@ -41,7 +48,7 @@ body {
 
 .first-column {
     font-size: 18px;
-    margin-left: 235px;
+    margin-left: 0px;
     margin-right: 150px;
 }
 
@@ -56,7 +63,7 @@ body {
     flex-direction: column;
     margin: 0;
     padding: 0;
-    margin-right: 200px;
+    margin-right: 0px;
 }
 
 .footer-agreements a {
@@ -177,14 +184,10 @@ body {
 }
 
 .search-container {
-    margin-bottom: 20px;
-    margin-left: 260px;
-}
-
-#universitySearch {
-    width: 16%;
-    padding: 10px;
-    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    min-width: 75px;
 }
 
 button {
@@ -196,7 +199,7 @@ button {
 
 #universitySearch {
     height: 25px;
-    width: 16%;
+    width: 100%;
     border: none;
     border-radius: 28px;
     padding: 15px;
@@ -209,11 +212,6 @@ button {
 
 #universitySearch::placeholder {
     color: #555;
-}
-
-.search-container {
-    display: flex;
-    align-items: center;
 }
 
 .search-icon img,
@@ -247,6 +245,12 @@ button {
     width: 75%;
 }
 
+.univ-selection {
+    display: flex;
+    margin-left: 260px;
+    margin-bottom: 20px;
+}
+
 .univer1 .univ-link {
     display: block;
 }
@@ -267,9 +271,6 @@ select {
 .filter-container {
     display: flex;
     align-items: center;
-    margin-left: 640px;
-    margin-top: -88px;
-    margin-bottom: 50px;
 }
 
 .filter-wrapper {
@@ -288,6 +289,8 @@ select {
     font-size: 18px;
     background-color: rgba(255, 255, 255, 0.6);
     color: #333;
+    width: 100%;
+    white-space: nowrap;
 }
 
 .filter-wrapper select {
@@ -310,9 +313,7 @@ select {
 }
 
 .showFiltersButton {
-    margin-left: 30%;
-    margin-bottom: 2.3%;
-    margin-top: -80px;
+    margin-right: 20px;
 }
 
 .login-container {
