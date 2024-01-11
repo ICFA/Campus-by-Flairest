@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Добавить направление</title>
+    <link rel="stylesheet" href="{% static 'flairest_campus/css/direction-style.css' %}">
+    <link rel="stylesheet" href="{% static 'flairest_campus/css/nav.css' %}">
+    <link rel="stylesheet" href="{% static 'flairest_campus/css/index-style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="{% static 'flairest_campus/scripts/direction.js' %}"></script>
+</head>
+<body>
+    <img class="header-decor" src = "{% static 'flairest_campus/image/header-decor-violet.svg' %}">
+    <header class="header-nav">
+        <!--ИСПРАВЛЕНО--><a href='/uni' class = "kampus"><img src="{% static 'flairest_campus/image/kampus.png' %}"></a>
+        <div class="site-nav">
+            <a href="https://studgorod.ru/#news" class="news">Новости</a>
+            <!-- Ошибка (из-за ссылки) --><a href="index.html" class="catalog">ВУЗы</a>
+            <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
+            <a href="https://studgorod.ru/" class="more">Ещё</a>
+        </div>
+        <a href="https://studgorod.ru/" class="registration">Регистрация</a>
+        <!-- Ошибка (из-за ссылки) --><a href="profile.html" class="enter">Войти</a>
+    </header>
+    <main class="direction-main">
+        <div class="direction-intro">
+            <nav id="back">
+                <div class="back-wrapper">
+                    <input type=button value="Назад" onClick="javascript:history.go(-1);">
+                </div>
+            </nav>
+    <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <h1 class="direction-title">Название направления</h1>
+                <p>{{ form.name }}</p>
+                <div class="direction-enroll-info">
+                    <p class="direction-code">Код направления</p>
+                    {{ form.speciality_cod }}
+                    <p class="direction-ege-subjects">ЕГЭ</p>
+                    {{ form.ege }}
+                    <p class="direction-ege-subjects">Фото кампуса</p>
+                    {{ form.photo }}
+                </div>
+            <pre class="direction-description">О направлении</pre>
+            <p>{{ form.about }}</p>
+        </div>
+        <img src="{% static 'flairest_campus/image/header-direction.png' %}" style="width: 100%;" alt="">
+        <section class="direction-features">
+            <h2>ОСОБЕННОСТИ НАПРАВЛЕНИЯ</h2>
+            <pre class="direction-features-description">{{ form.special }}</pre>
+        </section>
+        <section class="direction-details">
+            <h2>Детали</h2>
+            <table class="details">
+                <tr><td id="college">Вуз</td><td id="college-value">{{ form.university }}</td></tr>
+                <tr><td id="faculty">Факультет</td><td id="faculty-value">{{ form.faculty }}</td></tr>
+                <tr><td id="city">Город</td><td id="city-value">{{ form.city }}</td></tr>
+                <tr><td id="language">Язык</td><td id="language-value">{{ form.language }}</td></tr>
+                <tr><td id="education-level">Уровень образования</td><td id="education-level-value">{{ form.level }}</td></tr>
+                <tr><td id="study-period">Период обучения</td><td id="study-period-value">{{ form.duration }}</td></tr>
+                <tr><td id="education-form">Форма обучения</td><td id="education-form-value">{{ form.study_form }}</td></tr>
+                <tr><td id="military-department">Военная кафедра</td><td id="military-department-value">{{ form.military_department }}</td></tr>
+                <tr><td id="state-college">Государственный</td><td id="state-college-value">{{ form.gos_or_private }}</td></tr>
+            </table>
+        </section>
+        <!--
+        <section class="direction-enrollment">
+            <h2>Поступление</h2>
+            <div class="enrollment-filter">
+                <button id="budget">Бюджет</button>
+                <button id="paid">Платно</button>
+            </div>
+        </section>
+        -->
+        <section class="description-cl">
+            <h2>Ключевые дисциплины</h2>
+            <p style="width: 85%;">{{ form.discipline }}</p>
+        </section>
+        <section class="direction-details">
+            <table class="details">
+                <tr><td id="college">Стоимость обучения</td><td id="college-value">{{ form.price }}</td></tr>
+                <tr><td id="faculty">Проходной балл на бюджет и платное</td><td id="faculty-value">{{ form.passing_score_free }} {{ form.passing_score_paid }}</td></tr>
+                <tr><td id="city">Количество мест на бюджет и платное</td><td id="city-value">{{ form.max_students_number_free }} {{ form.max_students_number_paid }}</td></tr>
+            </table>
+        </section>
+        <!--
+        <section class="description-cl">
+            <h2>Стоимость обучения</h2>
+            <p style="width: 85%;">{{ form.price }}</p>
+        </section>
+        <section class="description-cl">
+            <h2>Проходной балл на бюджет и платное</h2>
+            <p style="width: 85%;">{{ form.passing_score_free }} {{ form.passing_score_paid }}</p>
+        </section>
+        <section class="description-cl">
+            <h2>Количество мест на бюджет и платное</h2>
+            <p style="width: 85%;">{{ form.max_students_number_free }} {{ form.max_students_number_paid }}</p>
+        </section>
+        -->
+        <section class="direction-questions">
+            <h2>Ссылки на контакты</h2>
+            <p>{{ form.links }}</p>
+        </section>
+        <section>
+            <button type="submit">Добавить</button>
+        </section>
+    </form>
+        <div class="direction-reviews">
+            <h2>Отзывы</h2>
+            <div class="arrow-container" id="prev-btn"><img src="{% static 'flairest_campus/image/left.svg' %}" style="position: absolute;" alt="Previous"></div>
+            <div class="reviews-container">
+                <div class="reviews-list">
+                </div>
+            </div>
+            <div class="arrow-container" id="next-btn"><img src="{% static 'flairest_campus/image/right.svg' %}" alt="Next"></div>
+        </div>
+        <img src="{% static 'flairest_campus/image/footer-direction.png' %}" style="width: 100%;">
+        <div class="direction-review-create">
+            <h2>Оставьте свой отзыв!</h2>
+            <form id="review-form">
+                <textarea name="review-text" id="review-submit-text" cols="40" rows="10" placeholder="Ваш отзыв"></textarea>
+                <button type="button" id="submit-button" style="border-radius: 15px; padding: 15px 0 15px; margin: 50px 0px 50px;">Отправить</button>
+            </form>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <div class="first-column">
+            <a href="/">
+                <img class="logo" src="{% static 'flairest_campus/image/kampus.png' %}">
+            </a>
+            <p class="first-column">
+                Екатеринбург - студенческая столица России!
+            </p>
+            <p class="first-column">
+                Подпишитесь на наши соцсети
+            </p>
+            <ul class="social-list">
+                <li class="social-list-item">
+                    <a href="https://ok.ru/" target="_blank">
+                        <img src="{% static 'flairest_campus/image/social_media/ok.svg' %}">
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a href="https://vk.com/" target="_blank">
+                        <img src="{% static 'flairest_campus/image/social_media/vk.svg' %}">
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a href="https://web.telegram.org/" target="_blank">
+                        <img src="{% static 'flairest_campus/image/social_media/tg.svg' %}">
+                    </a>
+                </li>
+                <li class="social-list-item">
+                    <a href="https://www.whatsapp.com/" target="_blank">
+                        <img src="{% static 'flairest_campus/image/social_media/wa.svg' %}">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="second-column">
+            <ul class="footer-nav">
+                <a href="https://studgorod.ru/#news">Новости</a>
+                <a href="https://studgorod.ru/#events">Мероприятия</a>
+                <a href="https://studgorod.ru/partners">Партнеры</a>
+                <a href="https://studgorod.ru/pages/Kontakty">Контакты</a>
+            </ul>
+            <ul class="footer-agreements">
+                <a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh">Политика конфиденциальности</a>
+                <a href="https://studgorod.ru/pages/soglasie-na-obrabotku-personalnyh-dannyh">Согласие на обработку персональных данных</a>
+            </ul>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,13 +1,17 @@
 from django.urls import path
 from flairest_campus import views
 from flairest_campus.models import LogMessage
-from .views import home_page
 
 '''
 home_list_view = views.HomeListView.as_view(
     queryset=LogMessage.objects.order_by("-log_date")[:5],  # :5 limits the results to the five most recent
     context_object_name="message_list",
     template_name="flairest_campus/home.html",
+)
+
+home_list_view = views.HomeListView.as_view(
+    context_object_name="message_list",
+    template_name="flairest_campus/index2.html",
 )
 
 urlpatterns = [
@@ -22,5 +26,12 @@ urlpatterns = [
 '''
 
 urlpatterns = [
-    path("", views.home_page, name="home")
+    path("", views.home_page, name="home"),
+    # path('uni/', views.UniCatalog.as_view()),
+    path('catalog/', views.UniCatalog1),
+    # path('unicreate/', views.manage_universities1, name="add_uni"),
+    path('unicreate/', views.UniAdd.as_view(), name="add_uni"),
+    path('catalog/uni/<int:uni_id>/', views.uni_detail, name='curr_uni'),
+    path('speccreate/', views.SpecAdd.as_view(), name="add_spec"),
+    path('catalog/spec/<int:spec_id>/', views.spec_detail, name='curr_spec')
 ]

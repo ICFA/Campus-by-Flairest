@@ -1,0 +1,1 @@
+default_app_config = 'flairest_campus.apps.FlairestCampusConfig'
