@@ -9,7 +9,7 @@ from django.views.generic import ListView
 from .models import NewUser, University, Institute, Specialty, Review
 from django.core.files.storage import FileSystemStorage
 from django.views.generic import CreateView
-from .forms import UniForm
+from .forms import UniForm, SpecForm
 
 
 def home_page(request):
@@ -26,6 +26,89 @@ def home_page(request):
             'file_url': file_url
         })
     return render(request, 'flairest_campus/index.html')
+
+class UniCatalog(CreateView):
+    # Модель куда выполняется сохранение
+    model = University
+    # Класс на основе которого будет валидация полей
+    form_class = UniForm
+    # Выведем все существующие записи на странице
+    extra_context = {'universities': University.objects.all()}
+    # Шаблон с помощью которого
+    # будут выводиться данные
+    template_name = 'flairest_campus/index2.html'
+
+def UniCatalog1(request):
+    uni = University.objects.all()
+    direct = Specialty.objects.all()
+    return render(
+        request,
+        'flairest_campus/index2.html',
+        {
+            'universities': uni,
+            'directions': direct
+        }
+    )
+
+class UniAdd(CreateView):
+    # Модель куда выполняется сохранение
+    model = University
+    # Класс на основе которого будет валидация полей
+    form_class = UniForm
+    # Шаблон с помощью которого
+    # будут выводиться данные
+    template_name = 'flairest_campus/university_add.html'
+    # На какую страницу будет перенаправление
+    # в случае успешного сохранения формы
+    success_url = '/catalog/'
+
+class SpecAdd(CreateView):
+    # Модель куда выполняется сохранение
+    model = Specialty
+    # Класс на основе которого будет валидация полей
+    form_class = SpecForm
+    # Шаблон с помощью которого
+    # будут выводиться данные
+    template_name = 'flairest_campus/direction_add.html'
+    # На какую страницу будет перенаправление
+    # в случае успешного сохранения формы
+    success_url = '/catalog/'
+
+def manage_universities1(request):
+    FormSet = UniForm(fields="__all__")
+    if request.method == "POST":
+        formset = FormSet(
+            request.POST,
+            request.FILES,
+        )
+        if formset.is_valid():
+            formset.save()
+            # Do something.
+    else:
+        formset = FormSet()
+    return render(request, "flairest_campus/university_add1.html", {"formset": formset})
+
+def uni_detail(request, uni_id):
+    uni = University.objects.get(id=uni_id)
+    rev = Review.objects.all()
+    return render(
+        request,
+        'flairest_campus/university.html',
+        {
+            'uni': uni,
+            'rev': rev
+        }
+    )
+
+def spec_detail(request, spec_id):
+    spec = Specialty.objects.get(id=spec_id)
+    return render(
+        request,
+        'flairest_campus/direction.html',
+        {
+            'spec': spec
+        }
+    )
 
 '''
 class HomeListView(ListView):

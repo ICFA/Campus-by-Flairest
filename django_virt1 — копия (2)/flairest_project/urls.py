@@ -23,7 +23,7 @@ from flairest_campus.views import home_page #
 
 urlpatterns = [
     path("", include("flairest_campus.urls")),
-    path('admin/', admin.site.urls)
+    path('admin/', admin.site.urls),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
