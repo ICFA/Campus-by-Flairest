@@ -1,7 +1,7 @@
 .kampus {
     padding-left: 250px;
-    height: 110px;
     padding-right: 50px;
+    margin-top: -30px;
 }
 
 .news {
@@ -80,6 +80,7 @@
     display: flex;
     align-items: center;
     padding-top: 20px;
+    height: 110px;
 }
 
 .mainh1 {
@@ -97,8 +98,84 @@
     border-top-right-radius: 20px;
 }
 
-@media only screen and (max-width: 1587px) {
-    .site-nav {
+#nav-button {
+    display: none;
+    padding-left: 250px;
+    padding-right: 50px;
+}
+
+.nav-list-reduced {
+    display: none;
+}
+
+.nav-list-reduced ul {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+}
+
+.nav-list-reduced ul li {
+    padding: 8px 0px;
+    width: 100%;
+    position: relative;
+    transition: all .15s linear;
+}
+
+.nav-list-reduced ul li:hover{
+    background-color: #ddd6fd;
+}
+
+.nav-list-reduced ul li a{
+    font-size: 20px;
+    line-height: 28px;
+    text-decoration: none;
+    color: inherit;
+    padding-left: 20px;
+}
+
+.nav-list-reduced ul li a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+@media only screen and (max-width: 1595px) {
+    .site-nav, .account-button-container{
+        display: none;
+    }
+    #nav-button {
+        display: block;
+    }
+    .kampus {
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+        filter: invert(100%) invert(23%) sepia(58%) saturate(3787%) hue-rotate(343deg) brightness(97%) contrast(98%); 
+    }
+}
+
+@media only screen and (min-width: 1596px){
+    #nlr {
+        display: none !important;
+    }
+    main, .main-bottom-decoration {
+        display: block !important;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .kampus {
         display: none;
     }
 }

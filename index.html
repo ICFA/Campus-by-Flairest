@@ -18,12 +18,14 @@
         <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
         <script src="scripts/filter.js"></script>
         <script src="scripts/auth.js"></script>
+        <script src="scripts/reduced-nav.js"></script>
     </head>
     <!--класс для поиска институтов Instityt1-->
     <body>
         <img style = "position: absolute; z-index: -1" src = "image/nav.jpg">
         <div class="header-nav">
-            <a href="https://studgorod.ru/" class = "kampus"><img src="image/kampus.png"></a>
+            <div class = "kampus"><a href="https://studgorod.ru/"><img src="image/kampus.png"></a></div>
+            <img src="image/button-setting.svg" id="nav-button" onclick="toggleNavList()" style="z-index: 1;"></img>
             <div class="site-nav">
                 <a href="https://studgorod.ru/#news" class="news">Новости</a>
                 <a href="index.html" class="catalog">ВУЗы</a>
@@ -38,6 +40,22 @@
                 <a href="profile.html" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
                 <a href="#" onclick="logout()" class="login-out" id="logoutBtn" style="display: none;">Выйти</a>
             </div>
+        </div>
+        <div class="nav-list-reduced" id="nlr" style="display: none;">
+            <ul>
+                <li>
+                    <a href="https://studgorod.ru/#news">Новости</a>
+                </li>
+                <li>
+                    <a href="index.html">ВУЗы</a>
+                </li>
+                <li>
+                    <a href="https://studgorod.ru/#events">Мероприятия</a>
+                </li>
+                <li>
+                    <a href="https://studgorod.ru/">Ещё</a>
+                </li>
+            </ul>
         </div>
         <main class="main">
             <!--форма регистрации-->
