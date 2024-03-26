@@ -298,3 +298,8 @@ GitHub.sublime-settings
 !.vscode/launch.json 
 !.vscode/extensions.json 
 .history
+
+# Ngrok and Django_migrations#
+Ngrok.exe
+desktop.ini
+*\migrations*

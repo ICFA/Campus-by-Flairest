@@ -70,6 +70,12 @@
                 <button id="paid">Платно</button>
             </div>
         </section>-->
+    {% for r in rev %}
+        {{ r.author }}
+        {{ r.speciality }}
+        {{ r.review }}
+        {{ r.date }}
+    {% endfor %}
         <section class="description-cl">
             <h2>Ключевые дисциплины</h2>
             <p style="width: 85%;">{{ spec.discipline }}</p>
@@ -83,12 +89,12 @@
             <div class="arrow-container" id="prev-btn"><img src="{% static 'flairest_campus/image/left.svg' %}" style="position: absolute;" alt="Previous"></div>
             <div class="reviews-container">
                 <div class="reviews-list">
-                    {% for r in rev %}
-                        {{ r.author }}
-                        {{ r.speciality }}
-                        {{ r.review }}
-                        {{ r.date }}
-                    {% endfor %}
+                {% for r in rev %}
+                    {{ r.author }}
+                    {{ r.speciality }}
+                    {{ r.review }}
+                    {{ r.date }}
+                {% endfor %}
                 </div>
             </div>
             <div class="arrow-container" id="next-btn"><img src="{% static 'flairest_campus/image/right.svg' %}" alt="Next"></div>

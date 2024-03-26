@@ -9,7 +9,7 @@ from django.views.generic import ListView
 from .models import NewUser, University, Institute, Specialty, Review
 from django.core.files.storage import FileSystemStorage
 from django.views.generic import CreateView
-from .forms import UniForm, SpecForm
+from .forms import UniForm, SpecForm, RevForm
 
 '''
 def home_page(request):
@@ -31,6 +31,8 @@ def home_page(request):
 def home_page(request):
     return render(request, 'flairest_campus/hello_page.html')
 
+def profile_page(request):
+    return render(request, 'flairest_campus/profile.html')
 
 class UniCatalog(CreateView):
     # Модель куда выполняется сохранение
@@ -68,16 +70,17 @@ class UniAdd(CreateView):
     success_url = '/catalog/'
 
 class SpecAdd(CreateView):
-    # Модель куда выполняется сохранение
     model = Specialty
-    # Класс на основе которого будет валидация полей
     form_class = SpecForm
-    # Шаблон с помощью которого
-    # будут выводиться данные
     template_name = 'flairest_campus/direction_add.html'
-    # На какую страницу будет перенаправление
-    # в случае успешного сохранения формы
     success_url = '/catalog/'
+
+class RevAdd(CreateView):
+    model = Review
+    form_class = RevForm
+    template_name = 'flairest_campus/review_add_DEVELOPMENT.html'
+    success_url = '/catalog/'
+
 
 def manage_universities1(request):
     FormSet = UniForm(fields="__all__")
@@ -95,23 +98,23 @@ def manage_universities1(request):
 
 def uni_detail(request, uni_id):
     uni = University.objects.get(id=uni_id)
-    rev = Review.objects.all()
     return render(
         request,
         'flairest_campus/university.html',
         {
-            'uni': uni,
-            'rev': rev
+            'uni': uni
         }
     )
 
 def spec_detail(request, spec_id):
     spec = Specialty.objects.get(id=spec_id)
+    rev = Review.objects.filter(specialty_id=spec_id)
     return render(
         request,
         'flairest_campus/direction.html',
         {
-            'spec': spec
+            'spec': spec,
+            'rev' : rev
         }
     )
 
