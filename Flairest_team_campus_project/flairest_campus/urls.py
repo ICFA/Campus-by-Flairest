@@ -26,8 +26,10 @@ urlpatterns = [
 '''
 
 urlpatterns = [
+    path('review_add_DEVELOPMENT', views.RevAdd.as_view()),
     path('', views.home_page),
     path('catalog/', views.UniCatalog1),
+    path('catalog/profile/', views.profile_page),
     path('unicreate/', views.UniAdd.as_view(), name="add_uni"),
     path('catalog/uni/<int:uni_id>/', views.uni_detail, name='curr_uni'),
     path('speccreate/', views.SpecAdd.as_view(), name="add_spec"),

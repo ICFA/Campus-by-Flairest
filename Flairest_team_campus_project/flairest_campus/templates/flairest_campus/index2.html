@@ -87,17 +87,21 @@
                     <p>Город:</p>
                     <select id="citySelector" onchange="updateFilter()" oninput="searchUniversities()">
                         <option value="all">все</option>
-                        <option value="ekaterinburg">Екатеринбург</option>
-                        <option value="chelyabinsk">Челябинск</option>
+                        <option value="Екатеринбург">Екатеринбург</option>
+                        <option value="Челябинск">Челябинск</option>
+                        <option value="2">2</option>
+                        <option value="Chelyabinsk">Челябинск</option>
+                        <option value="не указано">Не указано</option>
                     </select>
                 </div>
             </div>
             <input type=button value="Добавить ВУЗ" onClick="location.href='/unicreate';">
             <input type=button value="Добавить направление" onClick="location.href='/speccreate';">
+            <input type=button value="Добавить отзыв (DEVELOPMENT_ONLY)" onClick="location.href='/review_add_DEVELOPMENT';">
             <div class="univ-catalogue">
                 {% for uni in universities %}
                 <!--  href="{prc url b.name prc}" -->
-                <a class="univ-link univer1" href="uni/{{ uni.id }}/">
+                <a class="univ-link univer1 {{ uni.gorod }}" href="uni/{{ uni.id }}/">
                     <div class="univ-container" id="urfu">
                         <h2 class="univ-title namesun">
                             {{ uni.name }}
