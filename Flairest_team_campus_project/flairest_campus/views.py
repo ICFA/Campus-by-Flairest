@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from flairest_campus.forms import LogMessageForm
 from flairest_campus.models import LogMessage
-from django.views.generic import ListView
+from django.views.generic import ListView, View
 from .models import NewUser, University, Institute, Specialty, Review
 from django.core.files.storage import FileSystemStorage
 from django.views.generic import CreateView
@@ -81,7 +81,30 @@ class RevAdd(CreateView):
     template_name = 'flairest_campus/review_add_DEVELOPMENT.html'
     success_url = '/catalog/'
 
+def uni_detail(request, uni_id):
+    uni = University.objects.get(id=uni_id)
+    return render(
+        request,
+        'flairest_campus/university.html',
+        {
+            'uni': uni
+        }
+    )
 
+def spec_detail(request, spec_id):
+    spec = Specialty.objects.get(id=spec_id)
+    rev = Review.objects.filter(specialty_id=spec_id)
+    revForm = RevForm()
+    if request.method == "POST":
+        formset = RevForm(request.POST)
+        if formset.is_valid():
+            add_review = Review.objects.create(author=request.POST['author'], specialty_id=spec_id, review=request.POST['review'])
+            add_review.save()
+            return redirect(f'/catalog/spec/{spec_id}')
+    return render(request, "flairest_campus/direction.html", {'revForm': revForm, 'spec': spec, 'rev' : rev})
+
+
+'''
 def manage_universities1(request):
     FormSet = UniForm(fields="__all__")
     if request.method == "POST":
@@ -96,29 +119,6 @@ def manage_universities1(request):
         formset = FormSet()
     return render(request, "flairest_campus/university_add1.html", {"formset": formset})
 
-def uni_detail(request, uni_id):
-    uni = University.objects.get(id=uni_id)
-    return render(
-        request,
-        'flairest_campus/university.html',
-        {
-            'uni': uni
-        }
-    )
-
-def spec_detail(request, spec_id):
-    spec = Specialty.objects.get(id=spec_id)
-    rev = Review.objects.filter(specialty_id=spec_id)
-    return render(
-        request,
-        'flairest_campus/direction.html',
-        {
-            'spec': spec,
-            'rev' : rev
-        }
-    )
-
-'''
 class HomeListView(ListView):
     """Renders the home page, with a list of all messages."""
     model = LogMessage
