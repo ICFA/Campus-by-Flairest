@@ -22,4 +22,4 @@ class SpecForm(forms.ModelForm):
 class RevForm(forms.ModelForm):
     class Meta:
         model = Review
-        fields = '__all__'
+        fields = ["author", "review"]
