@@ -84,7 +84,7 @@ function searchUniversities() {
             (selectedFilter === 'directions' && universities[i].classList.contains('napravlen1')) ||
             (selectedFilter === 'institutes' && universities[i].classList.contains('Instityt1'));
 
-        var cityMatch = selectedCity === 'all' || universities[i].classList.contains(selectedCity.toLowerCase());
+        var cityMatch = selectedCity === 'all' || universities[i].classList.contains(selectedCity);
 
         if (txtValue.toUpperCase().indexOf(filter) > -1 && filterMatch && cityMatch) {
             universities[i].style.display = '';
