@@ -34,18 +34,7 @@ def home_page(request):
 def profile_page(request):
     return render(request, 'flairest_campus/profile.html')
 
-class UniCatalog(CreateView):
-    # Модель куда выполняется сохранение
-    model = University
-    # Класс на основе которого будет валидация полей
-    form_class = UniForm
-    # Выведем все существующие записи на странице
-    extra_context = {'universities': University.objects.all()}
-    # Шаблон с помощью которого
-    # будут выводиться данные
-    template_name = 'flairest_campus/index2.html'
-
-def UniCatalog1(request):
+def UniCatalog(request):
     uni = University.objects.all()
     direct = Specialty.objects.all()
     return render(
@@ -64,6 +53,10 @@ class UniAdd(CreateView):
     form_class = UniForm
     # Шаблон с помощью которого
     # будут выводиться данные
+    '''
+    Выведем все существующие записи на странице
+    extra_context = {'universities': University.objects.all()}
+    '''
     template_name = 'flairest_campus/university_add.html'
     # На какую страницу будет перенаправление
     # в случае успешного сохранения формы
@@ -127,21 +120,6 @@ class HomeListView(ListView):
         context = super(HomeListView, self).get_context_data(**kwargs)
         return context
 
-class UniCreate(CreateView):
-    # Модель куда выполняется сохранение
-    model = University
-    # Класс на основе которого будет валидация полей
-    form_class = UniForm
-    # Выведем все существующие записи на странице
-    extra_context = {'universities': University.objects.all()}
-    # Шаблон с помощью которого
-    # будут выводиться данные
-    template_name = 'flairest_campus/uni_create.html'
-    # На какую страницу будет перенаправление
-    # в случае успешного сохранения формы
-    success_url = '/uni/'
-
-
 def home_page(request):
     # POST - обязательный метод
     if request.method == 'POST' and request.FILES:
@@ -156,12 +134,6 @@ def home_page(request):
             'file_url': file_url
         })
     return render(request, 'flairest_campus/home_page.html')
-
-def about(request):
-    return render(request, "flairest_campus/about.html")
-
-def contact(request):
-    return render(request, "flairest_campus/contact.html")
 
 def log_message(request):
     form = LogMessageForm(request.POST or None)

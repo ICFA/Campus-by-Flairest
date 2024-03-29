@@ -66,12 +66,38 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
 
 
 class University(models.Model):
+    Ekat = 'Ekat'
+    Nizh = 'Nizh'
+    Kame = 'Kame'
+    Perv = 'Perv'
+    Sero = 'Sero'
+    Novo = 'Novo'
+    Verx = 'Verx'
+    Bere = 'Bere'
+    Revd = 'Revd'
+    Asbe = 'Asbe'
+    Kras = 'Kras'
+
+    LEVEL_CHOICES = (
+        (Ekat, 'Екатеринбург'),
+        (Nizh, 'Нижний Тагил'),
+        (Kame, 'Каменск-Уральский'),
+        (Perv, 'Первоуральск'),
+        (Sero, 'Серов'),
+        (Novo, 'Новоуральск'),
+        (Verx, 'Верхняя Пышма'),
+        (Bere, 'Берёзовский'),
+        (Revd, 'Ревда'),
+        (Asbe, 'Асбест'),
+        (Kras, 'Краснотурьинск'),
+    )
+
     name = models.CharField(max_length=100)
     photo = models.ImageField(upload_to='uni/', null=True)
     about = models.CharField(max_length=2000)
     features = models.CharField(max_length=2000)
     contacts = models.CharField(max_length=300)
-    gorod = models.CharField(max_length=100)
+    gorod = models.CharField(max_length=4, choices=LEVEL_CHOICES, default=Ekat)
 
     def __str__(self):
         return self.name
