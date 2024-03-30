@@ -42,8 +42,29 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function deleteImage() {
-    const uniImage = document.getElementById('uniImage');
-    uniImage.src = ''; 
+    const uniImage = document.getElementById('uploadedImage');
+    uniImage.src = '';
+    const uniImageInput = document.getElementById('uniImage');
+    uniImageInput.value = '';
+
+    localStorage.removeItem('uniImage');
+
+    if (uniImage.src.startsWith('blob:')) {
+        URL.revokeObjectURL(uniImage.src);
+    }
+
+    uniImageInput.style.display = 'none';
+
+    const newInput = document.createElement('input');
+    newInput.type = 'file';
+    newInput.id = 'uniImage';
+    newInput.name = 'photo';
+    newInput.accept = 'image/*';
+    newInput.addEventListener('change', function () {
+        replaceImage(this);
+    });
+
+    uniImageInput.parentNode.replaceChild(newInput, uniImageInput);
 }
 
 function replaceImage(input) {
