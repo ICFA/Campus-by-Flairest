@@ -2,6 +2,15 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin, BaseUserManager
 from django.core.validators import RegexValidator
+import datetime
+import locale
+
+
+locale.setlocale(
+    category=locale.LC_ALL,
+    locale="Russian"
+)
+
 
 class LogMessage(models.Model):
     message = models.CharField(max_length=300)
@@ -57,11 +66,38 @@ class NewUser(AbstractBaseUser, PermissionsMixin):
 
 
 class University(models.Model):
+    Ekat = 'Екатеринбург'
+    Nizh = 'Нижний Тагил'
+    Kame = 'Каменск-Уральский'
+    Perv = 'Первоуральск'
+    Sero = 'Серов'
+    Novo = 'Новоуральск'
+    Verx = 'Верхняя Пышма'
+    Bere = 'Берёзовский'
+    Revd = 'Ревда'
+    Asbe = 'Асбест'
+    Kras = 'Краснотурьинск'
+
+    LEVEL_CHOICES = (
+        (Ekat, 'Екатеринбург'),
+        (Nizh, 'Нижний Тагил'),
+        (Kame, 'Каменск-Уральский'),
+        (Perv, 'Первоуральск'),
+        (Sero, 'Серов'),
+        (Novo, 'Новоуральск'),
+        (Verx, 'Верхняя Пышма'),
+        (Bere, 'Берёзовский'),
+        (Revd, 'Ревда'),
+        (Asbe, 'Асбест'),
+        (Kras, 'Краснотурьинск'),
+    )
+
     name = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to='uni/')
+    photo = models.ImageField(upload_to='uni/', null=True)
     about = models.CharField(max_length=2000)
     features = models.CharField(max_length=2000)
     contacts = models.CharField(max_length=300)
+    gorod = models.CharField(max_length=40, choices=LEVEL_CHOICES, default=Ekat)
 
     def __str__(self):
         return self.name
@@ -69,7 +105,7 @@ class University(models.Model):
 
 class Institute(models.Model):
     name = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to='inst/')
+    photo = models.ImageField(upload_to='inst/', null=True)
     about = models.CharField(max_length=1000)
     special = models.CharField(max_length=1000)
     contacts = models.CharField(max_length=300)
@@ -79,7 +115,7 @@ class Institute(models.Model):
 
 
 class Specialty(models.Model):
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, db_index=True)
     speciality_cod = models.CharField(max_length=100)
     ege = models.CharField(max_length=100)
     photo = models.ImageField(upload_to='spec/', null=True)
@@ -116,9 +152,9 @@ class Specialty(models.Model):
 
 class Review(models.Model):
     author = models.CharField(max_length=100)
-    specialty = models.CharField(max_length=100)
+    specialty = models.ForeignKey(Specialty, on_delete=models.PROTECT)
     review = models.CharField(max_length=1000)
-    date = models.DateTimeField()
+    date = models.CharField(default = datetime.date.today().strftime('%d %B %Y'), editable = False)
 
     def __str__(self):
         return self.review

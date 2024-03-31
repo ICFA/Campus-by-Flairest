@@ -42,8 +42,29 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function deleteImage() {
-    const uniImage = document.getElementById('uniImage');
-    uniImage.src = ''; 
+    const uniImage = document.getElementById('uploadedImage');
+    uniImage.src = '';
+    const uniImageInput = document.getElementById('uniImage');
+    uniImageInput.value = '';
+
+    localStorage.removeItem('uniImage');
+
+    if (uniImage.src.startsWith('blob:')) {
+        URL.revokeObjectURL(uniImage.src);
+    }
+
+    uniImageInput.style.display = 'none';
+
+    const newInput = document.createElement('input');
+    newInput.type = 'file';
+    newInput.id = 'uniImage';
+    newInput.name = 'photo';
+    newInput.accept = 'image/*';
+    newInput.addEventListener('change', function () {
+        replaceImage(this);
+    });
+
+    uniImageInput.parentNode.replaceChild(newInput, uniImageInput);
 }
 
 function replaceImage(input) {
@@ -80,21 +101,13 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function deleteImage() {
-    const uniImage = document.getElementById('uniImage');
-    const deleteButton = document.querySelector('.delete-button');
-    const fileInputContainer = document.querySelector('.file-input-container');
-
+    const uniImage = document.getElementById('uploadedImage');
     uniImage.src = '';
-    deleteButton.style.display = 'none';
-    fileInputContainer.style.display = 'block';
-
-    saveContent();
+    localStorage.removeItem('uniImage');
 }
 
 function replaceImage(input) {
-    const uniImage = document.getElementById('uniImage');
-    const deleteButton = document.querySelector('.delete-button');
-    const fileInputContainer = document.querySelector('.file-input-container');
+    const uniImage = document.getElementById('uploadedImage');
     const file = input.files[0];
 
     if (file) {
@@ -102,9 +115,6 @@ function replaceImage(input) {
 
         reader.onload = function (e) {
             uniImage.src = e.target.result;
-            deleteButton.style.display = 'block';
-            fileInputContainer.style.display = 'none';
-            saveImageToLocalStorage();
         };
 
         reader.readAsDataURL(file);

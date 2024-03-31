@@ -48,27 +48,19 @@
                     <h1 id="uniTitle" contenteditable="false" style="text-align: center;">Название Университета</h1>
                     {{ form.name }}
                     <h1 id="uniTitle" contenteditable="false" style="text-align: center;">Фото Университета</h1>
-                    {{ form.photo }}
-                    <!--<div class="image-container">
-                        <img id="uniImage">
-                        {{ form.photo }}
-                        <button class="delete-button" onclick="deleteImage()">
-                            <img src="{% static 'flairest_campus/image/trashcan.png' %}" alt="Удалить фотографию">
-                        </button>
-                    -->
-                    </div>
-                    <!--
-                    <div class="file-input-container">
-                        <label for="fileInput" id="fileLabel"><img src="{% static 'flairest_campus/image/add_box.svg' %}" alt="Добавить фотографию" style="height: 75%; width: 75%;"></label>
-                        <input type="file" id="fileInput" accept="image/*" onchange="replaceImage(this)">
-                    </div>
-                    -->
+                    <input type="file" id="uniImage" name="photo" accept="image/*" onchange="replaceImage(this)">
+                    <button type="button" id="uniImage" onclick="deleteImage()">Удалить фотографию</button>
+                    <img id="uploadedImage" class="uploaded-image" src="" alt="">
                 </div>
             <img class="gallery-decor-bot" src="{% static 'flairest_campus/image/univ_decor/univ_gallery_decor_bot.svg' %}" alt="">
             <div class="univ-information">
                 <section>
                     <h2 contenteditable="false" spellcheck="false">ОБ УНИВЕРСИТЕТЕ</h2>
                     {{ form.about }}
+                </section>
+                <section>
+                    <h2 contenteditable="false" spellcheck="false">Город</h2>
+                    {{ form.gorod }}
                 </section>
                 <section>
                     <h2 contenteditable="false" spellcheck="false">ОСОБЕННОСТИ</h2>

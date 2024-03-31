@@ -1,5 +1,5 @@
 from django import forms
-from .models import LogMessage, University, Specialty
+from .models import LogMessage, University, Specialty, Review
 
 class LogMessageForm(forms.ModelForm):
     class Meta:
@@ -16,8 +16,10 @@ class UniForm(forms.ModelForm):
 
 class SpecForm(forms.ModelForm):
     class Meta:
-        # Название модели на основе
-        # которой создается форма
         model = Specialty
-        # Включаем все поля с модели в форму
         fields = '__all__'
+
+class RevForm(forms.ModelForm):
+    class Meta:
+        model = Review
+        fields = ["author", "review"]

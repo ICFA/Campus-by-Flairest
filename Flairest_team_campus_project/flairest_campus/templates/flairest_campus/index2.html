@@ -65,7 +65,6 @@
                     <div><button onclick="login()" class="input-button">Зарегистрироваться</button></div>
                 </div>
             </div>
-            <!------------------------------->
             <h1 class = "mainh1">Каталог ВУЗов Урала</h1>
             <div class="search-container">
                 <span class="search-icon-inline">
@@ -87,17 +86,27 @@
                     <p>Город:</p>
                     <select id="citySelector" onchange="updateFilter()" oninput="searchUniversities()">
                         <option value="all">все</option>
-                        <option value="ekaterinburg">Екатеринбург</option>
-                        <option value="chelyabinsk">Челябинск</option>
+                        <option value="Екатеринбург">Екатеринбург</option>
+                        <option value="Тагил">Нижний Тагил</option>
+                        <option value="Каменск-Уральский">Каменск-Уральский</option>
+                        <option value="Первоуральск">Первоуральск</option>
+                        <option value="Серов">Серов</option>
+                        <option value="Новоуральск">Новоуральск</option>
+                        <option value="Пышма">Верхняя Пышма</option>
+                        <option value="Берёзовский">Берёзовский</option>
+                        <option value="Ревда">Ревда</option>
+                        <option value="Асбест">Асбест</option>
+                        <option value="Краснотурьинск">Краснотурьинск</option>
                     </select>
                 </div>
             </div>
             <input type=button value="Добавить ВУЗ" onClick="location.href='/unicreate';">
             <input type=button value="Добавить направление" onClick="location.href='/speccreate';">
+            <input type=button value="Добавить отзыв (DEVELOPMENT_ONLY)" onClick="location.href='/review_add_DEVELOPMENT';">
             <div class="univ-catalogue">
                 {% for uni in universities %}
                 <!--  href="{prc url b.name prc}" -->
-                <a class="univ-link univer1" href="uni/{{ uni.id }}/">
+                <a class="univ-link univer1 {{ uni.gorod }}" href="uni/{{ uni.id }}/">
                     <div class="univ-container" id="urfu">
                         <h2 class="univ-title namesun">
                             {{ uni.name }}
