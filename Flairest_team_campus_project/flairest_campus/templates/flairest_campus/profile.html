@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        {% load static %}
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="css/nav.css">
-        <link rel="stylesheet" href="css/bs.css">
-        <link rel="stylesheet" href="css/profile.css">
-        <link rel="stylesheet" href="css/index-style.css">
-        <link rel="stylesheet" href="css/directions.css">
+        <link rel="stylesheet" href="{% static 'flairest_campus/css/nav.css' %}">
+        <link rel="stylesheet" href="{% static 'flairest_campus/css/bs.css' %}">
+        <link rel="stylesheet" href="{% static 'flairest_campus/css/profile.css' %}">
+        <link rel="stylesheet" href="{% static 'flairest_campus/css/index-style.css' %}">
+        <link rel="stylesheet" href="{% static 'flairest_campus/css/directions.css' %}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&display=swap" rel="stylesheet">
@@ -17,16 +18,21 @@
         <script src="scripts/filter.js"></script>
     </head>
     <body>
-        <img style = "position: absolute; z-index: -1" src = "image/nav.jpg">
+        <img style = "position: absolute; z-index: -1" src = "{% static 'flairest_campus/image/nav.jpg' %}">
         <div class="header-nav">
-            <a href="https://studgorod.ru/" class = "kampus"><img src="image/kampus.png"></a>
+            <a href='https://studgorod.ru/' class = "kampus"><img src="{% static 'flairest_campus/image/kampus.png' %}"></a>
             <div class="site-nav">
                 <a href="https://studgorod.ru/#news" class="news">Новости</a>
-                <a href="index.html" class="catalog">ВУЗы</a>
+                <a href="../catalog" class="catalog">ВУЗы</a>
                 <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
                 <a href="https://studgorod.ru/" class="more">Ещё</a>
             </div>
-            <a href="profile.html" class="enter-profile">Мой Профиль</a>
+            <button onclick="openLoginForm('register')" id="registerBtn" class="registration">Регистрация</button>
+            <button onclick="openLoginForm('login')" id="loginBtn" class="enter">Войти</button>
+            <div class="profile-buttons">
+                <a href="../profile" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
+                <a href="#" onclick="logout()" class="login-out" id="logoutBtn" style="display: none;">Выйти</a>
+            </div>
         </div>
         <main class="main-profile">
             <section>
@@ -65,7 +71,7 @@
         <footer class="main-footer">
             <div class="first-column">
                 <a href="/">
-                    <img class="logo" src="image/kampus.png">
+                    <img class="logo" src="{% static 'flairest_campus/image/kampus.png' %}">
                 </a>
                 <p class="first-column">
                     Екатеринбург - студенческая столица России!
@@ -76,22 +82,22 @@
                 <ul class="social-list">
                     <li class="social-list-item">
                         <a href="https://ok.ru/" target="_blank">
-                            <img src="image/social_media/ok.svg">
+                            <img src="{% static 'flairest_campus/image/social_media/ok.svg' %}">
                         </a>
                     </li>
                     <li class="social-list-item">
                         <a href="https://vk.com/" target="_blank">
-                            <img src="image/social_media/vk.svg">
+                            <img src="{% static 'flairest_campus/image/social_media/vk.svg' %}">
                         </a>
                     </li>
                     <li class="social-list-item">
                         <a href="https://web.telegram.org/" target="_blank">
-                            <img src="image/social_media/tg.svg">
+                            <img src="{% static 'flairest_campus/image/social_media/tg.svg' %}">
                         </a>
                     </li>
                     <li class="social-list-item">
                         <a href="https://www.whatsapp.com/" target="_blank">
-                            <img src="image/social_media/wa.svg">
+                            <img src="{% static 'flairest_campus/image/social_media/wa.svg' %}">
                         </a>
                     </li>
                 </ul>

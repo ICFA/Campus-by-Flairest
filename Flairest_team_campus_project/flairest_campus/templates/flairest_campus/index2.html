@@ -26,17 +26,17 @@
     <body>
         <img style = "position: absolute; z-index: -1" src = "{% static 'flairest_campus/image/nav.jpg' %}">
         <div class="header-nav">
-            <!--ИСПРАВЛЕНО--><a href='/uni' class = "kampus"><img src="{% static 'flairest_campus/image/kampus.png' %}"></a>
+            <a href='https://studgorod.ru/' class = "kampus"><img src="{% static 'flairest_campus/image/kampus.png' %}"></a>
             <div class="site-nav">
                 <a href="https://studgorod.ru/#news" class="news">Новости</a>
-                <!---Ошибка (из-за ссылки)--><a href="index.html" class="catalog">ВУЗы</a>
+                <a href="../catalog" class="catalog">ВУЗы</a>
                 <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
                 <a href="https://studgorod.ru/" class="more">Ещё</a>
             </div>
             <button onclick="openLoginForm('register')" id="registerBtn" class="registration">Регистрация</button>
             <button onclick="openLoginForm('login')" id="loginBtn" class="enter">Войти</button>
             <div class="profile-buttons">
-                <!---Ошибка (из-за ссылки)--><a href="profile.html" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
+                <!---Ошибка (из-за ссылки)--><a href="../profile" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
                 <a href="#" onclick="logout()" class="login-out" id="logoutBtn" style="display: none;">Выйти</a>
             </div>
         </div>

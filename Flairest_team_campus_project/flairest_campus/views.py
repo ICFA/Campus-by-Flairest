@@ -32,6 +32,9 @@ def home_page(request):
     return render(request, 'flairest_campus/hello_page.html')
 
 
+def Profile(request):
+    return render(request, 'flairest_campus/profile.html')
+
 class UniCatalog(CreateView):
     # Модель куда выполняется сохранение
     model = University
