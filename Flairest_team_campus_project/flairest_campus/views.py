@@ -8,7 +8,7 @@ from flairest_campus.models import LogMessage
 from django.views.generic import ListView, View
 from .models import NewUser, University, Institute, Specialty, Review
 from django.core.files.storage import FileSystemStorage
-from django.views.generic import CreateView
+from django.views.generic import CreateView, UpdateView
 from .forms import UniForm, SpecForm, RevForm
 
 '''
@@ -34,6 +34,20 @@ def home_page(request):
 def profile_page(request):
     return render(request, 'flairest_campus/profile.html')
 
+def uni_edit(request, uni_id):
+    uni = University.objects.get(id=uni_id)
+    if request.method == "POST":
+        uni.name()
+        uni.save()
+        return redirect(f'/catalog/uni/{uni_id}')
+    return render(
+        request,
+        'flairest_campus/university_edit.html',
+        {
+            'uni': uni
+        }
+    )
+
 def UniCatalog(request):
     uni = University.objects.all()
     direct = Specialty.objects.all()
@@ -47,20 +61,19 @@ def UniCatalog(request):
     )
 
 class UniAdd(CreateView):
-    # Модель куда выполняется сохранение
     model = University
-    # Класс на основе которого будет валидация полей
     form_class = UniForm
-    # Шаблон с помощью которого
-    # будут выводиться данные
-    '''
-    Выведем все существующие записи на странице
-    extra_context = {'universities': University.objects.all()}
-    '''
     template_name = 'flairest_campus/university_add.html'
-    # На какую страницу будет перенаправление
-    # в случае успешного сохранения формы
     success_url = '/catalog/'
+
+class UniEdit(UpdateView):
+    model = University
+    fields = '__all__'
+    template_name = 'flairest_campus/university_add.html'
+    success_url = '/catalog/'
+    extra_context = {
+        'title': 'Редактирование университета',
+    }
 
 class SpecAdd(CreateView):
     model = Specialty

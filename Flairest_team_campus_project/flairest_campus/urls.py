@@ -32,6 +32,7 @@ urlpatterns = [
     path('catalog/', views.UniCatalog, name='catalog'),
     path('unicreate/', views.UniAdd.as_view(), name="add_uni"),
     path('catalog/uni/<int:uni_id>/', views.uni_detail, name='curr_uni'),
+    path('edit/<int:pk>/', views.UniEdit.as_view(), name='edit_uni'),
     path('speccreate/', views.SpecAdd.as_view(), name="add_spec"),
     path('catalog/spec/<int:spec_id>/', views.spec_detail, name='curr_spec')
 ]
