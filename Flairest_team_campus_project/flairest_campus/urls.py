@@ -29,7 +29,7 @@ urlpatterns = [
     path('review_add_DEVELOPMENT', views.RevAdd.as_view()),
     path('', views.home_page),
     path('profile/', views.profile_page, name='profile'),
-    path('catalog/', views.UniCatalog1, name='catalog'),
+    path('catalog/', views.UniCatalog, name='catalog'),
     path('unicreate/', views.UniAdd.as_view(), name="add_uni"),
     path('catalog/uni/<int:uni_id>/', views.uni_detail, name='curr_uni'),
     path('speccreate/', views.SpecAdd.as_view(), name="add_spec"),
