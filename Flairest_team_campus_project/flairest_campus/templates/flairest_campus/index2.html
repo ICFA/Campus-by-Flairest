@@ -33,12 +33,30 @@
                 <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
                 <a href="https://studgorod.ru/" class="more">Ещё</a>
             </div>
-            <button onclick="openLoginForm('register')" id="registerBtn" class="registration">Регистрация</button>
-            <button onclick="openLoginForm('login')" id="loginBtn" class="enter">Войти</button>
             <div class="profile-buttons">
-                <!---Ошибка (из-за ссылки)--><a href="../profile" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
+                <button onclick="openLoginForm('register')" id="registerBtn" class="registration">Регистрация</button>
+                <button onclick="openLoginForm('login')" id="loginBtn" class="enter">Войти</button>
+            </div>
+            <div class="profile-buttons">
+                <a href="../profile" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
                 <a href="#" onclick="logout()" class="login-out" id="logoutBtn" style="display: none;">Выйти</a>
             </div>
+        </div>
+        <div class="nav-list-reduced" id="nlr" style="display: none;">
+            <ul>
+                <li>
+                    <a href="https://studgorod.ru/#news">Новости</a>
+                </li>
+                <li>
+                    <a href="index.html">ВУЗы</a>
+                </li>
+                <li>
+                    <a href="https://studgorod.ru/#events">Мероприятия</a>
+                </li>
+                <li>
+                    <a href="https://studgorod.ru/">Ещё</a>
+                </li>
+            </ul>
         </div>
         <main class="main">
             <!--форма регистрации-->
@@ -66,38 +84,40 @@
                 </div>
             </div>
             <h1 class = "mainh1">Каталог ВУЗов Урала</h1>
-            <div class="search-container">
-                <span class="search-icon-inline">
-                    <img id="searchIcon" src="{% static 'flairest_campus/image/social_media/lupa.svg' %}" alt="Поиск">
-                </span>
-                <input type="text" id="universitySearch" oninput="searchUniversities()" onkeydown="searchOnEnter()">
-            </div>
-            <img class="showFiltersButton" src="{% static 'flairest_campus/image/button-setting.svg' %}" alt="Показать фильтры" onclick="toggleFilters()">
-            <div class="filter-container" style="display: none;">
-                <div class="filter-wrapper">
-                    <p>Показывать только:</p>
-                    <select id="filterSelector" onchange="updateFilter()" oninput="searchUniversities()">
-                        <option value="universities" selected>университеты</option>
-                        <option value="institutes">институты</option>
-                        <option value="directions">направления</option>
-                    </select>
+            <div class="univ-selection">
+                <div class="search-container">
+                    <span class="search-icon-inline">
+                        <img id="searchIcon" src="{% static 'flairest_campus/image/social_media/lupa.svg' %}" alt="Поиск">
+                    </span>
+                    <input type="text" id="universitySearch" oninput="searchUniversities()" onkeydown="searchOnEnter()">
                 </div>
-                <div class="filter-wrapper">
-                    <p>Город:</p>
-                    <select id="citySelector" onchange="updateFilter()" oninput="searchUniversities()">
-                        <option value="all">все</option>
-                        <option value="Екатеринбург">Екатеринбург</option>
-                        <option value="Тагил">Нижний Тагил</option>
-                        <option value="Каменск-Уральский">Каменск-Уральский</option>
-                        <option value="Первоуральск">Первоуральск</option>
-                        <option value="Серов">Серов</option>
-                        <option value="Новоуральск">Новоуральск</option>
-                        <option value="Пышма">Верхняя Пышма</option>
-                        <option value="Берёзовский">Берёзовский</option>
-                        <option value="Ревда">Ревда</option>
-                        <option value="Асбест">Асбест</option>
-                        <option value="Краснотурьинск">Краснотурьинск</option>
-                    </select>
+                <img class="showFiltersButton" src="{% static 'flairest_campus/image/button-setting.svg' %}" alt="Показать фильтры" onclick="toggleFilters()">
+                <div class="filter-container" style="display: none;">
+                    <div class="filter-wrapper">
+                        <p>Показывать только:</p>
+                        <select id="filterSelector" onchange="updateFilter()" oninput="searchUniversities()">
+                            <option value="universities" selected>университеты</option>
+                            <option value="institutes">институты</option>
+                            <option value="directions">направления</option>
+                        </select>
+                    </div>
+                    <div class="filter-wrapper">
+                        <p>Город:</p>
+                        <select id="citySelector" onchange="updateFilter()" oninput="searchUniversities()">
+                            <option value="all">все</option>
+                            <option value="Екатеринбург">Екатеринбург</option>
+                            <option value="Тагил">Нижний Тагил</option>
+                            <option value="Каменск-Уральский">Каменск-Уральский</option>
+                            <option value="Первоуральск">Первоуральск</option>
+                            <option value="Серов">Серов</option>
+                            <option value="Новоуральск">Новоуральск</option>
+                            <option value="Пышма">Верхняя Пышма</option>
+                            <option value="Берёзовский">Берёзовский</option>
+                            <option value="Ревда">Ревда</option>
+                            <option value="Асбест">Асбест</option>
+                            <option value="Краснотурьинск">Краснотурьинск</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <input type=button value="Добавить ВУЗ" onClick="location.href='/unicreate';">
@@ -166,14 +186,16 @@
                     <div class="pi-container">
                         <img class="irit-image" src="{{ spec.photo.url }}" alt="Обложка {{ spec.name }}">                        
                         <section class="directions-title namesun">
-                            {{ spec.name }}
-                            <div class="info">
-                                {{ spec.speciality_cod }} {{ spec.level }}<br>Форма обучения: {{ spec.study_form }}<br>ЕГЭ: {{ spec.ege }}
+                            <div class="direction-column-1">
+                                {{ spec.name }}
+                                <div class="info">
+                                    {{ spec.speciality_cod }} {{ spec.level }}<br>Форма обучения: {{ spec.study_form }}<br>ЕГЭ: {{ spec.ege }}
+                                </div>
+                                <div class="info-napr">
+                                    {{ spec.about }}
+                                </div>
                             </div>
-                            <div class="info-napr">
-                                {{ spec.about }}
-                            </div>
-                            <div class="wrapper">
+                            <div class="directions-column-2">
                                 <div>
                                     <div class="info-price">
                                         Стоимость

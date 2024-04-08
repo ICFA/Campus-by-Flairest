@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{% static 'flairest_campus/css/index-style.css' %}">
     <link rel="stylesheet" href="{% static 'flairest_campus/css/directions.css' %}">
     <link rel="stylesheet" href="{% static 'flairest_campus/css/university-style.css' %}">
+    <link rel="stylesheet" href="{% static 'flairest_campus/css/redact.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
@@ -31,8 +32,10 @@
             <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
             <a href="https://studgorod.ru/" class="more">Ещё</a>
         </div>
-        <a href="https://studgorod.ru/" class="registration">Регистрация</a>
-        <!-- Ошибка (из-за ссылки) --><a href="profile.html" class="enter">Войти</a>
+        <div class="profile-buttons">
+            <a href="https://studgorod.ru/" class="registration">Регистрация</a>
+            <a href="../profile" class="enter">Войти</a>
+        </div>
     </header>
     <main class="university-main">
         <div class="main-top">
@@ -46,7 +49,7 @@
                 {% csrf_token %}
                 <div class="gallery">
                     <h1 id="uniTitle" contenteditable="false" style="text-align: center;">Название Университета</h1>
-                    {{ form.name }}
+                    <div class="input-form">{{ form.name }}</div>
                     <h1 id="uniTitle" contenteditable="false" style="text-align: center;">Фото Университета</h1>
                     <input type="file" id="uniImage" name="photo" accept="image/*" onchange="replaceImage(this)">
                     <button type="button" id="uniImage" onclick="deleteImage()">Удалить фотографию</button>
@@ -56,7 +59,7 @@
             <div class="univ-information">
                 <section>
                     <h2 contenteditable="false" spellcheck="false">ОБ УНИВЕРСИТЕТЕ</h2>
-                    {{ form.about }}
+                    <div class="input-form">{{ form.about }}</div>
                 </section>
                 <section>
                     <h2 contenteditable="false" spellcheck="false">Город</h2>
@@ -64,11 +67,11 @@
                 </section>
                 <section>
                     <h2 contenteditable="false" spellcheck="false">ОСОБЕННОСТИ</h2>
-                    {{ form.features }}
+                    <div class="input-form">{{ form.features }}</div>
                 </section>
                 <section>
                     <h2 contenteditable="false" spellcheck="false">Контакты</h2>
-                    {{ form.contacts }}
+                    <div class="input-form">{{ form.contacts }}</div>
                 </section>
                 <!--
                 <section class="edit">
