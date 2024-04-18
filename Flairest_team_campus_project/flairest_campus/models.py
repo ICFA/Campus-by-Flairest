@@ -92,11 +92,11 @@ class University(models.Model):
         (Kras, 'Краснотурьинск'),
     )
 
-    name = models.CharField(max_length=100)
+    name = models.TextField(max_length=100)
     photo = models.ImageField(upload_to='uni/', null=True)
-    about = models.CharField(max_length=2000)
-    features = models.CharField(max_length=2000)
-    contacts = models.CharField(max_length=300)
+    about = models.TextField(max_length=2000)
+    features = models.TextField(max_length=2000)
+    contacts = models.TextField(max_length=300)
     gorod = models.CharField(max_length=40, choices=LEVEL_CHOICES, default=Ekat)
 
     def __str__(self):
@@ -115,22 +115,22 @@ class Institute(models.Model):
 
 
 class Specialty(models.Model):
-    name = models.CharField(max_length=100, db_index=True)
+    name = models.TextField(max_length=100, db_index=True)
     speciality_cod = models.CharField(max_length=100)
-    ege = models.CharField(max_length=100)
+    ege = models.TextField(max_length=100)
     photo = models.ImageField(upload_to='spec/', null=True)
-    about = models.CharField(max_length=1000)
-    special = models.CharField(max_length=2000)
-    university = models.CharField(max_length=100)
-    faculty = models.CharField(max_length=100)
+    about = models.TextField(max_length=1000)
+    special = models.TextField(max_length=2000)
+    university = models.TextField(max_length=100)
+    faculty = models.TextField(max_length=100)
     city = models.CharField(max_length=100)
     language = models.CharField(max_length=100)
     level = models.CharField(max_length=100)
     duration = models.CharField(max_length=100)
-    study_form = models.CharField(max_length=100)
+    study_form = models.TextField(max_length=100)
     military_department = models.CharField(max_length=100)
     gos_or_private = models.CharField(max_length=100)
-    discipline = models.CharField(max_length=1000)
+    discipline = models.TextField(max_length=1000)
     '''
     field for href to university (in University and Institute too)
     +
@@ -144,7 +144,7 @@ class Specialty(models.Model):
     max_students_number_free = models.CharField(max_length=100)
     passing_score_paid = models.CharField(max_length=100)
     max_students_number_paid = models.CharField(max_length=100)
-    links = models.CharField(max_length=100)
+    links = models.TextField(max_length=100)
 
     def __str__(self):
         return self.name

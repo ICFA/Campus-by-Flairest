@@ -395,7 +395,7 @@ button {
     border-radius: 90px;
 }
 
-textarea::placeholder {
+/* textarea::placeholder {
     color: #8269EF;
     font-family: Inter;
     font-size: 22px;
@@ -404,16 +404,16 @@ textarea::placeholder {
     line-height: 28px;
     padding-left: 20px;
     padding-top: 20px;
-}
+} */
 
-textarea {
+/* textarea {
     border-radius: 20px;
     border: none;
     height: 120%;
     background-color: rgba(130, 105, 239, 0.30);
     margin-bottom: 40px;
     font-size: 20px;
-}
+} */
 
 .direction-review-create h2 {
     color: #000;

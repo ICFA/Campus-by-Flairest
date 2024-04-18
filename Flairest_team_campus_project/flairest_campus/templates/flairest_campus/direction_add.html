@@ -20,7 +20,7 @@
 <body>
     <img class="header-decor" src = "{% static 'flairest_campus/image/header-decor-violet.svg' %}">
     <header class="header-nav">
-        <!--ИСПРАВЛЕНО--><a href='https://studgorod.ru/' class = "kampus"><img src="{% static 'flairest_campus/image/kampus.png' %}"></a>
+        <a href='https://studgorod.ru/' class = "kampus"><img src="{% static 'flairest_campus/image/kampus.png' %}"></a>
         <div class="site-nav">
             <a href="https://studgorod.ru/#news" class="news">Новости</a>
             <a href="../../../catalog" class="catalog">ВУЗы</a>
@@ -42,7 +42,7 @@
     <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <h1 class="direction-title">Название направления</h1>
-                <div class="input-form"><p>{{ form.name }}</p></div>
+                <div class="input-form">{{ form.name }}</div>
                 <div class="direction-enroll-info">
                     <p class="direction-code">Код направления</p>
                     <div class="input-form">{{ form.speciality_cod }}</div>
@@ -62,13 +62,13 @@
         <section class="direction-details">
             <h2>Детали</h2>
             <table class="details">
-                <tr><td id="college">Вуз</td><td id="college-value">{{ form.university }}</td></tr>
-                <tr><td id="faculty">Факультет</td><td id="faculty-value">{{ form.faculty }}</td></tr>
+                <tr><td id="college">Вуз</td><td id="college-value"><div class="table-textarea">{{ form.university }}</div></td></tr>
+                <tr><td id="faculty">Факультет</td><td id="faculty-value"><div class="table-textarea">{{ form.faculty }}</div></td></tr>
                 <tr><td id="city">Город</td><td id="city-value">{{ form.city }}</td></tr>
                 <tr><td id="language">Язык</td><td id="language-value">{{ form.language }}</td></tr>
                 <tr><td id="education-level">Уровень образования</td><td id="education-level-value">{{ form.level }}</td></tr>
                 <tr><td id="study-period">Период обучения</td><td id="study-period-value">{{ form.duration }}</td></tr>
-                <tr><td id="education-form">Форма обучения</td><td id="education-form-value">{{ form.study_form }}</td></tr>
+                <tr><td id="education-form">Форма обучения</td><td id="education-form-value"><div class="table-textarea">{{ form.study_form }}</div></td></tr>
                 <tr><td id="military-department">Военная кафедра</td><td id="military-department-value">{{ form.military_department }}</td></tr>
                 <tr><td id="state-college">Государственный</td><td id="state-college-value">{{ form.gos_or_private }}</td></tr>
             </table>
