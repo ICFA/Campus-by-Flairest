@@ -7,6 +7,17 @@ function toggleDisciplines() {
 }
 
 $(document).ready(function () {
+    const reviewContainers = document.querySelectorAll('.review');
+    let reviews = [];
+    
+    for (const r of reviewContainers) {
+        reviews.push({
+        author: r.querySelector('#author').textContent,
+        review: r.querySelector('#review').textContent,
+        date: r.querySelector('#date').textContent,
+        });
+    }
+    console.log(reviews);
 
     $("#review-submit-text").on("keydown", function (e) {
         if (e.key === "Enter") { 
@@ -17,9 +28,8 @@ $(document).ready(function () {
     });
 
     var currentIndex = 0;
-    var reviews = [];
 
-    loadReviews(); 
+    loadReviews(reviews); 
 
     $("#submit-button").on("click", function () {
         var reviewText = $("#review-submit-text").val();
@@ -64,8 +74,8 @@ $(document).ready(function () {
         );
     }
 
-    function loadReviews() {
-        reviews = JSON.parse(localStorage.getItem("reviews")) || [];
+    function loadReviews(reviewsData) {
+        reviews = reviewsData || [];
         displayReviews();
     }
 
@@ -76,7 +86,7 @@ $(document).ready(function () {
     function displayReview(review) {
         var reviewContainer = $("<div class='review-container'></div>")
             .append("<div class='review-top-section'><b>Отзыв</b></div>")
-            .append("<p class='review-text'>" + review.text + "</p>")
+            .append("<p class='review-text'>" + review.review + "</p>")
             .append("<div class='review-bottom-section'><time class='review-time'>" + review.date + "</time></div>");
 
         $(".reviews-list").append(reviewContainer);
@@ -103,4 +113,5 @@ $(document).ready(function () {
         $("#prev-btn").prop("disabled", currentIndex === 0);
         $("#next-btn").prop("disabled", currentIndex === maxIndex);
     }
+    $(".reviews-data").empty();
 });

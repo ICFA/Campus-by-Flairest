@@ -82,13 +82,15 @@
         </section>
         <div class="direction-reviews">
             <h2>Отзывы</h2>
-            {% for r in rev %}
-            <table>
-                {{ r.author }}
-                {{ r.review }}
-                {{ r.date }}
-            </table>
-            {% endfor %}
+            <div class="reviews-data">
+                {% for r in rev %}
+                <div class="review">
+                    <p id="author">{{ r.author }}</p>
+                    <p id="review">{{ r.review }}</p>
+                    <p id="date">{{ r.date }}</p>
+                </div>
+                {% endfor %}
+            </div>
             <div class="arrow-container" id="prev-btn"><img src="{% static 'flairest_campus/image/left.svg' %}" style="position: absolute;" alt="Previous"></div>
             <div class="reviews-container">
                 <div class="reviews-list">
