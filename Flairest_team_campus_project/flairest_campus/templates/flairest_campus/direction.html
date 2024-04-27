@@ -82,6 +82,13 @@
         </section>
         <div class="direction-reviews">
             <h2>Отзывы</h2>
+            {% for r in rev %}
+            <table>
+                {{ r.author }}
+                {{ r.review }}
+                {{ r.date }}
+            </table>
+            {% endfor %}
             <div class="arrow-container" id="prev-btn"><img src="{% static 'flairest_campus/image/left.svg' %}" style="position: absolute;" alt="Previous"></div>
             <div class="reviews-container">
                 <div class="reviews-list">
@@ -90,16 +97,9 @@
             <div class="arrow-container" id="next-btn"><img src="{% static 'flairest_campus/image/right.svg' %}" alt="Next"></div>
         </div>
         <img src="{% static 'flairest_campus/image/footer-direction.png' %}" style="width: 100%;">
-        {% for r in rev %}
-        <table>
-            {{ r.author }}
-            {{ r.review }}
-            {{ r.date }}
-        </table>
-        {% endfor %}
         <div class="direction-review-create">
             <h2>Оставьте свой отзыв!</h2>
-            <button type="button" id="submit-button" style="border-radius: 15px; padding: 15px 0 15px; margin: 50px 0px 50px;">Оставить отзыв</button>
+            <!-- <button type="button" id="submit-button" style="border-radius: 15px; padding: 15px 0 15px; margin: 50px 0px 50px;">Оставить отзыв</button> -->
             <!--
             <form id="review-form">
                 <textarea name="review-text" id="review-submit-text" cols="40" rows="10" placeholder="Ваш отзыв"></textarea>
@@ -111,12 +111,12 @@
                 {{ revForm.as_p }}
                 <button type="submit">Отправить отзыв</button>
             </form>
-            <form style="width:450px;" method="POST" enctype="multipart/form-data">
+            <!-- <form style="width:450px;" method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ revForm.author }}
                 {{ revForm.review }}
                 <button type="submit">Отправить отзыв</button>
-            </form>
+            </form> -->
         </div>
     </main>
     <footer class="main-footer">

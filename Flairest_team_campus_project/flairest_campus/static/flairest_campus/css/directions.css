@@ -42,6 +42,13 @@
     line-height: 28px;
     font-style: oblique;
     margin-top: 50px;
+    width: 425px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
 }
 
 .info-napr {
@@ -52,6 +59,13 @@
     font-weight: 400;
     line-height: 28px;
     margin-top: 20px;
+    text-overflow: ellipsis;
+    width: 425px;
+    overflow: hidden;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
 
 .info-price {
@@ -64,6 +78,10 @@
     margin-left: 200px;
     margin-bottom: 60px;
     text-align: center;
+}
+
+.directions-column-1 {
+    max-width: 425px;
 }
 
 .directions-column-2 {
