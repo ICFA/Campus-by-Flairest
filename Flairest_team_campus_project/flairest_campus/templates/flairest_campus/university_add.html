@@ -54,6 +54,7 @@
                     <input type="file" id="uniImage" name="photo" accept="image/*" onchange="replaceImage(this)">
                     <button type="button" id="uniImage" onclick="deleteImage()">Удалить фотографию</button>
                     <img id="uploadedImage" class="uploaded-image" src="{{ form.photo.url }}" alt="">
+                    <a>{{ form.photo }}</a>
                     <!-- <img id="placeholderImage" src="{{ uni.photo.url }}" alt=""> !-->
                 </div>
             <img class="gallery-decor-bot" src="{% static 'flairest_campus/image/univ_decor/univ_gallery_decor_bot.svg' %}" alt="">

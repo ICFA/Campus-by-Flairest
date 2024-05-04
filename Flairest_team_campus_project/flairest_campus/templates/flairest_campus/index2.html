@@ -134,55 +134,9 @@
                         <img class="univ-image" src="{{ uni.photo.url }}" width="480px" alt="Обложка {{ uni.name }}">
                     </div>
                 </a>
-                    <!-- <a href="{{ b.name }}">Ссылка на страничку вуза</a>
-                    <p>{{ b.about }}</p>
-                    <p>{{ b.contacts }}</p>
-                    <br/>-->
                 {% endfor %}
-                <!--
-                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title namesun">
-                            Институт радиоэлектроники и информационных технологий
-                        </h2>
-                        <img class="univ-image" src="image/rtf-index.png" alt="РТФ">
-                    </div>
-                </a>
-                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title namesun">
-                            Физико-технологичесий институт
-                        </h2>
-                        <img class="univ-image" src="image/fti-index.png" alt="РТФ">
-                    </div>
-                </a>
-                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title namesun">
-                            Институт экономики и управления
-                        </h2>
-                        <img class="univ-image" src="image/injek-index.png" alt="РТФ">
-                    </div>
-                </a>
-                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title namesun">
-                            Институт новых материалов и технологий
-                        </h2>
-                        <img class="univ-image" src="image/inmit-index.png" alt="РТФ">
-                    </div>
-                </a>
-                <a class="univ-link Instityt1 ekaterinburg" href="university.html">
-                    <div class="univ-container" id="urfu">
-                        <h2 class="univ-title namesun">
-                            Уральский гуманитарный институт
-                        </h2>
-                        <img class="univ-image" src="image/ugi-index.png" alt="РТФ">
-                    </div>
-                </a>
-                -->
                 {% for spec in directions %}
-                <a class="univ-link napravlen1" href="spec/{{ spec.id }}/">
+                <a class="univ-link napravlen1 {{ spec.city }} {{ spec.level }} {{ spec.duration }}" href="spec/{{ spec.id }}/">
                     <div class="pi-container">
                         <img class="irit-image" src="{{ spec.photo.url }}" alt="Обложка {{ spec.name }}">                        
                         <section class="directions-title namesun">
