@@ -58,6 +58,7 @@ body {
     padding: 0;
     min-height: 200px;
     height: auto;
+    margin-top: -2px;
 }
 
 .direction-decor {
@@ -483,4 +484,8 @@ button {
 
 #next-btn {
     right: 0;
+}
+
+.kampus img{
+    filter: hue-rotate(251.8deg) saturate(90.72%) brightness(110.59%);
 }
