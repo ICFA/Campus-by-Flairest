@@ -63,9 +63,8 @@
             <h2>Детали</h2>
             <table class="details">
                 <tr><td id="college">Вуз</td><td id="college-value"><div class="table-textarea">{{ form.university }}</div></td></tr>
-                <tr><td id="faculty">Факультет</td><td id="faculty-value"><div class="table-textarea">{{ form.faculty }}</div></td></tr>
+                <!-- <tr><td id="faculty">Институт</td><td id="faculty-value"><div class="table-textarea">{{ form.faculty }}</div></td></tr> -->
                 <tr><td id="city">Город</td><td id="city-value">{{ form.city }}</td></tr>
-                <tr><td id="language">Язык</td><td id="language-value">{{ form.language }}</td></tr>
                 <tr><td id="education-level">Уровень образования</td><td id="education-level-value">{{ form.level }}</td></tr>
                 <tr><td id="study-period">Период обучения</td><td id="study-period-value">{{ form.duration }}</td></tr>
                 <tr><td id="education-form">Форма обучения</td><td id="education-form-value"><div class="table-textarea">{{ form.study_form }}</div></td></tr>
@@ -88,25 +87,11 @@
         </section>
         <section class="direction-details">
             <table class="details">
-                <tr><td id="college">Стоимость обучения</td><td id="college-value">{{ form.price }}</td></tr>
+                <tr><td id="college">Стоимость обучения (в рублях)</td><td id="college-value">{{ form.price }}</td></tr>
                 <tr><td id="faculty">Проходной балл на бюджет и платное</td><td id="faculty-value">{{ form.passing_score_free }} {{ form.passing_score_paid }}</td></tr>
                 <tr><td id="city">Количество мест на бюджет и платное</td><td id="city-value">{{ form.max_students_number_free }} {{ form.max_students_number_paid }}</td></tr>
             </table>
         </section>
-        <!--
-        <section class="description-cl">
-            <h2>Стоимость обучения</h2>
-            <p style="width: 85%;">{{ form.price }}</p>
-        </section>
-        <section class="description-cl">
-            <h2>Проходной балл на бюджет и платное</h2>
-            <p style="width: 85%;">{{ form.passing_score_free }} {{ form.passing_score_paid }}</p>
-        </section>
-        <section class="description-cl">
-            <h2>Количество мест на бюджет и платное</h2>
-            <p style="width: 85%;">{{ form.max_students_number_free }} {{ form.max_students_number_paid }}</p>
-        </section>
-        -->
         <section class="direction-questions">
             <h2>Ссылки на контакты</h2>
             <div class="input-form"><p>{{ form.links }}</p></div>
