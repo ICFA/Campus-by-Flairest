@@ -179,3 +179,21 @@
         display: none;
     }
 }
+
+input[type=button] {
+    cursor: pointer;
+    background-color: #f0f8ff;
+    border: 0;
+    height: 46px;
+    border-radius: 56px;
+    transition: all .1s linear;
+    font-family: inherit;
+}
+
+.back-wrapper input[type=button] {
+    font-size: 20px;
+}
+
+input[type=button]:hover {
+    background-color: #c9ced3;
+}

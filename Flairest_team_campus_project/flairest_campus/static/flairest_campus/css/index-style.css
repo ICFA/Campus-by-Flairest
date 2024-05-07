@@ -123,6 +123,7 @@ body {
     overflow-y: scroll;
     max-height: 780px;
     padding-bottom: 0px;
+    margin-top: 20px;
 }
 
 .univ-container {
