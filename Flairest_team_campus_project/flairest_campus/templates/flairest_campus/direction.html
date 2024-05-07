@@ -108,7 +108,7 @@
                 <button type="button" id="submit-button" style="border-radius: 15px; padding: 15px 0 15px; margin: 50px 0px 50px;">Отправить</button>
             </form>
             -->
-            <form style="width:450px;" method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ revForm.as_p }}
                 <button type="submit">Отправить отзыв</button>

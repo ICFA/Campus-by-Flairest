@@ -214,9 +214,9 @@ class Specialty(models.Model):
 
 
 class Review(models.Model):
-    author = models.CharField(max_length=100)
+    author = models.TextField(max_length=100)
     specialty = models.ForeignKey(Specialty, on_delete=models.PROTECT)
-    review = models.CharField(max_length=1000)
+    review = models.TextField(max_length=1000)
     date = models.CharField(default = datetime.date.today().strftime('%d %B %Y'), editable = False)
 
     def __str__(self):
