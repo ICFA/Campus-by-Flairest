@@ -19,11 +19,47 @@ function updateFilter() {
     searchUniversities();
 }
 
-function toggleFilters() {
-    var filterContainer = document.querySelector('.filter-container');
-    filterContainer.style.display = filterContainer.style.display === 'none' ? 'flex' : 'none';
-}
+function searchUniversities() {
+    var input, filter, universities, i, txtValue;
+    input = document.getElementById('universitySearch');
+    filter = input.value.toUpperCase();
+    universities = document.getElementsByClassName('univ-link');
 
+    var selectedFilter = document.getElementById('filterSelector').value;
+    var selectedCity = document.getElementById('citySelector').value;
+    var selectedEducationLevel = document.getElementById('educationLevelSelector').value;
+    var selectedStudyForm = document.getElementById('studyFormSelector').value;
+    var selectedMilitaryDepartment = document.getElementById('militaryDepartmentSelector').value;
+    var selectedAccreditation = document.getElementById('accreditationSelector').value;
+
+    console.log("Selected City: ", selectedCity);
+    console.log("Selected Education Level: ", selectedEducationLevel);
+    console.log("Selected Study Form: ", selectedStudyForm);
+    console.log("Selected Military Department: ", selectedMilitaryDepartment);
+    console.log("Selected Accreditation: ", selectedAccreditation);
+
+    for (i = 0; i < universities.length; i++) {
+        var title = universities[i].getElementsByClassName('namesun')[0];
+        txtValue = title.textContent || title.innerText;
+
+        var filterMatch = selectedFilter === 'all' ||
+            (selectedFilter === 'universities' && universities[i].classList.contains('univer1')) ||
+            (selectedFilter === 'directions' && universities[i].classList.contains('napravlen1')) ||
+            (selectedFilter === 'institutes' && universities[i].classList.contains('Instityt1'));
+
+        var cityMatch = selectedCity === 'all' || universities[i].classList.contains(selectedCity);
+        var educationLevelMatch = selectedEducationLevel === 'all' || universities[i].classList.contains(selectedEducationLevel);
+        var studyFormMatch = selectedStudyForm === 'all' || universities[i].classList.contains(selectedStudyForm);
+        var militaryDepartmentMatch = selectedMilitaryDepartment === 'all' || universities[i].classList.contains(selectedMilitaryDepartment);
+        var accreditationMatch = selectedAccreditation === 'all' || universities[i].classList.contains(selectedAccreditation);
+
+        if (txtValue.toUpperCase().indexOf(filter) > -1 && filterMatch && cityMatch && educationLevelMatch && studyFormMatch && militaryDepartmentMatch && accreditationMatch) {
+            universities[i].style.display = '';
+        } else {
+            universities[i].style.display = 'none';
+        }
+    }
+}
 
 function showElements(className) {
     if (Array.isArray(className)) {
@@ -53,6 +89,11 @@ function hideElements(classNames) {
     }
 }
 
+function toggleFilters() {
+    var filterContainer = document.querySelector('.filter-container');
+    filterContainer.style.display = filterContainer.style.display === 'none' ? 'flex' : 'none';
+}
+
 const universitySearch = document.getElementById('universitySearch');
 const searchIcon = document.getElementById('searchIcon');
 
@@ -66,34 +107,6 @@ universitySearch.addEventListener('input', function () {
     searchUniversities();
 });
 
-function searchUniversities() {
-    var input, filter, universities, i, txtValue;
-    input = document.getElementById('universitySearch');
-    filter = input.value.toUpperCase();
-    universities = document.getElementsByClassName('univ-link');
-
-    var selectedFilter = document.getElementById('filterSelector').value;
-    var selectedCity = document.getElementById('citySelector').value;
-
-    for (i = 0; i < universities.length; i++) {
-        var title = universities[i].getElementsByClassName('namesun')[0];
-        txtValue = title.textContent || title.innerText;
-
-        var filterMatch = selectedFilter === 'all' ||
-            (selectedFilter === 'universities' && universities[i].classList.contains('univer1')) ||
-            (selectedFilter === 'directions' && universities[i].classList.contains('napravlen1')) ||
-            (selectedFilter === 'institutes' && universities[i].classList.contains('Instityt1'));
-
-        var cityMatch = selectedCity === 'all' || universities[i].classList.contains(selectedCity);
-
-        if (txtValue.toUpperCase().indexOf(filter) > -1 && filterMatch && cityMatch) {
-            universities[i].style.display = '';
-        } else {
-            universities[i].style.display = 'none';
-        }
-    }
-}
-
 function openLoginForm(type) {
     var loginForm = document.getElementById("loginForm");
     var overlay = document.getElementById("overlay");
@@ -105,7 +118,6 @@ function openLoginForm(type) {
     loginForm.style.display = "block";
     overlay.style.display = "block";
 
-    // Проверяем переданный тип
     if (type === 'login') {
         loginAcc.style.display = 'block';
         regAcc.style.display = 'none';
@@ -118,8 +130,6 @@ function openLoginForm(type) {
         loginButton.classList.remove('active');
     }
 }
-
-
 
 function closeLoginForm() {
     var loginForm = document.getElementById("loginForm");

@@ -118,6 +118,41 @@
                             <option value="Краснотурьинск">Краснотурьинск</option>
                         </select>
                     </div>
+                    <div class="filter-wrapper">
+                        <p>Степень образования:</p>
+                        <select id="educationLevelSelector" onchange="updateFilter()" oninput="searchUniversities()">
+                            <option value="all" selected>Все</option>
+                            <option value="Бакалавриат">Бакалавриат</option>
+                            <option value="Специалитет">Специалитет</option>
+                            <option value="Магистратура">Магистратура</option>
+                            <option value="Аспирантура">Аспирантура</option>
+                        </select>
+                    </div>
+                    <div class="filter-wrapper">
+                        <p>Форма обучения:</p>
+                        <select id="studyFormSelector" onchange="updateFilter()" oninput="searchUniversities()">
+                            <option value="all" selected>Все</option>
+                            <option value="очная">Очная</option>
+                            <option value="очно-заочная">Очно-заочная</option>
+                            <option value="заочная">Заочная</option>
+                        </select>
+                    </div>
+                    <div class="filter-wrapper">
+                        <p>Военная кафедра:</p>
+                        <select id="militaryDepartmentSelector" onchange="updateFilter()" oninput="searchUniversities()">
+                            <option value="all" selected>Все</option>
+                            <option value="есть">Есть</option>
+                            <option value="нет">Нет</option>
+                        </select>
+                    </div>
+                    <div class="filter-wrapper">
+                        <p>Государственный:</p>
+                        <select id="accreditationSelector" onchange="updateFilter()" oninput="searchUniversities()">
+                            <option value="all" selected>Все</option>
+                            <option value="да">Да</option>
+                            <option value="нет">Нет</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <input type=button value="Добавить ВУЗ" onClick="location.href='/unicreate';">
