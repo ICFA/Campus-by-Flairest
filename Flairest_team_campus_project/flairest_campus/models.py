@@ -185,7 +185,7 @@ class Specialty(models.Model):
     photo = models.ImageField(upload_to='spec/', null=True)
     about = models.TextField(max_length=1000)
     special = models.TextField(max_length=2000)
-    university = models.ForeignKey(University, on_delete=models.PROTECT, null=True)
+    # university = models.ForeignKey(University, on_delete=models.PROTECT, null=True)
     # faculty = models.ForeignKey(Institute, on_delete=models.PROTECT)
     city = models.CharField(max_length=40, choices=CITY_CHOICES, default=Ekat)
     level = models.CharField(max_length=40, choices=LEVEL_CHOICES, default='Бакалавриат')

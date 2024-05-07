@@ -1,17 +1,11 @@
 .profile {
-    padding-top: -10px;
-    padding-left: 250px;
-    margin-bottom: -59px;
-    padding-bottom: 40px;
+    margin-top: 10px;
+    margin-bottom: 0px;
     font-family: 'Inter', sans-serif;
     font-size: 74px;
     color: white;
-    position: relative;
-    margin-top: 9px;
-}
-
-.main-bottom-profile {
-    margin-top: -100px;
+    padding-left: 250px;
+    padding-top: 40px;
 }
 
 .enter-profile {
@@ -90,4 +84,14 @@
     font-size: 30px;
     font-weight: 600;
     margin-left: 260px;
+}
+
+.main-header {
+    background-color: #F42E30;
+    margin-top: -30px;
+    border-top-right-radius: 25px;
+}
+
+.main-bottom-profile {
+    width: 100%;
 }
