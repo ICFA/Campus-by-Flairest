@@ -96,17 +96,17 @@
                     <div class="filter-wrapper">
                         <p>Показывать только:</p>
                         <select id="filterSelector" onchange="updateFilter()" oninput="searchUniversities()">
-                            <option value="universities" selected>университеты</option>
-                            <option value="institutes">институты</option>
-                            <option value="directions">направления</option>
+                            <option value="universities" selected>Университеты</option>
+                            <option value="institutes">Институты</option>
+                            <option value="directions">Направления</option>
                         </select>
                     </div>
                     <div class="filter-wrapper">
                         <p>Город:</p>
                         <select id="citySelector" onchange="updateFilter()" oninput="searchUniversities()">
-                            <option value="all">все</option>
+                            <option value="all">Все</option>
                             <option value="Екатеринбург">Екатеринбург</option>
-                            <option value="Тагил">Нижний Тагил</option>
+                            <option value="Нижний Тагил">Нижний Тагил</option>
                             <option value="Каменск-Уральский">Каменск-Уральский</option>
                             <option value="Первоуральск">Первоуральск</option>
                             <option value="Серов">Серов</option>
@@ -118,7 +118,7 @@
                             <option value="Краснотурьинск">Краснотурьинск</option>
                         </select>
                     </div>
-                    <div class="filter-wrapper">
+                    <div class="filter-wrapper hidden">
                         <p>Степень образования:</p>
                         <select id="educationLevelSelector" onchange="updateFilter()" oninput="searchUniversities()">
                             <option value="all" selected>Все</option>
@@ -128,7 +128,7 @@
                             <option value="Аспирантура">Аспирантура</option>
                         </select>
                     </div>
-                    <div class="filter-wrapper">
+                    <div class="filter-wrapper hidden">
                         <p>Форма обучения:</p>
                         <select id="studyFormSelector" onchange="updateFilter()" oninput="searchUniversities()">
                             <option value="all" selected>Все</option>
@@ -137,7 +137,7 @@
                             <option value="заочная">Заочная</option>
                         </select>
                     </div>
-                    <div class="filter-wrapper">
+                    <div class="filter-wrapper hidden">
                         <p>Военная кафедра:</p>
                         <select id="militaryDepartmentSelector" onchange="updateFilter()" oninput="searchUniversities()">
                             <option value="all" selected>Все</option>
@@ -145,7 +145,7 @@
                             <option value="нет">Нет</option>
                         </select>
                     </div>
-                    <div class="filter-wrapper">
+                    <div class="filter-wrapper hidden">
                         <p>Государственный:</p>
                         <select id="accreditationSelector" onchange="updateFilter()" oninput="searchUniversities()">
                             <option value="all" selected>Все</option>
@@ -155,6 +155,7 @@
                     </div>
                 </div>
             </div>
+            <div class="filter-chips"></div>
             <input type=button value="Добавить ВУЗ" onClick="location.href='/unicreate';">
             <input type=button value="Добавить направление" onClick="location.href='/speccreate';">
             <input type=button value="Добавить отзыв (DEVELOPMENT_ONLY)" onClick="location.href='/review_add_DEVELOPMENT';">

@@ -3,8 +3,45 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function updateFilter() {
+    var filterChips = document.querySelector('.filter-chips');
+    filterChips.innerHTML = '';
+
     var selectedFilter = document.getElementById('filterSelector').value;
 
+    if (selectedFilter === 'universities') {
+        hideElements(['hidden']);
+    } else if (selectedFilter === 'institutes') {
+        hideElements(['hidden']);
+    } else if (selectedFilter === 'directions') {
+        showElements(['hidden']);
+    }
+
+    var selectedCity = document.getElementById('citySelector').value;
+    var selectedEducationLevel = document.getElementById('educationLevelSelector').value;
+    var selectedStudyForm = document.getElementById('studyFormSelector').value;
+    var selectedMilitaryDepartment = document.getElementById('militaryDepartmentSelector').value;
+    var selectedAccreditation = document.getElementById('accreditationSelector').value;
+
+    if (selectedFilter !== 'all') {
+        var selectedFilterText = document.getElementById('filterSelector').options[document.getElementById('filterSelector').selectedIndex].text;
+        updateFilterChip('Filter', selectedFilterText);
+    }
+    if (selectedCity !== 'all') {
+        updateFilterChip('City', selectedCity);
+    }
+    if (selectedEducationLevel !== 'all') {
+        updateFilterChip('Education Level', selectedEducationLevel);
+    }
+    if (selectedStudyForm !== 'all') {
+        updateFilterChip('Study Form', selectedStudyForm);
+    }
+    if (selectedMilitaryDepartment !== 'all') {
+        updateFilterChip('Military Department', selectedMilitaryDepartment);
+    }
+    if (selectedAccreditation !== 'all') {
+        updateFilterChip('Accreditation', selectedAccreditation);
+    }
+    
     if (selectedFilter === 'universities') {
         showElements('univer1');
         hideElements(['napravlen1', 'Instityt1']);
@@ -17,6 +54,63 @@ function updateFilter() {
     }
 
     searchUniversities();
+}
+
+function updateFilterChip(filterType, filterValue) {
+    var filterChips = document.querySelector('.filter-chips');
+    var chip = document.createElement('div');
+    chip.classList.add('filter-chip');
+    chip.dataset.filterType = filterType;
+    chip.innerHTML = filterValue + '<span class="filter-chip-close" onclick="removeFilterChip(this)">✖</span>';
+    filterChips.appendChild(chip);
+}
+
+function isFirstChildChip(chipElement) {
+    return !chipElement.parentNode.previousElementSibling;
+}
+
+function removeFilterChip(chipElement) {
+    var chipType = chipElement.parentNode.dataset.filterType;
+
+    if (chipType === 'Filter' || isFirstChildChip(chipElement)) {
+        return;
+    }
+
+    var filterToReset;
+    switch (chipType) {
+        case 'City':
+            filterToReset = 'citySelector';
+            break;
+        case 'Education Level':
+            filterToReset = 'educationLevelSelector';
+            break;
+        case 'Study Form':
+            filterToReset = 'studyFormSelector';
+            break;
+        case 'Military Department':
+            filterToReset = 'militaryDepartmentSelector';
+            break;
+        case 'Accreditation':
+            filterToReset = 'accreditationSelector';
+            break;
+        default:
+            break;
+    }
+
+    if (filterToReset) {
+        document.getElementById(filterToReset).value = 'all';
+    }
+
+    chipElement.parentNode.remove();
+    searchUniversities();
+}
+
+function resetFilter() {
+    document.getElementById('citySelector').value = 'all';
+    document.getElementById('educationLevelSelector').value = 'all';
+    document.getElementById('studyFormSelector').value = 'all';
+    document.getElementById('militaryDepartmentSelector').value = 'all';
+    document.getElementById('accreditationSelector').value = 'all';
 }
 
 function searchUniversities() {
@@ -70,7 +164,7 @@ function showElements(className) {
         var elements = document.getElementsByClassName(className);
 
         for (var j = 0; j < elements.length; j++) {
-            elements[j].style.display = 'block';
+            elements[j].style.visibility = 'visible';
         }
     }
 }
@@ -84,7 +178,7 @@ function hideElements(classNames) {
         var elements = document.getElementsByClassName(classNames);
 
         for (var l = 0; l < elements.length; l++) {
-            elements[l].style.display = 'none';
+            elements[l].style.visibility = 'hidden';
         }
     }
 }

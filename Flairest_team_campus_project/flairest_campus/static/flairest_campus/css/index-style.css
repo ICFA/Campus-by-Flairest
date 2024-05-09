@@ -272,6 +272,7 @@ select {
 .filter-container {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .filter-wrapper {
@@ -281,6 +282,34 @@ select {
     overflow: hidden; 
     display: flex;
     margin-right: 12px;
+    margin-bottom: 20px;
+}
+
+.filter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.filter-chip {
+    background-color: white;
+    color: #333;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.filter-chip-close {
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.hidden {
+    visibility: hidden;
+    pointer-events: none; 
 }
 
 .filter-wrapper p {
