@@ -53,7 +53,7 @@
         <section class="direction-details">
             <h2>Детали</h2>
             <table class="details">
-                <tr><td id="college">Вуз</td><td id="college-value">{{ spec.university }}</td></tr>
+                <tr><td id="college">Вуз</td><td id="college-value">{{ spec.university }}<input type=button value="{{ spec.university }}" onClick="location.href='/catalog/uni/{{ spec.university_id }}';"></td></tr>
                 <tr><td id="city">Город</td><td id="city-value">{{ spec.city }}</td></tr>
                 <tr><td id="education-level">Уровень образования</td><td id="education-level-value">{{ spec.level }}</td></tr>
                 <tr><td id="study-period">Период обучения</td><td id="study-period-value">{{ spec.duration }}</td></tr>
