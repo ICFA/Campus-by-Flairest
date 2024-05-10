@@ -81,6 +81,15 @@ class SpecAdd(CreateView):
     template_name = 'flairest_campus/direction_add.html'
     success_url = '/catalog/'
 
+class SpecEdit(UpdateView):
+    model = Specialty
+    fields = '__all__'
+    template_name = 'flairest_campus/direction_add.html'
+    success_url = '/catalog/'
+    extra_context = {
+        'title': 'Редактирование направления',
+    }
+
 class RevAdd(CreateView):
     model = Review
     form_class = RevForm
