@@ -302,13 +302,13 @@ select {
     align-items: center;
 }
 
+.container-chips {
+    margin-left: 260px;
+}
+
 .filter-chip-close {
     cursor: pointer;
     margin-left: 5px;
-}
-
-.hidden {
-    display: none;
 }
 
 .filter-wrapper p {

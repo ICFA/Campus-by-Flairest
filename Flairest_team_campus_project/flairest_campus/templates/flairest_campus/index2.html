@@ -155,10 +155,12 @@
                     </div>
                 </div>
             </div>
-            <div class="filter-chips"></div>
-            <input type=button value="Добавить ВУЗ" onClick="location.href='/unicreate';">
-            <input type=button value="Добавить направление" onClick="location.href='/speccreate';">
-            <input type=button value="Добавить отзыв (DEVELOPMENT_ONLY)" onClick="location.href='/review_add_DEVELOPMENT';">
+            <div class="container-chips">
+                <div class="filter-chips"></div>
+                <input type=button value="Добавить ВУЗ" onClick="location.href='/unicreate';">
+                <input type=button value="Добавить направление" onClick="location.href='/speccreate';">
+                <input type=button value="Добавить отзыв (DEVELOPMENT_ONLY)" onClick="location.href='/review_add_DEVELOPMENT';">
+            </div>
             <div class="univ-catalogue">
                 {% for uni in universities %}
                 <!--  href="{prc url b.name prc}" -->

@@ -7,20 +7,28 @@ function updateFilter() {
     filterChips.innerHTML = '';
 
     var selectedFilter = document.getElementById('filterSelector').value;
-
-    if (selectedFilter === 'universities') {
-        hideElements(['hidden']);
-    } else if (selectedFilter === 'institutes') {
-        hideElements(['hidden']);
-    } else if (selectedFilter === 'directions') {
-        showElements(['hidden']);
-    }
-
     var selectedCity = document.getElementById('citySelector').value;
     var selectedEducationLevel = document.getElementById('educationLevelSelector').value;
     var selectedStudyForm = document.getElementById('studyFormSelector').value;
     var selectedMilitaryDepartment = document.getElementById('militaryDepartmentSelector').value;
     var selectedAccreditation = document.getElementById('accreditationSelector').value;
+
+    var educationLevelSelector = document.getElementById('educationLevelSelector').parentNode;
+    var studyFormSelector = document.getElementById('studyFormSelector').parentNode;
+    var militaryDepartmentSelector = document.getElementById('militaryDepartmentSelector').parentNode;
+    var accreditationSelector = document.getElementById('accreditationSelector').parentNode;
+
+    if (selectedFilter === 'universities' || selectedFilter === 'institutes') {
+        educationLevelSelector.style.display = 'none';
+        studyFormSelector.style.display = 'none';
+        militaryDepartmentSelector.style.display = 'none';
+        accreditationSelector.style.display = 'none';
+    } else {
+        educationLevelSelector.style.display = 'flex';
+        studyFormSelector.style.display = 'flex';
+        militaryDepartmentSelector.style.display = 'flex';
+        accreditationSelector.style.display = 'flex';
+    }
 
     if (selectedFilter !== 'all') {
         var selectedFilterText = document.getElementById('filterSelector').options[document.getElementById('filterSelector').selectedIndex].text;
@@ -164,7 +172,7 @@ function showElements(className) {
         var elements = document.getElementsByClassName(className);
 
         for (var j = 0; j < elements.length; j++) {
-            elements[j].style.display = 'block'; // Используйте 'block' для отображения элементов
+            elements[j].style.display = 'block';
         }
     }
 }
@@ -178,7 +186,7 @@ function hideElements(classNames) {
         var elements = document.getElementsByClassName(classNames);
 
         for (var l = 0; l < elements.length; l++) {
-            elements[l].style.display = 'none'; // Используйте 'none' для скрытия элементов
+            elements[l].style.display = 'none';
         }
     }
 }
