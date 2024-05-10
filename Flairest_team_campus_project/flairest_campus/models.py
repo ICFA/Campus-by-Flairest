@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 import datetime
 import locale
+from multiselectfield import MultiSelectField
 
 
 locale.setlocale(
@@ -95,21 +96,32 @@ CITY_CHOICES = (
     (Kras, Kras),
 )
 
+HAS_or_NOT = (
+    ('есть', 'есть'),
+    ('нет', 'нет'),
+)
+
+YES_or_NO = (
+    ('да', 'да'),
+    ('нет', 'нет'),
+)
+
 class University(models.Model):
     name = models.TextField(max_length=100)
-    photo = models.ImageField(upload_to='uni/', null=True)
+    photo = models.ImageField(upload_to='uni/')
     about = models.TextField(max_length=2000)
     features = models.TextField(max_length=2000)
     contacts = models.TextField(max_length=300)
     gorod = models.CharField(max_length=40, choices=CITY_CHOICES, default=Ekat)
+    military_department = models.CharField(max_length=40, choices=HAS_or_NOT, default='нет')
+    gos_or_private = models.CharField(max_length=40, choices=YES_or_NO, default='нет')
 
     def __str__(self):
         return self.name
 
-
 class Institute(models.Model):
     name = models.CharField(max_length=100)
-    photo = models.ImageField(upload_to='inst/', null=True)
+    photo = models.ImageField(upload_to='inst/')
     about = models.CharField(max_length=1000)
     special = models.CharField(max_length=1000)
     contacts = models.CharField(max_length=300)
@@ -119,7 +131,6 @@ class Institute(models.Model):
 
     def __str__(self):
         return self.name
-
 
 class Specialty(models.Model):
     Rus = 'Русский язык'
@@ -169,30 +180,17 @@ class Specialty(models.Model):
         ('заочная', 'заочная'),
     )
 
-    HAS_or_NOT = (
-        ('есть', 'есть'),
-        ('нет', 'нет'),
-    )
-
-    YES_or_NO = (
-        ('да', 'да'),
-        ('нет', 'нет'),
-    )
-
     name = models.TextField(max_length=100, db_index=True)
     speciality_cod = models.CharField(max_length=20)
-    ege = models.TextField(max_length=100)
-    photo = models.ImageField(upload_to='spec/', null=True)
+    ege = MultiSelectField(choices=EGE_CHOICES, max_choices=4, max_length=100)
+    photo = models.ImageField(upload_to='spec/')
     about = models.TextField(max_length=1000)
     special = models.TextField(max_length=2000)
-    # university = models.ForeignKey(University, on_delete=models.PROTECT, null=True)
-    # faculty = models.ForeignKey(Institute, on_delete=models.PROTECT)
+    university = models.ForeignKey(University, on_delete=models.PROTECT)
     city = models.CharField(max_length=40, choices=CITY_CHOICES, default=Ekat)
     level = models.CharField(max_length=40, choices=LEVEL_CHOICES, default='Бакалавриат')
     duration = models.CharField(max_length=40, choices=DURATION_CHOICES, default='4 года')
-    study_form = models.TextField(max_length=40, choices=STUDY_FORM_CHOICES, default='очная')
-    military_department = models.CharField(max_length=40, choices=HAS_or_NOT, default='нет')
-    gos_or_private = models.CharField(max_length=40, choices=YES_or_NO, default='нет')
+    study_form = MultiSelectField(choices=STUDY_FORM_CHOICES, max_choices=3, max_length=50)
     discipline = models.TextField(max_length=1000)
     '''
     field for href to university (in University and Institute too)

@@ -48,7 +48,11 @@
                     <div class="input-form">{{ form.speciality_cod }}</div>
                     <p class="direction-ege-subjects">ЕГЭ</p>
                     <div class="input-form">{{ form.ege }}</div>
-                    <p class="direction-ege-subjects">Фото кампуса</p>
+                    <!-- <table>
+                    <tr><td id="education-level">ЕГЭ</td>
+                        <td id="education-level-value">{{ form.ege }}</td></tr>
+                    </table> -->
+                <div class="direction-ege-subjects">Фото кампуса</div>
                     {{ form.photo }}
                 </div>
             <pre class="direction-description">О направлении</pre>
@@ -68,8 +72,6 @@
                 <tr><td id="education-level">Уровень образования</td><td id="education-level-value">{{ form.level }}</td></tr>
                 <tr><td id="study-period">Период обучения</td><td id="study-period-value">{{ form.duration }}</td></tr>
                 <tr><td id="education-form">Форма обучения</td><td id="education-form-value"><div class="table-textarea">{{ form.study_form }}</div></td></tr>
-                <tr><td id="military-department">Военная кафедра</td><td id="military-department-value">{{ form.military_department }}</td></tr>
-                <tr><td id="state-college">Государственный</td><td id="state-college-value">{{ form.gos_or_private }}</td></tr>
             </table>
         </section>
         <!--

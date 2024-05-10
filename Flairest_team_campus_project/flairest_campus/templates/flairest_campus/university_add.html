@@ -56,12 +56,11 @@
                     <button type="button" id="uniImage" onclick="deleteImage()">Удалить фотографию</button>
                     <img id="uploadedImage" class="uploaded-image" src="{{ form.photo.url }}">
                     <img id="placeholderImage" src="">
-                    <div class="photo-form" style="display: none;">{{ form.photo }}</div>
                 </div>
             <img class="gallery-decor-bot" src="{% static 'flairest_campus/image/univ_decor/univ_gallery_decor_bot.svg' %}" alt="">
             <div class="univ-information">
                 <section>
-                    <h2 contenteditable="false" spellcheck="false">ОБ УНИВЕРСИТЕТЕ</h2>
+                    <h2 contenteditable="false" spellcheck="false">Об Университете</h2>
                     <div class="input-form">{{ form.about }}</div>
                 </section>
                 <section>
@@ -69,7 +68,15 @@
                     {{ form.gorod }}
                 </section>
                 <section>
-                    <h2 contenteditable="false" spellcheck="false">ОСОБЕННОСТИ</h2>
+                    <h2 contenteditable="false" spellcheck="false">Военная кафедра</h2>
+                    {{ form.military_department }}
+                </section>
+                <section>
+                    <h2 contenteditable="false" spellcheck="false">Государственный</h2>
+                    {{ form.gos_or_private }}
+                </section>
+                <section>
+                    <h2 contenteditable="false" spellcheck="false">Особенности</h2>
                     <div class="input-form">{{ form.features }}</div>
                 </section>
                 <section>
@@ -85,8 +92,8 @@
                     <button type="submit">Добавить</button>
                 </section>
                 <section></section>
-            </div>
             </form>
+            </div>
         <img class="univ-nav-decor univ-nav-decor-top" src="{% static 'flairest_campus/image/univ_decor/univ_nav_decor_top.svg' %}" alt="">
         <div class="univ-navigation">
             <a href="#" class="button-link">

@@ -159,7 +159,6 @@
                 <div class="filter-chips"></div>
                 <input type=button value="Добавить ВУЗ" onClick="location.href='/unicreate';">
                 <input type=button value="Добавить направление" onClick="location.href='/speccreate';">
-                <input type=button value="Добавить отзыв (DEVELOPMENT_ONLY)" onClick="location.href='/review_add_DEVELOPMENT';">
             </div>
             <div class="univ-catalogue">
                 {% for uni in universities %}
@@ -174,7 +173,7 @@
                 </a>
                 {% endfor %}
                 {% for spec in directions %}
-                <a class="univ-link napravlen1 {{ spec.city }} {{ spec.level }} {{ spec.duration }}" href="spec/{{ spec.id }}/">
+                <a class="univ-link napravlen1 {{ spec.city }} {{ spec.level }} {{ spec.duration }} {{ spec.military_department }} {{ spec.gos_or_private }}" href="spec/{{ spec.id }}/">
                     <div class="pi-container">
                         <img class="irit-image" src="{{ spec.photo.url }}" alt="Обложка {{ spec.name }}">                        
                         <section class="directions-title namesun">

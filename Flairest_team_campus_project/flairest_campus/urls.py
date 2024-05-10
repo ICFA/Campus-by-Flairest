@@ -26,7 +26,6 @@ urlpatterns = [
 '''
 
 urlpatterns = [
-    path('review_add_DEVELOPMENT', views.RevAdd.as_view()),
     path('', views.home_page),
     path('profile/', views.profile_page, name='profile'),
     path('catalog/', views.UniCatalog, name='catalog'),
