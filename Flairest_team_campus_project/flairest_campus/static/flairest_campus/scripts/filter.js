@@ -13,22 +13,13 @@ function updateFilter() {
     var selectedMilitaryDepartment = document.getElementById('militaryDepartmentSelector').value;
     var selectedAccreditation = document.getElementById('accreditationSelector').value;
 
+    var hideLastFilters = selectedFilter === 'universities' || selectedFilter === 'institutes';
+    
     var educationLevelSelector = document.getElementById('educationLevelSelector').parentNode;
     var studyFormSelector = document.getElementById('studyFormSelector').parentNode;
-    var militaryDepartmentSelector = document.getElementById('militaryDepartmentSelector').parentNode;
-    var accreditationSelector = document.getElementById('accreditationSelector').parentNode;
 
-    if (selectedFilter === 'universities' || selectedFilter === 'institutes') {
-        educationLevelSelector.style.display = 'none';
-        studyFormSelector.style.display = 'none';
-        militaryDepartmentSelector.style.display = 'none';
-        accreditationSelector.style.display = 'none';
-    } else {
-        educationLevelSelector.style.display = 'flex';
-        studyFormSelector.style.display = 'flex';
-        militaryDepartmentSelector.style.display = 'flex';
-        accreditationSelector.style.display = 'flex';
-    }
+    educationLevelSelector.style.display = hideLastFilters ? 'none' : 'flex';
+    studyFormSelector.style.display = hideLastFilters ? 'none' : 'flex';
 
     if (selectedFilter !== 'all') {
         var selectedFilterText = document.getElementById('filterSelector').options[document.getElementById('filterSelector').selectedIndex].text;
@@ -134,12 +125,6 @@ function searchUniversities() {
     var selectedMilitaryDepartment = document.getElementById('militaryDepartmentSelector').value;
     var selectedAccreditation = document.getElementById('accreditationSelector').value;
 
-    console.log("Selected City: ", selectedCity);
-    console.log("Selected Education Level: ", selectedEducationLevel);
-    console.log("Selected Study Form: ", selectedStudyForm);
-    console.log("Selected Military Department: ", selectedMilitaryDepartment);
-    console.log("Selected Accreditation: ", selectedAccreditation);
-
     for (i = 0; i < universities.length; i++) {
         var title = universities[i].getElementsByClassName('namesun')[0];
         txtValue = title.textContent || title.innerText;
@@ -151,10 +136,26 @@ function searchUniversities() {
 
         var cityMatch = selectedCity === 'all' || universities[i].classList.contains(selectedCity);
         var educationLevelMatch = selectedEducationLevel === 'all' || universities[i].classList.contains(selectedEducationLevel);
-        var studyFormMatch = selectedStudyForm === 'all' || universities[i].classList.contains(selectedStudyForm);
         var militaryDepartmentMatch = selectedMilitaryDepartment === 'all' || universities[i].classList.contains(selectedMilitaryDepartment);
         var accreditationMatch = selectedAccreditation === 'all' || universities[i].classList.contains(selectedAccreditation);
 
+        var studyFormMatch = false;
+
+        switch (selectedStudyForm) {
+            case 'all':
+                studyFormMatch = true;
+                break;
+            case 'очная':
+                studyFormMatch = universities[i].classList.contains('очная') || universities[i].classList.contains('очная,');
+                break;
+            case 'очно-заочная':
+                studyFormMatch = universities[i].classList.contains('очно-заочная') || universities[i].classList.contains('очно-заочная,');
+                break;
+            case 'заочная':
+                studyFormMatch = universities[i].classList.contains('заочная') || universities[i].classList.contains('заочная,');
+                break;
+        }
+        
         if (txtValue.toUpperCase().indexOf(filter) > -1 && filterMatch && cityMatch && educationLevelMatch && studyFormMatch && militaryDepartmentMatch && accreditationMatch) {
             universities[i].style.display = '';
         } else {
