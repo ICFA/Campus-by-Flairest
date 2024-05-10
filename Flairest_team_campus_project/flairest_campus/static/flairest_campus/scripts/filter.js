@@ -42,14 +42,14 @@ function updateFilter() {
     }
     
     if (selectedFilter === 'universities') {
-        showElements('univer1');
+        showElements('univer1', 'hidden1');
         hideElements(['napravlen1', 'Instityt1']);
     } else if (selectedFilter === 'directions') {
         showElements('napravlen1');
         hideElements(['univer1', 'Instityt1']);
     } else if (selectedFilter === 'institutes') {
-        showElements('Instityt1');
-        hideElements(['univer1', 'napravlen1']);
+        showElements(['Instityt1', 'hidden1']); // Показываем институты и показывать только
+        hideElements(['univer1', 'napravlen1', 'hidden1']); // Скрываем университеты и направления
     }
 
     searchUniversities();
