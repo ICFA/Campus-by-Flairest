@@ -163,7 +163,7 @@
             <div class="univ-catalogue">
                 {% for uni in universities %}
                 <!--  href="{prc url b.name prc}" -->
-                <a class="univ-link univer1 {{ uni.gorod }}" href="uni/{{ uni.id }}/">
+                <a class="univ-link univer1 {{ uni.gorod }} {{ spec.military_department }} {{ spec.gos_or_private }}" href="uni/{{ uni.id }}/">
                     <div class="univ-container" id="urfu">
                         <h2 class="univ-title namesun">
                             {{ uni.name }}
@@ -173,7 +173,7 @@
                 </a>
                 {% endfor %}
                 {% for spec in directions %}
-                <a class="univ-link napravlen1 {{ spec.city }} {{ spec.level }} {{ spec.duration }} {{ spec.military_department }} {{ spec.gos_or_private }}" href="spec/{{ spec.id }}/">
+                <a class="univ-link napravlen1 {{ spec.city }} {{ spec.level }} {{ spec.duration }} {{ spec.study_form }}" href="spec/{{ spec.id }}/">
                     <div class="pi-container">
                         <img class="irit-image" src="{{ spec.photo.url }}" alt="Обложка {{ spec.name }}">                        
                         <section class="directions-title namesun">
