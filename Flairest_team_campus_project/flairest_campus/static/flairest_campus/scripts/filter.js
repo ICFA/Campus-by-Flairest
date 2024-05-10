@@ -164,7 +164,7 @@ function showElements(className) {
         var elements = document.getElementsByClassName(className);
 
         for (var j = 0; j < elements.length; j++) {
-            elements[j].style.visibility = 'visible';
+            elements[j].style.display = 'block'; // Используйте 'block' для отображения элементов
         }
     }
 }
@@ -178,7 +178,7 @@ function hideElements(classNames) {
         var elements = document.getElementsByClassName(classNames);
 
         for (var l = 0; l < elements.length; l++) {
-            elements[l].style.visibility = 'hidden';
+            elements[l].style.display = 'none'; // Используйте 'none' для скрытия элементов
         }
     }
 }

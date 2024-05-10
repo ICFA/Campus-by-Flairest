@@ -308,8 +308,7 @@ select {
 }
 
 .hidden {
-    visibility: hidden;
-    pointer-events: none; 
+    display: none;
 }
 
 .filter-wrapper p {
