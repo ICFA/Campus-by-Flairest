@@ -156,7 +156,7 @@ class Specialty(models.Model):
         (Bio, Bio),
         (Geo, Geo),
         (Foreign, Foreign),
-        (Liter, Foreign),
+        (Liter, Liter),
     )
 
     LEVEL_CHOICES = (
