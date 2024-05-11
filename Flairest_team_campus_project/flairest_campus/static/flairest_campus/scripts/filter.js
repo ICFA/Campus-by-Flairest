@@ -5,13 +5,15 @@ document.addEventListener('DOMContentLoaded', function () {
 function updateFilter() {
     var filterChips = document.querySelector('.filter-chips');
     filterChips.innerHTML = '';
-
+    
     var selectedFilter = document.getElementById('filterSelector').value;
     var selectedCity = document.getElementById('citySelector').value;
     var selectedEducationLevel = document.getElementById('educationLevelSelector').value;
     var selectedStudyForm = document.getElementById('studyFormSelector').value;
     var selectedMilitaryDepartment = document.getElementById('militaryDepartmentSelector').value;
     var selectedAccreditation = document.getElementById('accreditationSelector').value;
+    var selectedEgeSubject = document.getElementById('egeSubjectSelector').value;
+    var durationSubject = document.getElementById('durationSelector').value;
 
     var hideLastFilters = selectedFilter === 'universities' || selectedFilter === 'institutes';
     
@@ -40,19 +42,132 @@ function updateFilter() {
     if (selectedAccreditation !== 'all') {
         updateFilterChip('Accreditation', selectedAccreditation);
     }
+    if (selectedEgeSubject !== 'all') {
+        updateFilterChip('EGE Subject', selectedEgeSubject);
+    }
+    if (durationSubject !== 'all') {
+        updateFilterChip('durationSelector', durationSubject);
+    }
     
     if (selectedFilter === 'universities') {
         showElements('univer1', 'hidden1');
         hideElements(['napravlen1', 'Instityt1']);
+        document.getElementById('militaryDepartmentSelector').parentNode.style.display = 'flex';
+        document.getElementById('accreditationSelector').parentNode.style.display = 'flex';
+        document.getElementById('egeSubjectSelector').parentNode.style.display = 'none';
+        document.getElementById('durationSelector').parentNode.style.display = 'none';
     } else if (selectedFilter === 'directions') {
         showElements('napravlen1');
-        hideElements(['univer1', 'Instityt1']);
+        hideElements(['univer1', 'Instityt1', 'hidden1']);
+        document.getElementById('militaryDepartmentSelector').parentNode.style.display = 'none';
+        document.getElementById('accreditationSelector').parentNode.style.display = 'none';
+        document.getElementById('egeSubjectSelector').parentNode.style.display = 'flex';
+        document.getElementById('durationSelector').parentNode.style.display = 'flex';
     } else if (selectedFilter === 'institutes') {
-        showElements(['Instityt1', 'hidden1']); // Показываем институты и показывать только
-        hideElements(['univer1', 'napravlen1', 'hidden1']); // Скрываем университеты и направления
+        showElements(['Instityt1', 'hidden1']); 
+        hideElements(['univer1', 'napravlen1', 'hidden1']);
+        document.getElementById('militaryDepartmentSelector').parentNode.style.display = 'none';
+        document.getElementById('accreditationSelector').parentNode.style.display = 'none';
+        document.getElementById('egeSubjectSelector').parentNode.style.display = 'none';
+        document.getElementById('durationSelector').parentNode.style.display = 'none';
     }
 
     searchUniversities();
+}
+
+function searchUniversities() {
+    var input, filter, universities, i, txtValue;
+    input = document.getElementById('universitySearch');
+    filter = input.value.toUpperCase();
+    universities = document.getElementsByClassName('univ-link');
+
+    var selectedFilter = document.getElementById('filterSelector').value;
+    var selectedCity = document.getElementById('citySelector').value;
+    var selectedEducationLevel = document.getElementById('educationLevelSelector').value;
+    var selectedStudyForm = document.getElementById('studyFormSelector').value;
+    var selectedMilitaryDepartment = document.getElementById('militaryDepartmentSelector').value;
+    var selectedAccreditation = document.getElementById('accreditationSelector').value;
+    var selectedEgeSubject = document.getElementById('egeSubjectSelector').value;
+    var selecteddurationSelector = document.getElementById('durationSelector').value;
+
+    for (i = 0; i < universities.length; i++) {
+        var title = universities[i].getElementsByClassName('namesun')[0];
+        txtValue = title.textContent || title.innerText;
+
+        var filterMatch = selectedFilter === 'all' ||
+            (selectedFilter === 'universities' && universities[i].classList.contains('univer1')) ||
+            (selectedFilter === 'directions' && universities[i].classList.contains('napravlen1')) ||
+            (selectedFilter === 'institutes' && universities[i].classList.contains('Instityt1'));
+
+        var cityMatch = selectedCity === 'all' || universities[i].classList.contains(selectedCity);
+        var educationLevelMatch = selectedEducationLevel === 'all' || universities[i].classList.contains(selectedEducationLevel);
+        var militaryDepartmentMatch = selectedMilitaryDepartment === 'all' || universities[i].classList.contains(selectedMilitaryDepartment);
+        var accreditationMatch = selectedAccreditation === 'all' || universities[i].classList.contains(selectedAccreditation);
+        var egeSubjectMatch = selectedEgeSubject === 'all' || universities[i].classList.contains(selectedEgeSubject);
+        var durationMatch = selecteddurationSelector === 'all' || universities[i].classList.contains(selecteddurationSelector);
+
+        var studyFormMatch = false;
+
+        switch (selectedStudyForm) {
+            case 'all':
+                studyFormMatch = true;
+                break;
+            case 'очная':
+                studyFormMatch = universities[i].classList.contains('очная') || universities[i].classList.contains('очная,');
+                break;
+            case 'очно-заочная':
+                studyFormMatch = universities[i].classList.contains('очно-заочная') || universities[i].classList.contains('очно-заочная,');
+                break;
+            case 'заочная':
+                studyFormMatch = universities[i].classList.contains('заочная') || universities[i].classList.contains('заочная,');
+                break;
+        }
+
+        switch (selectedEgeSubject) {
+            case 'all':
+                egeSubjectMatch = true;
+                break;
+            case 'Русский язык':
+                egeSubjectMatch = universities[i].classList.contains('Русский') || universities[i].classList.contains('Русский,');
+                break;
+            case 'Математика':
+                egeSubjectMatch = universities[i].classList.contains('Математика') || universities[i].classList.contains('Математика,');
+                break;
+            case 'Физика':
+                egeSubjectMatch = universities[i].classList.contains('Физика') || universities[i].classList.contains('Физика,');
+                break;
+            case 'Химия':
+                egeSubjectMatch = universities[i].classList.contains('Химия') || universities[i].classList.contains('Химия,');
+                break;
+            case 'История':
+                egeSubjectMatch = universities[i].classList.contains('История') || universities[i].classList.contains('История,');
+                break;
+            case 'Обществознание':
+                egeSubjectMatch = universities[i].classList.contains('Обществознание') || universities[i].classList.contains('Обществознание,');
+                break;
+            case 'Информатика':
+                egeSubjectMatch = universities[i].classList.contains('Информатика') || universities[i].classList.contains('Информатика,');
+                break;
+            case 'Биология':
+                egeSubjectMatch = universities[i].classList.contains('Биология') || universities[i].classList.contains('Биология,');
+                break;
+            case 'География':
+                egeSubjectMatch = universities[i].classList.contains('География') || universities[i].classList.contains('География,');
+                break;
+            case 'Иностранные языки':
+                egeSubjectMatch = universities[i].classList.contains('Иностранные') || universities[i].classList.contains('Иностранные,');
+                break;
+            case 'Литература':
+                egeSubjectMatch = universities[i].classList.contains('Литература') || universities[i].classList.contains('Литература,');
+                break;
+        }
+        
+        if (txtValue.toUpperCase().indexOf(filter) > -1 && filterMatch && cityMatch && educationLevelMatch && studyFormMatch && militaryDepartmentMatch && accreditationMatch && egeSubjectMatch && durationMatch) {
+            universities[i].style.display = '';
+        } else {
+            universities[i].style.display = 'none';
+        }
+    }
 }
 
 function updateFilterChip(filterType, filterValue) {
@@ -92,6 +207,12 @@ function removeFilterChip(chipElement) {
         case 'Accreditation':
             filterToReset = 'accreditationSelector';
             break;
+        case 'EGE Subject':
+            filterToReset = 'egeSubjectSelector';
+            break;
+        case 'durationSelector':
+            filterToReset = 'durationSelector';
+            break;
         default:
             break;
     }
@@ -110,58 +231,6 @@ function resetFilter() {
     document.getElementById('studyFormSelector').value = 'all';
     document.getElementById('militaryDepartmentSelector').value = 'all';
     document.getElementById('accreditationSelector').value = 'all';
-}
-
-function searchUniversities() {
-    var input, filter, universities, i, txtValue;
-    input = document.getElementById('universitySearch');
-    filter = input.value.toUpperCase();
-    universities = document.getElementsByClassName('univ-link');
-
-    var selectedFilter = document.getElementById('filterSelector').value;
-    var selectedCity = document.getElementById('citySelector').value;
-    var selectedEducationLevel = document.getElementById('educationLevelSelector').value;
-    var selectedStudyForm = document.getElementById('studyFormSelector').value;
-    var selectedMilitaryDepartment = document.getElementById('militaryDepartmentSelector').value;
-    var selectedAccreditation = document.getElementById('accreditationSelector').value;
-
-    for (i = 0; i < universities.length; i++) {
-        var title = universities[i].getElementsByClassName('namesun')[0];
-        txtValue = title.textContent || title.innerText;
-
-        var filterMatch = selectedFilter === 'all' ||
-            (selectedFilter === 'universities' && universities[i].classList.contains('univer1')) ||
-            (selectedFilter === 'directions' && universities[i].classList.contains('napravlen1')) ||
-            (selectedFilter === 'institutes' && universities[i].classList.contains('Instityt1'));
-
-        var cityMatch = selectedCity === 'all' || universities[i].classList.contains(selectedCity);
-        var educationLevelMatch = selectedEducationLevel === 'all' || universities[i].classList.contains(selectedEducationLevel);
-        var militaryDepartmentMatch = selectedMilitaryDepartment === 'all' || universities[i].classList.contains(selectedMilitaryDepartment);
-        var accreditationMatch = selectedAccreditation === 'all' || universities[i].classList.contains(selectedAccreditation);
-
-        var studyFormMatch = false;
-
-        switch (selectedStudyForm) {
-            case 'all':
-                studyFormMatch = true;
-                break;
-            case 'очная':
-                studyFormMatch = universities[i].classList.contains('очная') || universities[i].classList.contains('очная,');
-                break;
-            case 'очно-заочная':
-                studyFormMatch = universities[i].classList.contains('очно-заочная') || universities[i].classList.contains('очно-заочная,');
-                break;
-            case 'заочная':
-                studyFormMatch = universities[i].classList.contains('заочная') || universities[i].classList.contains('заочная,');
-                break;
-        }
-        
-        if (txtValue.toUpperCase().indexOf(filter) > -1 && filterMatch && cityMatch && educationLevelMatch && studyFormMatch && militaryDepartmentMatch && accreditationMatch) {
-            universities[i].style.display = '';
-        } else {
-            universities[i].style.display = 'none';
-        }
-    }
 }
 
 function showElements(className) {
@@ -209,89 +278,3 @@ universitySearch.addEventListener('input', function () {
 
     searchUniversities();
 });
-
-function openLoginForm(type) {
-    var loginForm = document.getElementById("loginForm");
-    var overlay = document.getElementById("overlay");
-    var loginAcc = document.querySelector('.input-acc');
-    var regAcc = document.querySelector('.reg-acc');
-    var loginButton = document.getElementById("loginButton");
-    var registerButton = document.getElementById("registerButton");
-
-    loginForm.style.display = "block";
-    overlay.style.display = "block";
-
-    if (type === 'login') {
-        loginAcc.style.display = 'block';
-        regAcc.style.display = 'none';
-        loginButton.classList.add('active');
-        registerButton.classList.remove('active');
-    } else if (type === 'register') {
-        loginAcc.style.display = 'none';
-        regAcc.style.display = 'block';
-        registerButton.classList.add('active');
-        loginButton.classList.remove('active');
-    }
-}
-
-function closeLoginForm() {
-    var loginForm = document.getElementById("loginForm");
-    var overlay = document.getElementById("overlay");
-    loginForm.style.display = "none";
-    overlay.style.display = "none";
-}
-
-function login() {
-    var loginForm = document.getElementById("loginForm");
-    var loginValue = document.getElementById("loginFormLogin").value;
-
-    if (loginValue) {
-        alert("Вход выполнен для логина: " + loginValue);
-        closeLoginForm();
-    } else {
-        alert("Введите логин!");
-    }
-}
-
-function register() {
-    alert("Регистрация");
-}
-
-function toggleAgree() {
-    var agreeButton = document.querySelector('.agree-button');
-    agreeButton.classList.toggle('checked');
-}
-
-function toggleButton(event) {
-    var buttons = document.querySelectorAll('.input-word');
-    var loginAcc = document.querySelector('.input-acc');
-    var regAcc = document.querySelector('.reg-acc');
-
-    buttons.forEach(function (button) {
-        button.classList.remove('active');
-    });
-
-    event.target.classList.add('active');
-
-    var container = document.querySelector('.button-container');
-    container.style.background = event.target.id === 'registerButton' ?
-        'linear-gradient(to right, #8269EF 50%, #e0d9fb 50%)' :
-        'linear-gradient(to right, #e0d9fb 50%, #8269EF 50%)';
-
-    var loginButtonContainer = document.querySelector('.login-button-container');
-    var registerButtonContainer = document.querySelector('.register-button-container');
-
-    if (event.target.id === 'registerButton') {
-        loginAcc.style.display = 'none';
-        regAcc.style.display = 'block';
-        loginButtonContainer.style.display = 'none';
-        registerButtonContainer.style.display = 'block';
-    } else {
-        loginAcc.style.display = 'block';
-        regAcc.style.display = 'none';
-        loginButtonContainer.style.display = 'block';
-        registerButtonContainer.style.display = 'none';
-    }
-}
-
-
