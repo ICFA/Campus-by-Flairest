@@ -233,3 +233,21 @@ section h2 {
     font-weight: 700;
     white-space: nowrap;
 }
+
+.details {
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.details td {
+    padding-right: 50px;
+    padding-top: 16px;
+}
+
+#gos_or_private-value, #military_department-value {
+    text-transform: capitalize;
+}

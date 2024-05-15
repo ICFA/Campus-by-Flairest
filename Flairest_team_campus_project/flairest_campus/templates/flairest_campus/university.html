@@ -66,17 +66,19 @@
         <img class="gallery-decor-bot" src="{% static 'flairest_campus/image/univ_decor/univ_gallery_decor_bot.svg' %}" alt="">
         <div class="univ-information">
             <section>
-                <h2 contenteditable="false" spellcheck="false">ОБ УНИВЕРСИТЕТЕ</h2>
+                <h2 contenteditable="false" spellcheck="false">Об университете</h2>
                 <p contenteditable="false" spellcheck="false">{{ uni.about }}</p>
             </section>
             <section>
-                <h2 contenteditable="false" spellcheck="false">Город</h2>
-                <p contenteditable="false" spellcheck="false">{{ uni.gorod }}</p>
-                <h2 contenteditable="false" spellcheck="false">Государственный - {{ uni.gos_or_private }}</h2>
-                <h2 contenteditable="false" spellcheck="false">Военная кафедра - {{ uni.military_department }}</h2>
+                <h2>Детали</h2>
+                <table class="details">
+                    <tr><td id="city">Город</td><td id="city-value">{{ uni.gorod }}</td></tr>
+                    <tr><td id="gos_or_private">Государственный</td><td id="gos_or_private-value">{{ uni.gos_or_private }}</td></tr>
+                    <tr><td id="military_department">Военная кафедра</td><td id="military_department-value">{{ uni.military_department }}</td></tr>
+                </table>
             </section>
             <section>
-                <h2 contenteditable="false" spellcheck="false">ОСОБЕННОСТИ</h2>
+                <h2 contenteditable="false" spellcheck="false">Особенности</h2>
                 <p contenteditable="false" spellcheck="false">{{ uni.features }}</p>
             </section>
             <section>
