@@ -1,7 +1,7 @@
 .pi-container {
     display: flex;
     border-radius: 16px;
-    box-shadow: 0px 0px 20px 2px #5d5959;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     height: 390px;
 }
 

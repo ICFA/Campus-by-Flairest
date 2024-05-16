@@ -112,20 +112,6 @@ body {
     color: #5d5959;
 }
 
-.univ-catalogue {
-    background-color: #F42E30;
-    padding-left: 260px;
-    margin-right: 15px;
-    padding-bottom: 1px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 62px;
-    overflow-y: scroll;
-    max-height: 780px;
-    padding-bottom: 0px;
-    margin-top: 20px;
-}
-
 .univ-container {
     margin: 0;
     padding: 0;
@@ -134,7 +120,7 @@ body {
     display: flex;
     flex-direction: column-reverse;
     border-radius: 16px;
-    box-shadow: 0px 3px 5px 2px #5d5959;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .univ-title {
@@ -166,7 +152,8 @@ body {
     margin-bottom: -40px;
     border-radius: 16px;
     width: 400px;
-    height: 260px;
+    height: 260px !important;
+    object-fit: cover;
 }
 
 .main ::-webkit-scrollbar {
@@ -235,13 +222,14 @@ button {
 .univ-catalogue {
     background-color: #F42E30;
     padding-left: 260px;
+    margin-top: 20px;
     margin-right: 15px;
-    padding-bottom: 1px;
+    padding-bottom: 10px;
     display: flex;
     flex-wrap: wrap;
     gap: 62px;
     overflow-y: scroll;
-    max-height: 800px;
+    max-height: 790px;
     border-radius: 18px;
     width: 75%;
 }
@@ -331,12 +319,11 @@ select {
     border: none; 
 }
 
-#showFiltersButton {
+.showFiltersButton {
     cursor: pointer;
-    transition: filter 0.3s ease-in-out;
 }
 
-#showFiltersButton:hover {
+.showFiltersButton:hover {
     filter: brightness(120%);
     cursor: pointer; 
 }

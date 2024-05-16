@@ -1,11 +1,22 @@
 $(document).ready(function () {
-  const input = document.querySelector('#uniImage');
-  const placeholder = document.getElementById('placeholderImage');
   const photoForm = document.querySelector('.photo-form');
-  const prevPhotoUrl = photoForm.querySelector('a').getAttribute('href');
-  placeholder.setAttribute('src', prevPhotoUrl);
+  const img = document.createElement('img');
+  img.alt = "prev img";
+  const input = photoForm.querySelector('input')
+  input.id = 'input__file';
+  var photoUrl;
+  try {
+    photoUrl = photoForm.querySelector('a').getAttribute('href');
+    img.src = photoUrl;
+  } catch {
+    
+  }
 
+  photoForm.prepend(img);
   input.addEventListener('change', function () {
-    placeholder.style.display = 'none';
+    let file = input.files[0];
+    if (file) {
+      img.src = URL.createObjectURL(file);
+    }
   });
 });

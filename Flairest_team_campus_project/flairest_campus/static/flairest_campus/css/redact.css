@@ -17,6 +17,72 @@
 }
 
 .table-textarea textarea{
-    height: 1.4em;
     width: 173px;
+}
+
+.univ-information textarea {
+    min-height: 10em;
+    min-width: 30em;
+}
+
+.photo-form {
+    font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-form img {
+    width: 1026px;
+    height: 593px;
+    border: 3px solid rgb(255, 255, 255);
+    border-style: dashed;
+}
+
+.photo-form input {
+    display: none;
+}
+
+.input__file-button {
+    background-color: aliceblue;
+    padding: 8px;
+    transition: all .15s linear;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    border-color: rgb(44, 43, 43);
+}
+
+.input__file-button:hover {
+    background-color: #8269EF;
+    cursor: pointer;
+    border-color: aliceblue;
+}
+
+.input__file-button:active {
+    background-color: #553dc2;
+}
+
+.input__file-button:hover .input__file-button-text {
+    color: aliceblue;
+}
+
+.input__file-button-text {
+    color: black;
+    font-size: small;
+    line-height: normal;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: all .15s linear;
+}
+
+.unselectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }

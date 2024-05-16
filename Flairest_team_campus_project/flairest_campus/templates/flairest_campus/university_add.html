@@ -53,10 +53,16 @@
                     <h1 id="uniTitle" contenteditable="false" style="text-align: center;">Название Университета</h1>
                     <div class="input-form">{{ form.name }}</div>
                     <h1 id="uniTitle" contenteditable="false" style="text-align: center;">Фото Университета</h1>
-                    <input type="file" id="uniImage" name="photo" accept="image/*" onchange="replaceImage(this)">
+                    <!-- <input type="file" id="uniImage" name="photo" accept="image/*" onchange="replaceImage(this)">
                     <button type="button" id="uniImage" onclick="deleteImage()">Удалить фотографию</button>
                     <img id="uploadedImage" class="uploaded-image" src="{{ form.photo.url }}">
-                    <img id="placeholderImage" src="">
+                    <img id="placeholderImage" src=""> -->
+                    <div class="photo-form">
+                        {{ form.photo }}
+                        <label for="input__file" class="input__file-button">
+                            <span class="input__file-button-text unselectable">Выберите фото</span>
+                        </label>
+                    </div>
                 </div>
             <img class="gallery-decor-bot" src="{% static 'flairest_campus/image/univ_decor/univ_gallery_decor_bot.svg' %}" alt="">
             <div class="univ-information">
