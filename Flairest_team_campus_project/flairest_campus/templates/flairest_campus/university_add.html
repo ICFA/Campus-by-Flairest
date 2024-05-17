@@ -51,7 +51,7 @@
                 {% csrf_token %}
                 <div class="gallery">
                     <h1 id="uniTitle" contenteditable="false" style="text-align: center;">Название Университета</h1>
-                    <div class="input-form">{{ form.name }}</div>
+                    <div class="input-form title">{{ form.name }}</div>
                     <h1 id="uniTitle" contenteditable="false" style="text-align: center;">Фото Университета</h1>
                     <!-- <input type="file" id="uniImage" name="photo" accept="image/*" onchange="replaceImage(this)">
                     <button type="button" id="uniImage" onclick="deleteImage()">Удалить фотографию</button>
@@ -68,7 +68,7 @@
             <div class="univ-information">
                 <section>
                     <h2 contenteditable="false" spellcheck="false">Об Университете</h2>
-                    <div class="input-form">{{ form.about }}</div>
+                    <div class="input-form light">{{ form.about }}</div>
                 </section>
                 <section>
                     <h2 contenteditable="false" spellcheck="false">Город</h2>
@@ -84,11 +84,11 @@
                 </section>
                 <section>
                     <h2 contenteditable="false" spellcheck="false">Особенности</h2>
-                    <div class="input-form">{{ form.features }}</div>
+                    <div class="input-form light">{{ form.features }}</div>
                 </section>
                 <section>
                     <h2 contenteditable="false" spellcheck="false">Контакты</h2>
-                    <div class="input-form">{{ form.contacts }}</div>
+                    <div class="input-form light">{{ form.contacts }}</div>
                 </section>
                 <!--
                 <section class="edit">

@@ -8,6 +8,18 @@
     font-family: inherit;
 }
 
+.title textarea{
+    color: white;
+    background-color: #8269EF;
+    border: 3px solid rgb(255, 255, 255);
+    border-style: dashed;
+    font-family: 'Inter', sans-serif;
+    font-size: 72px;
+    line-height: 72px;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
 #uniTitle + .input-form textarea{
     height: 1.4em;
 }
@@ -47,16 +59,17 @@
 
 .input__file-button {
     background-color: aliceblue;
-    padding: 8px;
+    padding: 16px;
     transition: all .15s linear;
-    border-radius: 5px;
+    border-radius: 50px;
     border: 2px solid transparent;
-    border-color: rgb(44, 43, 43);
+    border-color: rgba(44, 43, 43, 0);
 }
 
 .input__file-button:hover {
     background-color: #8269EF;
     cursor: pointer;
+    border: 2px solid transparent;
     border-color: aliceblue;
 }
 
@@ -85,4 +98,57 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+input[type='checkbox'] {
+	-webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 2px;
+	display: inline-block;
+	position: relative;
+    transition: all .2s linear;
+}
+
+input[type='checkbox']:hover {
+    background-color: #c1b9e5;
+}
+
+input[type='checkbox']:checked:hover {
+    background-color: #c1b9e5;
+}
+
+input[type='checkbox']:active, input[type='checkbox']:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+input[type='checkbox']:checked {
+	background-color: #e9ecee;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+
+input[type='checkbox']:checked:after {
+	content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #553dc2;
+}
+
+.light textarea {
+    border: 3px solid rgb(12, 12, 12);
+    border-style: dashed;
+}
+
+#form-about textarea {
+    color: white;
+    background-color: #8269EF;
+    border: 3px solid rgb(255, 255, 255);
+    border-style: dashed;
+    font-family: 'Inter', sans-serif;
 }

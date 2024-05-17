@@ -43,7 +43,7 @@
     <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
                 <h1 class="direction-title">Название направления</h1>
-                <div class="input-form">{{ form.name }}</div>
+                <div class="input-form title">{{ form.name }}</div>
                 <div class="direction-enroll-info">
                     <p class="direction-code">Код направления</p>
                     <div class="input-form">{{ form.speciality_cod }}</div>
@@ -57,12 +57,12 @@
                     {{ form.photo }}
                 </div>
             <pre class="direction-description">О направлении</pre>
-            <div class="input-form"><p>{{ form.about }}</p></div>
+            <div class="input-form" id="form-about"><p>{{ form.about }}</p></div>
         </div>
         <img src="{% static 'flairest_campus/image/header-direction.png' %}" style="width: 100%;" alt="">
         <section class="direction-features">
             <h2>ОСОБЕННОСТИ НАПРАВЛЕНИЯ</h2>
-            <div class="input-form"><pre class="direction-features-description">{{ form.special }}</pre></div>
+            <div class="input-form light"><pre class="direction-features-description">{{ form.special }}</pre></div>
         </section>
         <section class="direction-details">
             <h2>Детали</h2>
@@ -86,7 +86,7 @@
         -->
         <section class="description-cl">
             <h2>Ключевые дисциплины</h2>
-            <div class="input-form"><p style="width: 85%;">{{ form.discipline }}</p></div>
+            <div class="input-form light"><p style="width: 85%;">{{ form.discipline }}</p></div>
         </section>
         <section class="direction-details">
             <table class="details">
@@ -97,7 +97,7 @@
         </section>
         <section class="direction-questions">
             <h2>Ссылки на контакты</h2>
-            <div class="input-form"><p>{{ form.links }}</p></div>
+            <div class="input-form light"><p>{{ form.links }}</p></div>
         </section>
         <section>
             <button type="submit">Добавить</button>
