@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="{% static 'flairest_campus/css/direction-style.css' %}">
     <link rel="stylesheet" href="{% static 'flairest_campus/css/nav.css' %}">
     <link rel="stylesheet" href="{% static 'flairest_campus/css/index-style.css' %}">
+    <link rel="stylesheet" href="{% static 'flairest_campus/css/redact.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500&family=Roboto:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
@@ -39,7 +40,7 @@
                     <input type=button value="Назад" onClick="javascript:history.go(-1);">
                 </div>
             </nav>
-            <a class="back-redact-dir" href="/specedit/{{ spec.id }}/">Изменить</a>
+            <a class="redact redact-dir" href="/specedit/{{ spec.id }}/">Изменить</a>
             <h1 class="direction-title">{{ spec.name }}</h1>
             <div class="direction-enroll-info">
                 <p class="direction-code">{{ spec.speciality_cod }} {{ spec.level }}</p>

@@ -43,6 +43,7 @@ body {
     padding-top: 50px;
     border-top-right-radius: 20px;
     padding-left: 226px;
+    padding-right: 226px;
 }
 
 .header-nav {
@@ -500,23 +501,4 @@ button {
 
 #univ-link:hover {
     color: #5841c0;
-}
-
-.back-redact-dir {
-    display: block;
-    flex-direction: column;
-    width: 102px;
-    height: 36px;
-    border-radius: 56px;
-    background-color: aliceblue;
-    text-align: center;
-    padding-top: 13px;
-    text-decoration: none;
-    color: black;
-    transition: background-color 0.3s;
-    margin-left: 40%;
-}
-
-.back-redact-dir:hover {
-    background-color: rgb(133, 133, 133); 
 }

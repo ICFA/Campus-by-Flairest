@@ -152,3 +152,25 @@ input[type='checkbox']:checked:after {
     border-style: dashed;
     font-family: 'Inter', sans-serif;
 }
+
+.redact {
+    display: block;
+    flex-direction: column;
+    width: 102px;
+    height: 36px;
+    border-radius: 56px;
+    background-color: aliceblue;
+    text-align: center;
+    padding-top: 13px;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.15s; 
+}
+
+.redact:hover {
+    background-color: #adb8c0; 
+}
+
+.redact-dir {
+    margin: auto;
+}
