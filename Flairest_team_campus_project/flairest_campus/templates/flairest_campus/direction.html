@@ -63,8 +63,8 @@
                 <tr><td id="study-period">Период обучения</td><td id="study-period-value">{{ spec.duration }}</td></tr>
                 <tr><td id="education-form">Форма обучения</td><td id="education-form-value">{{ spec.study_form }}</td></tr>
                 <tr><td id="">Стоимость обучения</td><td id="military_department-value">{{ spec.price }} ₽</td></tr>
-                <tr><td id="">Проходной балл на бюджет и платное</td><td id="military_department-value">{{ spec.passing_score_free }} и {{ spec.passing_score_paid }}</td></tr>
-                <tr><td id="">Количество мест на бюджет и платное</td><td id="military_department-value">{{ spec.max_students_number_free }} и {{ spec.max_students_number_paid }}</td></tr>
+                <tr><td id="">Проходной балл на бюджет и платное</td><td id="military_department-value">{{ spec.passing_score_free }} и {{ spec.passing_score_paid }} баллов</td></tr>
+                <tr><td id="">Количество мест на бюджет и платное</td><td id="military_department-value">{{ spec.max_students_number_free }} и {{ spec.max_students_number_paid }} мест</td></tr>
             </table>
         </section>
         <!--
@@ -113,7 +113,10 @@
             -->
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                {{ revForm.as_p }}
+                <p>Автор: </p>
+                {{ revForm.author }} 
+                <p>Отзыв: </p>
+                {{ revForm.review }}
                 <button type="submit">Отправить отзыв</button>
             </form>
             <!-- <form style="width:450px;" method="POST" enctype="multipart/form-data">
