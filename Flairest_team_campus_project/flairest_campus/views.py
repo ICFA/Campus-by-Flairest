@@ -65,6 +65,9 @@ class UniAdd(CreateView):
     form_class = UniForm
     template_name = 'flairest_campus/university_add.html'
     success_url = '/catalog/'
+    extra_context = {
+        'title': 'Добавить университет',
+    }
 
 class UniEdit(UpdateView):
     model = University
@@ -72,7 +75,7 @@ class UniEdit(UpdateView):
     template_name = 'flairest_campus/university_add.html'
     success_url = '/catalog/'
     extra_context = {
-        'title': 'Редактирование университета',
+        'title': 'Редактировать университет',
     }
 
 class SpecAdd(CreateView):
@@ -80,6 +83,9 @@ class SpecAdd(CreateView):
     form_class = SpecForm
     template_name = 'flairest_campus/direction_add.html'
     success_url = '/catalog/'
+    extra_context = {
+        'title': 'Добавить направление',
+    }
 
 class SpecEdit(UpdateView):
     model = Specialty
@@ -87,14 +93,8 @@ class SpecEdit(UpdateView):
     template_name = 'flairest_campus/direction_add.html'
     success_url = '/catalog/'
     extra_context = {
-        'title': 'Редактирование направления',
+        'title': 'Редактировать направление',
     }
-
-class RevAdd(CreateView):
-    model = Review
-    form_class = RevForm
-    template_name = 'flairest_campus/review_add_DEVELOPMENT.html'
-    success_url = '/catalog/'
 
 def uni_detail(request, uni_id):
     uni = University.objects.get(id=uni_id)

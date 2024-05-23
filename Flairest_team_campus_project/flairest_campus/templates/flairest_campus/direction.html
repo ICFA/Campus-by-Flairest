@@ -62,6 +62,9 @@
                 <tr><td id="education-level">Уровень образования</td><td id="education-level-value">{{ spec.level }}</td></tr>
                 <tr><td id="study-period">Период обучения</td><td id="study-period-value">{{ spec.duration }}</td></tr>
                 <tr><td id="education-form">Форма обучения</td><td id="education-form-value">{{ spec.study_form }}</td></tr>
+                <tr><td id="">Стоимость обучения</td><td id="military_department-value">{{ spec.price }} ₽</td></tr>
+                <tr><td id="">Проходной балл на бюджет и платное</td><td id="military_department-value">{{ spec.passing_score_free }} и {{ spec.passing_score_paid }}</td></tr>
+                <tr><td id="">Количество мест на бюджет и платное</td><td id="military_department-value">{{ spec.max_students_number_free }} и {{ spec.max_students_number_paid }}</td></tr>
             </table>
         </section>
         <!--
@@ -78,7 +81,7 @@
         </section>
         <section class="direction-apply">
             <h2>Прочая информация</h2>
-            <p>Узнать больше вы сможете <a href="{{ spec.links }}">здесь</a></p>
+            <p>{{ spec.links }}</p>
         </section>
         <div class="direction-reviews">
             <h2>Отзывы</h2>
