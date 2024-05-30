@@ -34,14 +34,7 @@
                 <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
                 <a href="https://studgorod.ru/" class="more">Ещё</a>
             </div>
-            <div class="profile-buttons">
-                <button onclick="openLoginForm('register')" id="registerBtn" class="registration">Регистрация</button>
-                <button onclick="openLoginForm('login')" id="loginBtn" class="enter">Войти</button>
-            </div>
-            <div class="profile-buttons">
-                <a href="../profile" class="enter-profile" id="profileBtn" style="display: none;">Мой Профиль</a>
-                <a href="#" onclick="logout()" class="login-out" id="logoutBtn" style="display: none;">Выйти</a>
-            </div>
+            <a href="../profile" class="enter">Мой профиль</a>
         </div>
         <div class="nav-list-reduced" id="nlr" style="display: none;">
             <ul>
@@ -67,10 +60,7 @@
                 <div><img src="{% static 'flairest_campus/image/key.svg' %}" alt="Изображение ключа" class="key-image"></div>
                 <div class="input-acc">Вход в аккаунт</div>
                 <div class="reg-acc">Регистрация</div>
-                <div class="button-container" onclick="toggleButton(event)">
-                    <button class="input-word active" id="registerButton">Регистрация</button>
-                    <button class="reg-word" id="loginButton">Войти</button>
-                </div>
+                <a href="../profile" class="enter">Мой профиль</a>
                 <input type="text" id="loginFormLogin" class="forma-reg" placeholder="Email">
                 <p><a href="https://studgorod.ru/pages/politika-konfidencialnosti-i-obrabotka-personalnyh-dannyh" class="agre-konf">Я согласен с политикой конфиденциальности</a></p>
                 <div class="agree-button" onclick="toggleAgree()">

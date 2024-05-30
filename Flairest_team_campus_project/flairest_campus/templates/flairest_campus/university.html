@@ -33,10 +33,7 @@
             <a href="https://studgorod.ru/#events" class="events">Мероприятия</a>
             <a href="https://studgorod.ru/" class="more">Ещё</a>
         </div>
-        <div class="profile-buttons">
-            <a href="https://studgorod.ru/" class="registration">Регистрация</a>
-            <a href="../../../profile" class="enter">Войти</a>
-        </div>
+        <a href="../../../profile" class="enter">Мой профиль</a>
     </header>
     <main class="university-main">
         <div class="main-top">
@@ -78,12 +75,8 @@
                 </table>
             </section>
             <section>
-                <h2 contenteditable="false" spellcheck="false">Особенности</h2>
-                <p contenteditable="false" spellcheck="false">{{ uni.features }}</p>
-            </section>
-            <section>
                 <h2 contenteditable="false" spellcheck="false">Контакты</h2>
-                <p contenteditable="false" spellcheck="false">{{ uni.contacts }}</p>
+                <p contenteditable="false" spellcheck="false">{{ uni.contacts|linebreaks }}</p>
             </section>
             <!--
             <section class="edit">
@@ -92,20 +85,6 @@
             -->
         </div>
         <img class="univ-nav-decor univ-nav-decor-top" src="{% static 'flairest_campus/image/univ_decor/univ_nav_decor_top.svg' %}" alt="">
-        <div class="univ-navigation">
-            <a href="#" class="button-link">
-                <div class="button-wrapper">
-                    <img src="{% static 'flairest_campus/image/univ_decor/button_icon.svg' %}">
-                    <p>Институты</p>
-                </div>
-            </a>
-            <a href="#" class="button-link">
-                <div class="button-wrapper">
-                    <img src="{% static 'flairest_campus/image/univ_decor/button_icon.svg' %}">
-                    <p>Направления</p>
-                </div>
-            </a>
-        </div>
         <img class="univ-nav-decor" src="{% static 'flairest_campus/image/univ_decor/univ_nav_decor_bot.svg' %}" alt="">
     </main>
     <footer class="main-footer">

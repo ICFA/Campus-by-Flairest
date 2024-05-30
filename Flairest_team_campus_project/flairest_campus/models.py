@@ -110,7 +110,6 @@ class University(models.Model):
     name = models.TextField(max_length=100)
     photo = models.ImageField(upload_to='uni/')
     about = models.TextField(max_length=2000)
-    features = models.TextField(max_length=2000)
     contacts = models.TextField(max_length=300)
     gorod = models.CharField(max_length=40, choices=CITY_CHOICES, default=Ekat)
     military_department = models.CharField(max_length=40, choices=HAS_or_NOT, default='нет')
