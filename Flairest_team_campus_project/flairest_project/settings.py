@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-rxvsf)^!&f77bh6!#c+kkl$+tlp3m3#0gt-2bygp9fatsi^1w#
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://*', 'http://*', 'https://*.ngrok-free.app', 'http://*.ngrok-free.app']
 
 
 # Application definition
@@ -87,9 +88,9 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'help112',
-        'USER': 'postgres',
-        'PASSWORD': 'ima8344glhv',
+        'NAME': 'name',
+        'USER': 'user',
+        'PASSWORD': 'password',
         'HOST': '127.0.0.1',
         'PORT': '5432',
     }

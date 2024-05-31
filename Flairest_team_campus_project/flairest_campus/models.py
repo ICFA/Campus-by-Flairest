@@ -190,7 +190,7 @@ class Specialty(models.Model):
     level = models.CharField(max_length=40, choices=LEVEL_CHOICES, default='Бакалавриат')
     duration = models.CharField(max_length=40, choices=DURATION_CHOICES, default='4 года')
     study_form = MultiSelectField(choices=STUDY_FORM_CHOICES, max_choices=3, max_length=50)
-    discipline = models.TextField(max_length=1000)
+    discipline = models.TextField(max_length=5000)
     '''
     field for href to university (in University and Institute too)
     +
@@ -204,7 +204,7 @@ class Specialty(models.Model):
     max_students_number_free = models.CharField(max_length=100)
     passing_score_paid = models.CharField(max_length=100)
     max_students_number_paid = models.CharField(max_length=100)
-    links = models.TextField(max_length=100)
+    links = models.TextField(max_length=1000)
 
     def __str__(self):
         return self.name

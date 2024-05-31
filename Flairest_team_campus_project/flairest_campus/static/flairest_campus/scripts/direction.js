@@ -85,7 +85,7 @@ $(document).ready(function () {
 
     function displayReview(review) {
         var reviewContainer = $("<div class='review-container'></div>")
-            .append("<div class='review-top-section'><b>Отзыв</b></div>")
+            .append("<div class='review-top-section'>"+ review.author + "</div>")
             .append("<p class='review-text'>" + review.review + "</p>")
             .append("<div class='review-bottom-section'><time class='review-time'>" + review.date + "</time></div>");
 

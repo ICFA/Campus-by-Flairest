@@ -43,7 +43,7 @@
                 <p class="direction-code">{{ spec.speciality_cod }} {{ spec.level }}</p>
                 <p class="direction-study-form">Форма обучения: {{ spec.study_form }}</p>
                 <p class="direction-ege-subjects">ЕГЭ: {{ spec.ege }}</p>
-                <img id="specImage" src="{{ spec.photo.url }}">
+                <img style="max-width: 960px; max-height: 540px;" id="specImage" src="{{ spec.photo.url }}">
             </div>
             <pre class="direction-description">{{ spec.about }}</pre>
         </div>
@@ -74,11 +74,11 @@
         </section>-->
         <section class="description-cl">
             <h2>Ключевые дисциплины</h2>
-            <p style="width: 85%;">{{ spec.discipline }}</p>
+            <p style="width: 85%;">{{ spec.discipline|linebreaks }}</p>
         </section>
         <section class="direction-apply">
             <h2>Прочая информация</h2>
-            <p>{{ spec.links }}</p>
+            <p>{{ spec.links|linebreaks }}</p>
         </section>
         <div class="direction-reviews">
             <h2>Отзывы</h2>

@@ -46,7 +46,7 @@
                 <a class="redact" href="/edit/{{ uni.id }}/">Изменить</a>
                 <h1 id="uniTitle" contenteditable="false" style="text-align: center;">{{ uni.name }}</h1>
                 <div class="image-container">
-                    <img id="uniImage" src="{{ uni.photo.url }}">
+                    <img style="max-width: 960px; max-height: 540px;" id="uniImage" src="{{ uni.photo.url }}">
                     <!--
                     <button class="delete-button" onclick="deleteImage()">
                         <img src="{% static 'flairest_campus/image/trashcan.png' %}" alt="Удалить фотографию">
